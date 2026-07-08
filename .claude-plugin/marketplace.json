@@ -1,0 +1,13 @@
+{
+  "name": "agentx-plugins",
+  "owner": {
+    "name": "AgentX Team",
+    "url": "https://github.com/agentx-team"
+  },
+  "description": "A curated directory of high-quality plugins for Claude Code, developed and maintained by AgentX.",
+  "metadata": {
+    "version": "1.0.0",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": []
+}
