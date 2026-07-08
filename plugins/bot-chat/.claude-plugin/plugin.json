@@ -1,5 +1,9 @@
 {
   "name": "bot-chat",
   "description": "Bind a Claude Code session to an IM chat room; push long-task results to the room on completion.",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "author": {
+    "name": "AgentX Team",
+    "url": "https://github.com/agentx-team"
+  }
 }
