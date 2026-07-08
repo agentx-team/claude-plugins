@@ -9,5 +9,17 @@
     "version": "1.0.0",
     "pluginRoot": "./plugins"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "name": "bot-chat",
+      "displayName": "Bot Chat",
+      "description": "Bind a Claude Code session to an IM chat room (Matrix / WeChat via AgentX bots): push long-task results to the room on turn end, receive room replies into the session.",
+      "author": {
+        "name": "AgentX Team"
+      },
+      "category": "productivity",
+      "source": "./plugins/bot-chat",
+      "homepage": "https://github.com/agentx-team/claude-plugins/tree/main/plugins/bot-chat"
+    }
+  ]
 }

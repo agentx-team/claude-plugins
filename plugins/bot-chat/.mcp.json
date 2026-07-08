@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "bot-channel": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/scripts/channel.mjs"]
+    }
+  }
+}
