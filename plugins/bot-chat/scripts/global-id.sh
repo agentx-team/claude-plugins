@@ -48,6 +48,19 @@ global_session_id() {
   printf 'gbl-%s' "$hash"
 }
 
+# ── Per-session opt-in (global mode) ────────────────────────────────────────
+# In global mode every session shares ONE room, but a session only posts after
+# it explicitly runs /bot — exactly like the default per-room mode. Opt-in is a
+# marker file keyed by the REAL Claude session id (so concurrent sessions in the
+# same working directory are tracked independently). No opt-in ⇒ no posting.
+optin_dir() {
+  printf '%s/bot-chat/optin' "${XDG_CACHE_HOME:-$HOME/.cache}"
+}
+optin_marker() { printf '%s/%s' "$(optin_dir)" "$1"; }
+optin_add()    { mkdir -p "$(optin_dir)" && : > "$(optin_marker "$1")"; }
+optin_remove() { rm -f "$(optin_marker "$1")"; }
+optin_has()    { [ -f "$(optin_marker "$1")" ]; }
+
 # Standalone: print the id (empty line when off).
 if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
   global_session_id

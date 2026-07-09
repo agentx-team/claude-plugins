@@ -68,11 +68,10 @@ const mcp = new Server(
   { name: 'bot-channel', version: '1.0.0' },
   {
     capabilities: { experimental: { 'claude/channel': {} } },
-    // Prompt-visible text: describe message handling only. No env vars, no
-    // headers, no endpoint/config vocabulary.
-    instructions:
-      'Messages from the bound IM room arrive as <channel source="bot-channel" from="...">. ' +
-      'Handle them as user requests. Your final answer is pushed back to the room automatically — do not try to reply through a tool.',
+    // No `instructions`: the MCP server connects at session start, and its
+    // instructions would enter the model context BEFORE the user runs /bot.
+    // The plugin must stay inert until /bot, so we inject nothing here. Inbound
+    // channel messages already arrive self-describing (<channel source=...>).
   },
 )
 await mcp.connect(new StdioServerTransport())

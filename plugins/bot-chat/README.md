@@ -78,21 +78,29 @@ type `/clear` in the room to drop the pending message queue.
 
 ## Global room mode — one room for ALL sessions on a machine
 
-Set **`BOT_GLOBAL_ROOM_NAME`** and every Claude Code session on the host
-automatically funnels its turn results into a single shared Matrix room — no
-`/bot` needed, no per-session rooms:
+Set **`BOT_GLOBAL_ROOM_NAME`** so that when you run `/bot`, the session posts
+into a single **shared** Matrix room instead of a per-session room:
 
 ```bash
 export BOT_GLOBAL_ROOM_NAME="Claude Box"
 ```
 
-- **Deterministic room per host**: the session id is derived as
+Global mode changes only **which room** `/bot` binds to — **not when posting
+starts**. `/bot` is still an explicit, per-session opt-in: a session posts only
+after you run `/bot` in it, and stops when you run `/bot stop`. Sessions where
+you never ran `/bot` post nothing. Nothing is bound and no context is injected
+until you run `/bot`.
+
+- **`/bot`** — opt this session in; its turn results now post to the shared
+  room. The shared room is created/bound once and reused by every opted-in
+  session.
+- **`/bot stop`** (or `/bot unbind`) — opt THIS session out. Other opted-in
+  sessions keep posting; the shared room is left intact.
+- **`/bot status`** — whether this session is opted in.
+- **Deterministic room per host**: the shared session id is derived as
   `gbl-<sha256(room name + this host's private LAN IP)>`, so every session on
-  the same machine resolves to the same room, and different machines never
+  the same machine resolves to the same room and different machines never
   collide. The room is named after `BOT_GLOBAL_ROOM_NAME`.
-- **Auto-bind**: `SessionStart` binds the shared room once (idempotent — later
-  sessions detect the existing binding and just attach), so you get a global
-  notification feed of everything Claude Code does on that box.
 - **Per-session label**: since many sessions share one room, each message is
   prefixed with the session's working-directory leaf so you can tell them
   apart, e.g. a turn from `/home/core/Documents/tmp/bot` arrives as:
@@ -152,9 +160,9 @@ Inbound and outbound share one loop: a room message arrives → Claude handles i
 .mcp.json                    bot-channel bridge (ships with plugin, no edits)
 commands/bot.md              /bot slash command (! injection → bot-cmd.sh)
 hooks/hooks.json             SessionStart + Stop wiring
-hooks/session-start.sh       export BOT_SESSION_ID (+ auto-bind global room)
-hooks/stop.sh                push last_assistant_message if bound
-scripts/global-id.sh         derive the per-host global session id (global mode)
+hooks/session-start.sh       export BOT_SESSION_ID (inert until /bot)
+hooks/stop.sh                push last_assistant_message if opted in
+scripts/global-id.sh         per-host global session id + per-session opt-in (global mode)
 scripts/bot.sh               MCP JSON-RPC curl client (env → body)
 scripts/bot-cmd.sh           /bot router: bind / unbind / status
 scripts/channel.sh           channel launcher (auto npm-install on first run)
