@@ -11,8 +11,34 @@
 # opt-in only, leaving the shared room for other sessions. /bot status reports
 # whether this session is opted in.
 set -euo pipefail
-SID="${BOT_SESSION_ID:?run in a session started with the plugin}"
 DIR="$(dirname "$0")"
+
+# Resolve the real Claude session id. Normally the SessionStart hook exports it
+# as BOT_SESSION_ID (via CLAUDE_ENV_FILE). But that hook may not have run for
+# THIS session — e.g. a session that was compacted/cleared (SessionStart there
+# fires with source "compact"/"clear", which older plugin versions didn't match)
+# or one already open when the plugin was installed. Rather than hard-crash with
+# an unbound-variable error, fall back to the active transcript filename: Claude
+# Code stores transcripts at <config>/projects/<cwd-slug>/<session-id>.jsonl, and
+# that basename IS the session id the Stop hook reads from stdin — so per-session
+# opt-in markers still line up.
+resolve_session_id() {
+  if [ -n "${BOT_SESSION_ID:-}" ]; then printf '%s' "$BOT_SESSION_ID"; return 0; fi
+  local base cwd slug pdir f
+  base="${CLAUDE_CONFIG_DIR:-$HOME/.claude}/projects"
+  cwd="${CLAUDE_PROJECT_DIR:-$PWD}"
+  slug=$(printf '%s' "$cwd" | sed 's#[^a-zA-Z0-9]#-#g')
+  pdir="$base/$slug"
+  if [ -d "$pdir" ]; then
+    f=$(ls -t "$pdir"/*.jsonl 2>/dev/null | head -1)
+    [ -n "$f" ] && { basename "$f" .jsonl; return 0; }
+  fi
+  return 1
+}
+SID=$(resolve_session_id) || {
+  echo "NOT bound — could not determine the session id. Restart Claude Code (or run /clear) so the bot-chat plugin initializes, then try /bot again."
+  exit 0
+}
 BINDING="${CLAUDE_PROJECT_DIR:-$PWD}/.claude/.bot-binding.json"
 # No argument ⇒ BIND (the common case): `/bot` alone opts this session in.
 # `status` / `stop` / `unbind` are explicit keywords; anything else is a room
