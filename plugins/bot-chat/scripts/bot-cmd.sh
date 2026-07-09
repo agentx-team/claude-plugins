@@ -109,9 +109,11 @@ case "$ARG" in
     ;;
   *)
     # No room name given ⇒ name the room after the working-directory leaf.
+    # Per-session mode wants room replies delivered back into THIS session, so it
+    # opts into delivery explicitly (accept_delivery now defaults to false).
     ROOM="$ARG"
     [ -z "$ROOM" ] && ROOM=$(basename "${CLAUDE_PROJECT_DIR:-$PWD}")
-    ARGS=$(jq -cn --arg n "$ROOM" '{room_name:$n}')
+    ARGS=$(jq -cn --arg n "$ROOM" '{room_name:$n, accept_delivery:true}')
     R=$("$DIR/bot.sh" bot_bind "$SID" "$ARGS")
     if [ "$(jq -r '.ok // false' <<<"$R")" = "true" ]; then
       mkdir -p "$(dirname "$BINDING")"
