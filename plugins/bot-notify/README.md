@@ -15,9 +15,40 @@ Node.js.
 
 ### 1. Install the plugin
 
+If you haven't added this marketplace yet:
+
 ```bash
 claude plugin marketplace add agentx-team/claude-plugins
 claude plugin install bot-notify@agentx-plugins
+```
+
+If you already have the `agentx-plugins` marketplace added (e.g. you already
+use `bot-chat`), refresh its manifest first so Claude Code picks up the new
+`bot-notify` entry, then install:
+
+```bash
+claude plugin marketplace update agentx-plugins
+claude plugin install bot-notify@agentx-plugins
+```
+
+Both commands work the same inside an interactive session via `/plugin`:
+
+```
+/plugin marketplace update agentx-plugins
+/plugin install bot-notify@agentx-plugins
+```
+
+Verify it's enabled:
+
+```bash
+claude plugin list
+```
+
+If the plugin was already installed and you're picking up a newer version
+from the marketplace, update it instead of reinstalling:
+
+```bash
+claude plugin update bot-notify@agentx-plugins
 ```
 
 ### 2. Get your credentials from AgentX and export them
