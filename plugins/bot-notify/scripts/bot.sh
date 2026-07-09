@@ -11,7 +11,10 @@
 #   BOT_ORG_ID          (optional) org scope → X-Org-Id header
 #   BOT_API_URL         (optional, override for testing)
 # Usage: bot.sh <tool> <session_id> [json_args_object]
-# Prints the tool's structuredContent JSON to stdout. Non-fatal on any error.
+# Prints the tool's structuredContent JSON to stdout. Non-fatal on any error:
+# failures come back as {ok:false, reason:<category>, detail:<original error>,
+# http_status?} — reason is a stable machine key, detail carries the raw
+# server/curl error text (truncated) for humans.
 set -euo pipefail
 
 TOOL="$1"; SID="${2:-}"; ARGS="${3:-}"; [ -z "$ARGS" ] && ARGS='{}'
@@ -35,13 +38,38 @@ BODY=$(jq -cn --arg t "$TOOL" --argjson a "$ARGS" \
 ORG_HEADER=()
 [ -n "${BOT_ORG_ID:-}" ] && ORG_HEADER=(-H "X-Org-Id: $BOT_ORG_ID")
 
-RESP=$(curl -sS -m 10 -X POST "$URL" \
+# fail() prints a structured error and exits 0 (callers treat stdout as the
+# result; never fail the calling hook). detail is raw error text, truncated.
+fail() { # $1=reason $2=detail [$3=http_status]
+  jq -cn --arg r "$1" --arg d "${2:0:500}" --arg s "${3:-}" \
+    '{ok:false, reason:$r, detail:$d} + (if $s != "" then {http_status:($s|tonumber)} else {} end)'
+  exit 0
+}
+
+CURL_ERR=$(mktemp); trap 'rm -f "$CURL_ERR"' EXIT
+# -w appends the HTTP status as the last line; body stays on the lines above.
+RAW=$(curl -sS -m 10 -w '\n%{http_code}' -X POST "$URL" \
   -H "Authorization: Bearer $BOT_API_KEY" \
   -H "X-Config: $XCONFIG" \
   "${ORG_HEADER[@]}" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
-  -d "$BODY" 2>/dev/null) || { echo '{"ok":false,"reason":"network"}'; exit 0; }
+  -d "$BODY" 2>"$CURL_ERR") || fail network "$(cat "$CURL_ERR")"
 
-jq -c '.result.structuredContent // {ok:false,reason:"bad_response",raw:(.result.content[0].text // .error.message // "unknown")}' <<<"$RESP" \
-  2>/dev/null || echo '{"ok":false,"reason":"parse"}'
+HTTP_STATUS="${RAW##*$'\n'}"
+RESP="${RAW%$'\n'*}"
+
+jq -e . >/dev/null 2>&1 <<<"$RESP" \
+  || fail parse "HTTP $HTTP_STATUS, non-JSON body: $RESP" "$HTTP_STATUS"
+
+# Prefer the tool's structuredContent; otherwise surface the ORIGINAL error —
+# JSON-RPC .error.message (auth/routing failures) or the tool's text content —
+# under a reason that says which layer failed.
+SC=$(jq -c '.result.structuredContent // empty' <<<"$RESP")
+[ -n "$SC" ] && { printf '%s\n' "$SC"; exit 0; }
+
+RPC_ERR=$(jq -r '.error.message // empty' <<<"$RESP")
+[ -n "$RPC_ERR" ] && fail rpc_error "$RPC_ERR" "$HTTP_STATUS"
+
+TOOL_TEXT=$(jq -r '.result.content[0].text // empty' <<<"$RESP")
+fail bad_response "${TOOL_TEXT:-$RESP}" "$HTTP_STATUS"

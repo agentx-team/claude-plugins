@@ -62,7 +62,7 @@ case "$ARG" in
     ARGS=$(jq -cn --arg n "$ROOM_NAME" '{room_name:$n, accept_delivery:false}')
     B=$("$DIR/bot.sh" bot_bind "" "$ARGS")
     if [ "$(jq -r '.ok // false' <<<"$B")" != "true" ]; then
-      echo "$B" | jq -r '"FAILED to bind: \(.reason // "unknown")"'
+      echo "$B" | jq -r '"FAILED to bind: \(.reason // "unknown")\(if (.detail // "") != "" then " — \(.detail)" else "" end)"'
       exit 0
     fi
     optin_add "$SID"

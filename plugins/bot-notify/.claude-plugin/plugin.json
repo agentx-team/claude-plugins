@@ -1,7 +1,7 @@
 {
   "name": "bot-notify",
   "description": "Push Claude Code notifications (turn results, human-in-the-loop alerts) to a shared IM chat room. Outbound-only, zero LLM tokens, no Node.js.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "AgentX Team",
     "url": "https://github.com/agentx-team"
