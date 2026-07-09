@@ -98,10 +98,11 @@ until you run `/bot`.
 - **`/bot stop`** (or `/bot unbind`) — opt THIS session out. Other opted-in
   sessions keep posting; the shared room is left intact.
 - **`/bot status`** — whether this session is opted in.
-- **Deterministic room per host**: the shared session id is derived as
-  `gbl-<sha256(room name + this host's private LAN IP)>`, so every session on
-  the same machine resolves to the same room and different machines never
-  collide. The room is named after `BOT_GLOBAL_ROOM_NAME`.
+- **One shared room per (bot, target user)**: the server identifies the shared
+  room by the bot + `BOT_TARGET_USER_ID` (session id is always empty for it), so
+  every session on every machine using the same bot resolves to the SAME room.
+  Binding again just reuses it — and renames it if `BOT_GLOBAL_ROOM_NAME`
+  changed — so the room is never duplicated.
 - **Per-session label**: since many sessions share one room, each message is
   prefixed with the session's working-directory leaf so you can tell them
   apart, e.g. a turn from `/home/core/Documents/tmp/bot` arrives as:

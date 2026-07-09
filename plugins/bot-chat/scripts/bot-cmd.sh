@@ -75,16 +75,15 @@ if [ -n "$GID" ]; then
       echo "STOPPED — this session no longer posts to \"$BOT_GLOBAL_ROOM_NAME\""
       ;;
     *)
-      # Ensure the shared outbound-only room exists (idempotent: the server
-      # reuses the room for a repeat bind on the empty session key).
-      R=$("$DIR/bot.sh" bot_status "" 2>/dev/null)
-      if [ "$(printf '%s' "$R" | jq -r '.bound // false' 2>/dev/null)" != "true" ]; then
-        ARGS=$(jq -cn --arg n "$BOT_GLOBAL_ROOM_NAME" '{room_name:$n, accept_delivery:false}')
-        B=$("$DIR/bot.sh" bot_bind "" "$ARGS")
-        if [ "$(jq -r '.ok // false' <<<"$B")" != "true" ]; then
-          echo "$B" | jq -r '"FAILED to bind: \(.reason // "unknown")"'
-          exit 0
-        fi
+      # Bind the shared outbound-only room. This is idempotent server-side: the
+      # room is identified by (bot, target user), so a repeat bind REUSES the
+      # existing room (renaming it only if BOT_GLOBAL_ROOM_NAME changed) and never
+      # creates a duplicate. session_id stays empty (share rooms hold no session).
+      ARGS=$(jq -cn --arg n "$BOT_GLOBAL_ROOM_NAME" '{room_name:$n, accept_delivery:false}')
+      B=$("$DIR/bot.sh" bot_bind "" "$ARGS")
+      if [ "$(jq -r '.ok // false' <<<"$B")" != "true" ]; then
+        echo "$B" | jq -r '"FAILED to bind: \(.reason // "unknown")"'
+        exit 0
       fi
       optin_add "$REAL_SID"
       # Anchor the shared room for the Stop hook (empty session = outbound-only).
