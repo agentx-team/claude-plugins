@@ -56,6 +56,12 @@ The id after `server:` is the MCP server name declared in the plugin's
 this flag the plugin is outbound-only: results are still pushed to the room,
 but room replies are not injected back into the session.
 
+**Dependencies**: no manual `npm install` needed. The channel is launched via
+`scripts/channel.sh`, which installs the single npm dependency
+(`@modelcontextprotocol/sdk`) into the plugin directory automatically on
+first run — you just need `node` and `npm` on your PATH. The `/bot` command
+and the Stop hook are pure shell (`curl` + `jq`) and need no Node at all.
+
 ### 4. Bind a room and go
 
 In the session:
@@ -118,6 +124,7 @@ hooks/session-start.sh       export BOT_SESSION_ID
 hooks/stop.sh                push last_assistant_message if bound
 scripts/bot.sh               MCP JSON-RPC curl client (env → body)
 scripts/bot-cmd.sh           /bot router: bind / unbind / status
+scripts/channel.sh           channel launcher (auto npm-install on first run)
 scripts/channel.mjs          inbound poller → channel notifications
 docs/bot-api-implementation.md   server-side API spec
 ```
