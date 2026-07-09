@@ -13,14 +13,7 @@ claude plugin marketplace add agentx-team/claude-plugins
 claude plugin install bot-chat@agentx-plugins
 ```
 
-Or, inside an interactive Claude Code session:
-
-```
-/plugin marketplace add agentx-team/claude-plugins
-/plugin install bot-chat@agentx-plugins
-```
-
-### 2. Get your credentials from AgentX
+### 2. Get your credentials from AgentX and export them
 
 Three values are needed (all from the AgentX web console):
 
@@ -36,9 +29,7 @@ Three values are needed (all from the AgentX web console):
    - Matrix: your Matrix user id, e.g. `@you:matrix.example.com`
    - WeChat: the bound WeChat user id (`wx_user_id` in the bot's config)
 
-### 3. Export the environment variables
-
-Add to your `~/.bashrc` / `~/.zshrc` (or your shell profile of choice):
+Add them to your `~/.bashrc` / `~/.zshrc` (or your shell profile of choice):
 
 ```bash
 export BOT_ID="axb_…"                          # from /settings/bots
@@ -51,9 +42,23 @@ export BOT_TARGET_USER_ID="@you:matrix.example.com"
 
 Open a new terminal (or `source ~/.bashrc`) so Claude Code sessions inherit them.
 
+### 3. Start Claude Code with the inbound channel enabled
+
+Room replies reach the session through a **channel** (research preview), so
+start Claude Code with:
+
+```bash
+claude --dangerously-load-development-channels server:bot-channel
+```
+
+The id after `server:` is the MCP server name declared in the plugin's
+`.mcp.json` (`mcpServers` key) — for this plugin it is `bot-channel`. Without
+this flag the plugin is outbound-only: results are still pushed to the room,
+but room replies are not injected back into the session.
+
 ### 4. Bind a room and go
 
-In any Claude Code session:
+In the session:
 
 ```
 /bot-chat:bot my-task-room     # create the room + invite you, bind this session
@@ -62,9 +67,8 @@ In any Claude Code session:
 ```
 
 From then on, every completed turn's final answer is pushed to the room
-automatically (Stop hook, zero model tokens). Reply in the room to talk back
-(with the inbound channel enabled, see below); type `/clear` in the room to
-drop the pending message queue.
+automatically (Stop hook, zero model tokens). Reply in the room to talk back;
+type `/clear` in the room to drop the pending message queue.
 
 ## Configuration reference
 
@@ -90,12 +94,7 @@ message stays re-readable for **≥3s** before it is pruned.
 - `/bot unbind` — unbind and leave the room.
 - `/bot status` — show current binding.
 - **Outbound**: on every turn end (`Stop` hook), if bound, the `last_assistant_message` is pushed to the room. Pure shell, zero model tokens; unbound sessions make zero network calls.
-- **Inbound**: `bot-channel` (local stdio MCP channel, spawned from the plugin's `.mcp.json`) polls `bot_receive` on the remote endpoint and injects new room messages into the session as `<channel source="bot-channel" ...>` events. `require_mention` filtering happens server-side.
-
-Start the session with the channel enabled (research preview):
-```bash
-claude --dangerously-load-development-channels server:bot-channel
-```
+- **Inbound**: `bot-channel` (local stdio MCP channel, spawned from the plugin's `.mcp.json`) polls `bot_receive` on the remote endpoint and injects new room messages into the session as `<channel source="bot-channel" ...>` events. `require_mention` filtering happens server-side. Requires the special startup flag from step 3 above.
 
 ## Architecture
 ```
