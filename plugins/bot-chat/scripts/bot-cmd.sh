@@ -8,6 +8,22 @@ DIR="$(dirname "$0")"
 BINDING="${CLAUDE_PROJECT_DIR:-$PWD}/.claude/.bot-binding.json"
 ARG="${1:-status}"
 
+# Global-room mode: /bot operates on the shared, host-derived global session id
+# (all sessions → one room). A room_name argument is ignored — the room name is
+# fixed by BOT_GLOBAL_ROOM_NAME. SessionStart already auto-binds it.
+# shellcheck source=/dev/null
+. "$DIR/global-id.sh" 2>/dev/null || true
+if command -v global_session_id >/dev/null 2>&1; then
+  GID=$(global_session_id)
+  if [ -n "$GID" ]; then
+    SID="$GID"
+    case "$ARG" in
+      unbind|status) ;;              # act on the global binding
+      *) ARG="$BOT_GLOBAL_ROOM_NAME" ;;  # force the fixed global room name
+    esac
+  fi
+fi
+
 case "$ARG" in
   status)
     R=$("$DIR/bot.sh" bot_status "$SID")

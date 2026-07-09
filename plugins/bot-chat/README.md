@@ -76,6 +76,28 @@ From then on, every completed turn's final answer is pushed to the room
 automatically (Stop hook, zero model tokens). Reply in the room to talk back;
 type `/clear` in the room to drop the pending message queue.
 
+## Global room mode — one room for ALL sessions on a machine
+
+Set **`BOT_GLOBAL_ROOM_NAME`** and every Claude Code session on the host
+automatically funnels its turn results into a single shared Matrix room — no
+`/bot` needed, no per-session rooms:
+
+```bash
+export BOT_GLOBAL_ROOM_NAME="Claude Box"
+```
+
+- **Deterministic room per host**: the session id is derived as
+  `gbl-<sha256(room name + this host's private LAN IP)>`, so every session on
+  the same machine resolves to the same room, and different machines never
+  collide. The room is named after `BOT_GLOBAL_ROOM_NAME`.
+- **Auto-bind**: `SessionStart` binds the shared room once (idempotent — later
+  sessions detect the existing binding and just attach), so you get a global
+  notification feed of everything Claude Code does on that box.
+- **Outbound only**: inbound `bot_receive` is disabled in this mode (a shared
+  room has no single session to reply into), so it works even on third-party
+  model providers (Bedrock/Vertex) where the inbound channel is unavailable.
+- Leave `BOT_GLOBAL_ROOM_NAME` unset for the normal per-session behavior above.
+
 ## Configuration reference
 
 The plugin ships its own `.mcp.json` (the local `bot-channel` bridge only). **No json edits after install** — everything is environment variables. Bot identity/config travels in the `X-Config` header, invisible to MCP tool semantics (the body carries only `session_id` + tool args; `targetUserId`/`requireMention` remain optional per-call overrides server-side):
@@ -87,6 +109,7 @@ The plugin ships its own `.mcp.json` (the local `bot-channel` bridge only). **No
 | `BOT_TARGET_USER_ID` | for bind | — | `X-Config.targetUserId` (Matrix: `@user:server`; WeChat: the bound `wx_user_id`) |
 | `BOT_REQUIRE_MENTION` | no | **`true`** | `X-Config.requireMention` |
 | `BOT_ORG_ID` | no | — | `X-Org-Id` header; empty = the bot's own org (Personal org for personal bots) |
+| `BOT_GLOBAL_ROOM_NAME` | no | — | Enables **global room mode** (see above): all host sessions → one room named this; inbound disabled |
 | `BOT_API_URL` | no | `https://agentx.nx.run/bots.v1.BotService/McpServer` | — |
 | `BOT_POLL_MS` | no | `5000` | — |
 
@@ -120,8 +143,9 @@ Inbound and outbound share one loop: a room message arrives → Claude handles i
 .mcp.json                    bot-channel bridge (ships with plugin, no edits)
 commands/bot.md              /bot slash command (! injection → bot-cmd.sh)
 hooks/hooks.json             SessionStart + Stop wiring
-hooks/session-start.sh       export BOT_SESSION_ID
+hooks/session-start.sh       export BOT_SESSION_ID (+ auto-bind global room)
 hooks/stop.sh                push last_assistant_message if bound
+scripts/global-id.sh         derive the per-host global session id (global mode)
 scripts/bot.sh               MCP JSON-RPC curl client (env → body)
 scripts/bot-cmd.sh           /bot router: bind / unbind / status
 scripts/channel.sh           channel launcher (auto npm-install on first run)

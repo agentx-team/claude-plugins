@@ -17,6 +17,12 @@ const ROOT = process.env.CLAUDE_PROJECT_DIR || process.cwd()
 const URL = process.env.BOT_API_URL || 'https://agentx.nx.run/bots.v1.BotService/McpServer'
 const POLL_MS = Number(process.env.BOT_POLL_MS || 5000)
 
+// Global-room mode is OUTBOUND-ONLY: every session on this host funnels into
+// one shared room, so there is no meaningful "reply to a specific session" —
+// inbound polling is disabled. (Also, the whole notification path is unusable
+// on third-party providers like Bedrock anyway.)
+const GLOBAL_MODE = !!process.env.BOT_GLOBAL_ROOM_NAME
+
 // Validate config at initialization. Failing here surfaces as a server
 // connection error in /mcp (stderr → debug log) and costs zero context —
 // config/env details must never reach prompt-visible text.
@@ -90,5 +96,9 @@ async function tick() {
     })
   }
 }
-setInterval(tick, POLL_MS)
-console.error(`bot-channel: polling every ${POLL_MS}ms`)
+if (GLOBAL_MODE) {
+  console.error('bot-channel: global-room mode — inbound polling disabled (outbound only)')
+} else {
+  setInterval(tick, POLL_MS)
+  console.error(`bot-channel: polling every ${POLL_MS}ms`)
+}
