@@ -2,7 +2,71 @@
 
 Bind a Claude Code session to an IM chat room: push long-task results to the room, and receive room messages into the session (via a local channel bridge).
 
-## Zero-config install
+## How to use
+
+### 1. Install the plugin
+
+Add the AgentX marketplace (once) and install:
+
+```bash
+claude plugin marketplace add agentx-team/claude-plugins
+claude plugin install bot-chat@agentx-plugins
+```
+
+Or, inside an interactive Claude Code session:
+
+```
+/plugin marketplace add agentx-team/claude-plugins
+/plugin install bot-chat@agentx-plugins
+```
+
+### 2. Get your credentials from AgentX
+
+Three values are needed (all from the AgentX web console):
+
+1. **`BOT_ID`** — open **Settings → Bots** (`/settings/bots`). If you don't
+   have a bot yet, click **Add Bot** and connect one (Matrix and WeChat are
+   recommended; WeChat binds via QR scan). Each bot row shows its public id
+   (`axb_…`) next to the status dot — click it to copy.
+2. **`BOT_API_KEY`** — open **Settings → API Keys** (`/settings/api-keys`)
+   and create a key (`agx_…`). The plaintext is shown **once**; copy it.
+   The key must belong to the same organization as the bot (for a personal
+   bot: any key you create in your Personal org).
+3. **`BOT_TARGET_USER_ID`** — who the bot should pull into the room on bind:
+   - Matrix: your Matrix user id, e.g. `@you:matrix.example.com`
+   - WeChat: the bound WeChat user id (`wx_user_id` in the bot's config)
+
+### 3. Export the environment variables
+
+Add to your `~/.bashrc` / `~/.zshrc` (or your shell profile of choice):
+
+```bash
+export BOT_ID="axb_…"                          # from /settings/bots
+export BOT_API_KEY="agx_…"                     # from /settings/api-keys
+export BOT_TARGET_USER_ID="@you:matrix.example.com"
+# optional:
+# export BOT_ORG_ID="…"          # org scope; empty = the bot's own org
+# export BOT_REQUIRE_MENTION=false  # group rooms: queue ALL messages, not just @mentions
+```
+
+Open a new terminal (or `source ~/.bashrc`) so Claude Code sessions inherit them.
+
+### 4. Bind a room and go
+
+In any Claude Code session:
+
+```
+/bot-chat:bot my-task-room     # create the room + invite you, bind this session
+/bot-chat:bot status           # check the binding
+/bot-chat:bot unbind           # unbind and leave the room
+```
+
+From then on, every completed turn's final answer is pushed to the room
+automatically (Stop hook, zero model tokens). Reply in the room to talk back
+(with the inbound channel enabled, see below); type `/clear` in the room to
+drop the pending message queue.
+
+## Configuration reference
 
 The plugin ships its own `.mcp.json` (the local `bot-channel` bridge only). **No json edits after install** — everything is environment variables. Bot identity/config travels in the `X-Config` header, invisible to MCP tool semantics (the body carries only `session_id` + tool args; `targetUserId`/`requireMention` remain optional per-call overrides server-side):
 
