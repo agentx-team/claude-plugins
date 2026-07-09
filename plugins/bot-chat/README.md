@@ -93,6 +93,15 @@ export BOT_GLOBAL_ROOM_NAME="Claude Box"
 - **Auto-bind**: `SessionStart` binds the shared room once (idempotent — later
   sessions detect the existing binding and just attach), so you get a global
   notification feed of everything Claude Code does on that box.
+- **Per-session label**: since many sessions share one room, each message is
+  prefixed with the session's working-directory leaf so you can tell them
+  apart, e.g. a turn from `/home/core/Documents/tmp/bot` arrives as:
+  ```
+  bot:
+  <the assistant's reply>
+  ```
+  (Claude Code exposes no human session name to hooks; the cwd leaf is the
+  closest stable identifier.)
 - **Outbound only**: inbound `bot_receive` is disabled in this mode (a shared
   room has no single session to reply into), so it works even on third-party
   model providers (Bedrock/Vertex) where the inbound channel is unavailable.
