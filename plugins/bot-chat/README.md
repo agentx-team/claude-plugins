@@ -67,9 +67,10 @@ and the Stop hook are pure shell (`curl` + `jq`) and need no Node at all.
 In the session:
 
 ```
-/bot-chat:bot my-task-room     # create the room + invite you, bind this session
+/bot-chat:bot                  # bind this session (room named after the cwd), start posting
+/bot-chat:bot my-task-room     # …or bind with an explicit room name
 /bot-chat:bot status           # check the binding
-/bot-chat:bot unbind           # unbind and leave the room
+/bot-chat:bot stop             # stop posting from this session (alias: unbind)
 ```
 
 From then on, every completed turn's final answer is pushed to the room
@@ -136,8 +137,8 @@ type **`/clear`** at any time to drop the pending queue, and each delivered
 message stays re-readable for **≥3s** before it is pruned.
 
 ## What it does
-- `/bot <room_name>` — create a room and bind this session (auto-unbinds + leaves a previous room). Writes `.claude/.bot-binding.json`, the shared anchor.
-- `/bot unbind` — unbind and leave the room.
+- `/bot [room_name]` — bind this session and start posting (no name ⇒ the room is named after the working-directory leaf; auto-unbinds a previous room). Writes `.claude/.bot-binding.json`, the shared anchor.
+- `/bot stop` (alias `unbind`) — stop posting from this session / leave the room.
 - `/bot status` — show current binding.
 - **Outbound**: on every turn end (`Stop` hook), if bound, the `last_assistant_message` is pushed to the room. Pure shell, zero model tokens; unbound sessions make zero network calls.
 - **Inbound**: `bot-channel` (local stdio MCP channel, spawned from the plugin's `.mcp.json`) polls `bot_receive` on the remote endpoint and injects new room messages into the session as `<channel source="bot-channel" ...>` events. `require_mention` filtering happens server-side. Requires the special startup flag from step 3 above.

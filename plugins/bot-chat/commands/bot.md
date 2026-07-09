@@ -1,6 +1,6 @@
 ---
-description: Bind this session to an IM room, unbind, or show status
-argument-hint: "<room_name> | unbind | status"
+description: Bind this session to an IM room (no arg = bind), stop, or show status
+argument-hint: "[room_name] | stop | status"
 allowed-tools: ["Bash"]
 ---
 
