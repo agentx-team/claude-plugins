@@ -111,10 +111,27 @@ until you run `/bot`.
   ```
   (Claude Code exposes no human session name to hooks; the cwd leaf is the
   closest stable identifier.)
-- **Outbound only**: inbound `bot_receive` is disabled in this mode (a shared
-  room has no single session to reply into), so it works even on third-party
-  model providers (Bedrock/Vertex) where the inbound channel is unavailable.
+- **Outbound + AgentX inbound**: the shared room is bound *outbound-only*
+  (`accept_delivery=false`, empty MCP session), so this plugin never polls
+  `bot_receive` for it — it works even on third-party model providers
+  (Bedrock/Vertex) where the inbound channel is unavailable. But the room is NOT
+  a dead end: because no MCP delivery session claims it, replies you type in the
+  shared room are routed to the **AgentX agent** for that bot. Your local Claude
+  Code sessions push out; the AgentX agent answers back in the same room.
+- **Human-in-the-loop notifications**: when a session needs your input mid-task
+  (a permission prompt, an idle wait, an MCP form), the Notification hook posts
+  `⚠️ …` to the room (same opt-in + cwd-leaf label), so you can act on it.
 - Leave `BOT_GLOBAL_ROOM_NAME` unset for the normal per-session behavior above.
+
+### Same bot, two roles at once
+
+A single bot id can serve **both** an external Claude Code session (a per-session
+delivery room) **and** AgentX chat / a shared room — the server routes by room:
+a room with a live MCP delivery session queues replies for `bot_receive`; any
+other room (a share room, or an AgentX-bound room) sends replies to the AgentX
+agent. Only **one** delivery session may be live per bot at a time; binding a new
+Claude Code session with the same bot id takes over (the previous session's room
+stops receiving).
 
 ## Configuration reference
 
@@ -163,6 +180,7 @@ commands/bot.md              /bot slash command (! injection → bot-cmd.sh)
 hooks/hooks.json             SessionStart + Stop wiring
 hooks/session-start.sh       export BOT_SESSION_ID (inert until /bot)
 hooks/stop.sh                push last_assistant_message if opted in
+hooks/notify.sh              forward "needs your input" notifications if opted in
 scripts/global-id.sh         per-host global session id + per-session opt-in (global mode)
 scripts/bot.sh               MCP JSON-RPC curl client (env → body)
 scripts/bot-cmd.sh           /bot router: bind / unbind / status

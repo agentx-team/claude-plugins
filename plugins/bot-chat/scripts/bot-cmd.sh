@@ -53,7 +53,13 @@ ARG="${1:-}"
 GID=""
 command -v global_session_id >/dev/null 2>&1 && GID=$(global_session_id)
 
-# ── Global-room mode ────────────────────────────────────────────────────────
+# ── Global-room / share-room mode ───────────────────────────────────────────
+# The shared room is bound OUTBOUND-ONLY (accept_delivery=false) with an EMPTY
+# server session id: on the server that is the single shared (bot, "") binding,
+# reused by every host session. Inbound messages in the shared room therefore
+# flow to the AgentX agent, not back into any one Claude Code session — so we
+# never poll bot_receive here. /bot is still a per-session opt-in (keyed by the
+# real session id) that only gates whether THIS session's turns are posted out.
 if [ -n "$GID" ]; then
   REAL_SID="$SID"   # opt-in is keyed by the real per-session id
   case "$ARG" in
@@ -69,21 +75,21 @@ if [ -n "$GID" ]; then
       echo "STOPPED — this session no longer posts to \"$BOT_GLOBAL_ROOM_NAME\""
       ;;
     *)
-      # Ensure the shared room is bound once (idempotent: bind_first checks
-      # status; the server's bind is unbind-old-then-bind, so a repeat is safe).
-      R=$("$DIR/bot.sh" bot_status "$GID" 2>/dev/null)
+      # Ensure the shared outbound-only room exists (idempotent: the server
+      # reuses the room for a repeat bind on the empty session key).
+      R=$("$DIR/bot.sh" bot_status "" 2>/dev/null)
       if [ "$(printf '%s' "$R" | jq -r '.bound // false' 2>/dev/null)" != "true" ]; then
-        ARGS=$(jq -cn --arg n "$BOT_GLOBAL_ROOM_NAME" '{room_name:$n}')
-        B=$("$DIR/bot.sh" bot_bind "$GID" "$ARGS")
+        ARGS=$(jq -cn --arg n "$BOT_GLOBAL_ROOM_NAME" '{room_name:$n, accept_delivery:false}')
+        B=$("$DIR/bot.sh" bot_bind "" "$ARGS")
         if [ "$(jq -r '.ok // false' <<<"$B")" != "true" ]; then
           echo "$B" | jq -r '"FAILED to bind: \(.reason // "unknown")"'
           exit 0
         fi
       fi
       optin_add "$REAL_SID"
-      # Anchor the shared session id for the Stop hook (fallback lookup).
+      # Anchor the shared room for the Stop hook (empty session = outbound-only).
       mkdir -p "$(dirname "$BINDING")"
-      jq -cn --arg sid "$GID" --arg n "$BOT_GLOBAL_ROOM_NAME" '{session_id:$sid,room_name:$n}' > "$BINDING"
+      jq -cn --arg n "$BOT_GLOBAL_ROOM_NAME" '{session_id:"",room_name:$n}' > "$BINDING"
       echo "BOUND to shared room \"$BOT_GLOBAL_ROOM_NAME\" — this session now posts"
       ;;
   esac

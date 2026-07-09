@@ -32,8 +32,9 @@ if [ -n "$GID" ]; then
   LEAF=$(basename "$CWD")
   MSG="${LEAF}:
 ${MSG}"
+  # Shared room is outbound-only under the EMPTY server session key.
   ARGS=$(jq -cn --arg t "$MSG" '{text:$t}')
-  "$DIR/bot.sh" bot_send "$GID" "$ARGS" >/dev/null 2>&1 &
+  "$DIR/bot.sh" bot_send "" "$ARGS" >/dev/null 2>&1 &
   exit 0
 fi
 
