@@ -1,0 +1,27 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          { "type": "command", "command": "bash \"$CLAUDE_PLUGIN_ROOT/hooks/session-start.sh\"" }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash \"$CLAUDE_PLUGIN_ROOT/hooks/stop.sh\"" }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "permission_prompt|idle_prompt|elicitation_dialog|agent_needs_input",
+        "hooks": [
+          { "type": "command", "command": "bash \"$CLAUDE_PLUGIN_ROOT/hooks/notify.sh\"" }
+        ]
+      }
+    ]
+  }
+}

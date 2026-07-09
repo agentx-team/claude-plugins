@@ -20,6 +20,17 @@
       "category": "productivity",
       "source": "./plugins/bot-chat",
       "homepage": "https://github.com/agentx-team/claude-plugins/tree/main/plugins/bot-chat"
+    },
+    {
+      "name": "bot-notify",
+      "displayName": "Bot Notify",
+      "description": "Push Claude Code notifications (turn results, human-in-the-loop alerts) to a shared IM chat room via an AgentX bot. Outbound-only, zero LLM tokens, no Node.js.",
+      "author": {
+        "name": "AgentX Team"
+      },
+      "category": "productivity",
+      "source": "./plugins/bot-notify",
+      "homepage": "https://github.com/agentx-team/claude-plugins/tree/main/plugins/bot-notify"
     }
   ]
 }
