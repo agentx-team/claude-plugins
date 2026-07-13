@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "agent-team",
+  "displayName": "Agent Team Scaffold",
+  "version": "0.2.0",
+  "description": "A domain-agnostic agent-team scaffold built around the Planner → Generator → Evaluator loop. Reusable role agents and a reference end-to-end workflow, with plugin-level hooks, MCP/LSP registration, monitors, output style, and user config. Local-first; the same agents deploy headless to Claude Managed Agents via scripts/cma.",
+  "author": { "name": "Agent Team Scaffold" },
+  "homepage": "https://github.com/aws300/agent-team-scaffold",
+  "repository": "https://github.com/aws300/agent-team-scaffold",
+  "license": "MIT",
+  "keywords": ["agents", "agent-team", "scaffold", "planner-generator-evaluator", "cma"],
+
+  "agents": [
+    "./agents/specialists/planning/planner.md",
+    "./agents/specialists/generation/generator.md",
+    "./agents/specialists/evaluation/design-evaluator.md",
+    "./agents/specialists/evaluation/evaluator.md",
+    "./agents/specialists/coordination/coordinator.md",
+    "./agents/workflows/deliver-feature.md"
+  ],
+
+  "skills": "./skills/",
+  "commands": [
+    "./commands/start.md",
+    "./commands/status.md",
+    "./commands/workflows/deliver-feature.md"
+  ],
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./.mcp.json",
+  "lspServers": "./.lsp.json",
+  "outputStyles": "./output-styles/",
+
+  "experimental": {
+    "monitors": "./monitors/monitors.json"
+  },
+
+  "userConfig": {
+    "default_model": {
+      "type": "string",
+      "title": "Default model tier",
+      "description": "Model the Sonnet-tier roles (planner, generator, evaluators) run on. The coordinator always runs on opus. Maps to CMA_MODEL for headless deploys.",
+      "default": "sonnet"
+    },
+    "evaluator_strictness": {
+      "type": "string",
+      "title": "Evaluator strictness",
+      "description": "How skeptical the evaluators are: 'standard' (default thresholds), 'strict' (raise every blocking threshold and require evidence for each criterion), or 'panel' (spawn multiple independent evaluators and require agreement on high-stakes work).",
+      "default": "standard"
+    }
+  },
+
+  "defaultEnabled": true
+}

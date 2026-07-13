@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git branch*)",
+      "Bash(git rev-parse*)",
+      "Bash(ls *)",
+      "Bash(python3 scripts/cma/check.py*)",
+      "Bash(python3 scripts/cma/build.py*)",
+      "Bash(python -m json.tool*)",
+      "Bash(python -m pytest*)",
+      "Bash(go build*)",
+      "Bash(go test*)",
+      "Bash(golangci-lint run*)",
+      "Bash(ruff *)",
+      "Bash(mypy *)",
+      "Bash(npm run lint*)",
+      "Bash(npm run typecheck*)",
+      "Bash(npm run build*)",
+      "Bash(npm test*)",
+      "Bash(helm template*)",
+      "Bash(helm lint*)",
+      "Bash(buf lint*)",
+      "Bash(buf generate*)",
+      "Bash(kubectl get*)",
+      "Bash(kubectl describe*)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(git push --force*)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -f*)",
+      "Bash(sudo *)",
+      "Bash(chmod 777*)",
+      "Bash(helm upgrade*)",
+      "Bash(helm install*)",
+      "Bash(helm uninstall*)",
+      "Bash(helm rollback*)",
+      "Bash(kubectl apply*)",
+      "Bash(kubectl delete*)",
+      "Bash(kubectl edit*)",
+      "Bash(docker push*)",
+      "Bash(*>.env*)",
+      "Bash(cat *.env*)",
+      "Read(**/.env*)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          { "type": "command", "command": "bash .claude/hooks/session-start.sh", "timeout": 10 }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "bash .claude/hooks/validate-push.sh", "timeout": 10 }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          { "type": "command", "command": "bash .claude/hooks/validate-manifest.sh", "timeout": 10 }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          { "type": "command", "command": "bash .claude/hooks/log-agent.sh", "timeout": 5 }
+        ]
+      }
+    ]
+  }
+}

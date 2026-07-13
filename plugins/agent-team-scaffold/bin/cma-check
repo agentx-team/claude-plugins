@@ -1,0 +1,14 @@
+#!/bin/bash
+# cma-check — validate the CMA manifest from anywhere on PATH.
+# Exposed on the Bash tool's PATH while the plugin is enabled (plugin `bin/`).
+# Thin wrapper over scripts/cma/check.py so agents can just run `cma-check`.
+
+# Resolve the plugin/repo root: prefer ${CLAUDE_PLUGIN_ROOT} (installed plugin),
+# else derive from this script's location (local dev).
+if [ -n "${CLAUDE_PLUGIN_ROOT:-}" ] && [ -f "${CLAUDE_PLUGIN_ROOT}/scripts/cma/check.py" ]; then
+    ROOT="${CLAUDE_PLUGIN_ROOT}"
+else
+    ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+fi
+
+exec python3 "${ROOT}/scripts/cma/check.py" "$@"

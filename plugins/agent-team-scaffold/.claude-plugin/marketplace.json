@@ -1,0 +1,14 @@
+{
+  "name": "agent-team-scaffold",
+  "owner": { "name": "Agent Team Scaffold" },
+  "plugins": [
+    {
+      "name": "agent-team",
+      "displayName": "Agent Team Scaffold",
+      "source": ".",
+      "version": "0.2.0",
+      "keywords": ["agents", "agent-team", "scaffold", "planner-generator-evaluator", "cma"],
+      "description": "A domain-agnostic agent-team scaffold built around the Planner → Generator → Evaluator loop. Reusable role agents (planner, generator, evaluator, design-evaluator, coordinator) and a reference end-to-end workflow, with plugin-level hooks, MCP/LSP registration, a background monitor, an output style, a PATH binary, and user config. Local-first; the same agents deploy headless to Claude Managed Agents via scripts/cma. Copy it and fill in your vertical."
+    }
+  ]
+}

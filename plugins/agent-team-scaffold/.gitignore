@@ -1,0 +1,20 @@
+# Headless / packaged outputs and logs — regenerated, never committed
+/out/
+**/session-logs/
+
+# Platform runtime state (the (scope,key,project,session) → real-id map) — local
+scripts/cma/.deploy-state.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Env / secrets
+.env
+*.env
+
+# Editor / OS
+.DS_Store
+*.swp

@@ -1,0 +1,14 @@
+#!/bin/bash
+# cma-deploy — the platform runtime: fulfil cma.yaml against the Managed Agents API.
+# Exposed on the Bash PATH while the plugin is enabled (plugin `bin/`). Thin wrapper
+# over scripts/cma/deploy.py so you can run `cma-deploy session <project> <workflow>`.
+# Default is DRY-RUN; pass --apply for real API calls (needs ANTHROPIC_API_KEY +
+# ANTHROPIC_ENVIRONMENT_ID). See docs/platform-design.zh.md section 8 and docs/platform-guide.zh.md section 8.
+
+if [ -n "${CLAUDE_PLUGIN_ROOT:-}" ] && [ -f "${CLAUDE_PLUGIN_ROOT}/scripts/cma/deploy.py" ]; then
+    ROOT="${CLAUDE_PLUGIN_ROOT}"
+else
+    ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+fi
+
+exec python3 "${ROOT}/scripts/cma/deploy.py" "$@"

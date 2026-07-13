@@ -1,0 +1,8 @@
+[
+  {
+    "name": "watch-out",
+    "command": "bash \"${CLAUDE_PLUGIN_ROOT}/monitors/watch-out.sh\"",
+    "description": "Announces new ./out/ packages awaiting human sign-off",
+    "when": "always"
+  }
+]

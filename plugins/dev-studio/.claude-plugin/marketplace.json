@@ -1,0 +1,13 @@
+{
+  "name": "dev-studio",
+  "owner": { "name": "Dev Studio" },
+  "plugins": [
+    {
+      "name": "dev-studio",
+      "displayName": "Dev Studio",
+      "source": ".",
+      "keywords": ["development", "cloud-native"],
+      "description": "A cloud-native software delivery agent team as a Claude Code plugin. Seven roles across a Build → Ship → Accept → Promote lifecycle (planner, engineer, reviewer, operator, e2e-tester, marketer, coordinator) and four workflows (deliver-service, ship-service, accept-service, promote-service). The team builds one monorepo derived from github.com/aws300/scaffold — proto-first ConnectRPC backends + SolidJS frontend + Helm/Envoy/IRSA — ships onto the team cluster, accepts it via a black-box e2e tester (live UI/API/Grafana, no source access), and takes it to market with slides + a cited market assessment. The repo's own scripts and CI are the process spec, so the team evolves by editing code, not prompts. Local-first; the same agents deploy headless to Claude Managed Agents via scripts/cma."
+    }
+  ]
+}

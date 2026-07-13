@@ -1,0 +1,17 @@
+# Headless / packaged outputs and logs — regenerated, never committed
+/out/
+**/session-logs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Env / secrets
+.env
+*.env
+
+# Editor / OS
+.DS_Store
+*.swp

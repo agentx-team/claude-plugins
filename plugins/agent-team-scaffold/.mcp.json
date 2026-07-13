@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "team-fs": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "${CLAUDE_PROJECT_DIR}"
+      ],
+      "env": {}
+    }
+  }
+}
