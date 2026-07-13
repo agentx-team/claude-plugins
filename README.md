@@ -16,13 +16,19 @@ Plugins can be installed directly from this marketplace via Claude Code's plugin
 First, add this repository as a plugin marketplace:
 
 ```
-/plugin marketplace add agentx-team/claude-plugins
+claude plugin marketplace add agentx-team/claude-plugins
 ```
 
 Then install a plugin from it:
 
 ```
-/plugin install {plugin-name}@agentx-plugins
+claude plugin install {plugin-name}@agentx-plugins
+```
+
+If you already have the `agentx-plugins` marketplace added, refresh its manifest first, then install:
+
+```bash
+claude plugin marketplace update agentx-plugins
 ```
 
 > The name after `@` is the marketplace name defined in `.claude-plugin/marketplace.json` (`agentx-plugins`), not the GitHub `owner/repo` path.
