@@ -44,6 +44,17 @@
       "homepage": "https://github.com/agentx-team/claude-plugins/tree/main/plugins/agent-team-scaffold"
     },
     {
+      "name": "scratch",
+      "displayName": "Agent Scratch",
+      "description": "Start-from-scratch session utilities: /scratch:fresh rescans ~/.claude (skills, plugins, agents, commands, MCP) so a new session knows everything available and clones the target project into ./projects/<name>; /scratch:takeover absorbs another directory's session history, moves its files here, and continues the work.",
+      "author": {
+        "name": "AgentX Team"
+      },
+      "category": "productivity",
+      "source": "./plugins/agent-scratch",
+      "homepage": "https://github.com/agentx-team/claude-plugins/tree/main/plugins/agent-scratch"
+    },
+    {
       "name": "dev-studio",
       "displayName": "Dev Studio",
       "description": "A cloud-native software delivery agent team: seven roles across a Build → Ship → Accept → Promote lifecycle, building proto-first ConnectRPC + SolidJS services from the team scaffold, shipping to Kubernetes, accepting black-box via live URLs, and promoting with cited market material. Follows the agent-team-scaffold reference layout.",
