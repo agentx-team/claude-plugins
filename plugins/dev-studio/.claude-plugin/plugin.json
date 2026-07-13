@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "dev-studio",
+  "displayName": "Dev Studio",
+  "version": "0.2.0",
+  "description": "A cloud-native software delivery agent team. Seven roles across a Build → Ship → Accept → Promote lifecycle (planner, engineer, reviewer, operator, black-box e2e-tester, marketer, coordinator) and four workflows, building one monorepo derived from github.com/aws300/scaffold. Local-first; the same agents deploy headless to Claude Managed Agents via scripts/cma.",
+  "author": { "name": "AgentX Team", "url": "https://github.com/agentx-team" },
+  "homepage": "https://github.com/agentx-team/claude-plugins/tree/main/plugins/dev-studio",
+  "repository": "https://github.com/agentx-team/claude-plugins",
+  "license": "MIT",
+  "keywords": ["development", "cloud-native", "agent-team", "connectrpc", "kubernetes", "cma"],
+
+  "agents": [
+    "./agents/specialists/planning/planner.md",
+    "./agents/specialists/generation/engineer.md",
+    "./agents/specialists/evaluation/reviewer.md",
+    "./agents/specialists/ops/operator.md",
+    "./agents/specialists/acceptance/e2e-tester.md",
+    "./agents/specialists/marketing/marketer.md",
+    "./agents/specialists/coordination/coordinator.md",
+    "./agents/workflows/deliver-service.md",
+    "./agents/workflows/ship-service.md",
+    "./agents/workflows/accept-service.md",
+    "./agents/workflows/promote-service.md"
+  ],
+
+  "skills": "./skills/",
+  "commands": [
+    "./commands/start.md",
+    "./commands/status.md",
+    "./commands/workflows/deliver-service.md",
+    "./commands/workflows/ship-service.md",
+    "./commands/workflows/accept-service.md",
+    "./commands/workflows/promote-service.md"
+  ],
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./.mcp.json",
+
+  "userConfig": {
+    "default_model": {
+      "type": "string",
+      "title": "Default model tier",
+      "description": "Model the Sonnet-tier roles (planner, engineer, reviewer, operator, e2e-tester, marketer) run on. The coordinator always runs on opus. Maps to CMA_MODEL for headless deploys.",
+      "default": "sonnet"
+    },
+    "reviewer_strictness": {
+      "type": "string",
+      "title": "Reviewer strictness",
+      "description": "How skeptical the reviewer and e2e-tester are: 'standard' (default thresholds), 'strict' (raise every blocking threshold and require evidence per criterion), or 'panel' (multiple independent reviewers on high-stakes gates).",
+      "default": "standard"
+    }
+  },
+
+  "defaultEnabled": true
+}

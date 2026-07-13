@@ -4,7 +4,7 @@
 # Claude as a notification. Runs as a persistent process for the session.
 #
 # Polls instead of relying on inotify so it works the same on macOS and Linux.
-# Project-relative ./out/ is the resolver/packager's surface (see .claude/rules).
+# Project-relative ./out/ is the resolver/packager's surface (see rules/).
 
 OUT_DIR="${CLAUDE_PROJECT_DIR:-.}/out"
 SEEN="$(mktemp 2>/dev/null || echo /tmp/agent-team-watch-out.seen)"

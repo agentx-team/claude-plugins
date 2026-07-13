@@ -31,6 +31,28 @@
       "category": "productivity",
       "source": "./plugins/bot-notify",
       "homepage": "https://github.com/agentx-team/claude-plugins/tree/main/plugins/bot-notify"
+    },
+    {
+      "name": "agent-team",
+      "displayName": "Agent Team Scaffold",
+      "description": "A domain-agnostic agent-team scaffold and plugin-spec reference library, built around the Planner → Generator → Evaluator loop. Reusable role agents, a reference workflow, and a runnable minimal example of every plugin primitive (hooks, rules-via-hook, MCP, LSP, output styles, monitors, PATH binaries, userConfig). Local-first; deploys headless to Claude Managed Agents via scripts/cma.",
+      "author": {
+        "name": "AgentX Team"
+      },
+      "category": "development",
+      "source": "./plugins/agent-team-scaffold",
+      "homepage": "https://github.com/agentx-team/claude-plugins/tree/main/plugins/agent-team-scaffold"
+    },
+    {
+      "name": "dev-studio",
+      "displayName": "Dev Studio",
+      "description": "A cloud-native software delivery agent team: seven roles across a Build → Ship → Accept → Promote lifecycle, building proto-first ConnectRPC + SolidJS services from the team scaffold, shipping to Kubernetes, accepting black-box via live URLs, and promoting with cited market material. Follows the agent-team-scaffold reference layout.",
+      "author": {
+        "name": "AgentX Team"
+      },
+      "category": "development",
+      "source": "./plugins/dev-studio",
+      "homepage": "https://github.com/agentx-team/claude-plugins/tree/main/plugins/dev-studio"
     }
   ]
 }

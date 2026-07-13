@@ -1,0 +1,8 @@
+{
+  "agent": "coordinator",
+  "subagentStatusLine": {
+    "template": "${agentName} · ${tokens} tok",
+    "show": true,
+    "position": "right"
+  }
+}

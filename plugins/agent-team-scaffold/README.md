@@ -5,13 +5,63 @@ Cowork plugin, built around one validated skeleton: the
 **Planner → Generator → Evaluator** loop (Anthropic Engineering,
 *Harness Design for Long-Running Apps* + *Building a Multi-Agent Research System*).
 
+It is also a **reference library for the Claude Code plugin spec**: every plugin
+primitive — agents, skills, commands, hooks, rules-via-hook, MCP, LSP, output
+styles, monitors, PATH binaries, `settings.json`, `userConfig` — appears here as
+a runnable minimal example you can copy for your own plugin.
+
 **Local-first** — use it directly in Claude Code or Cowork with no build step —
 and the *same* agent assets deploy headless to **Claude Managed Agents (CMA)** via
 one small Python compiler. One source, two surfaces. Copy this repo, fill in your
 vertical, ship.
 
 ```
-5 role agents · 1 reference workflow · 3 reference skills · 3 thin commands · 4 hooks · 2 rules
+5 role agents · 1 reference workflow · 3 reference skills · 3 thin commands · 5 hooks · 2 rules
+```
+
+## How to use
+
+### 1. Install the plugin
+
+Add the AgentX marketplace (once) and install:
+
+```bash
+claude plugin marketplace add agentx-team/claude-plugins
+claude plugin install agent-team@agentx-plugins
+```
+
+Or, working from a local checkout:
+
+```bash
+claude plugin marketplace add /path/to/claude-plugins   # repo root (the marketplace)
+claude plugin install agent-team@agentx-plugins
+```
+
+On enable, the plugin asks for two **userConfig** values (both have defaults, just
+press Enter to accept): `default_model` (the Sonnet-tier roles' model) and
+`evaluator_strictness` (`standard` / `strict` / `panel`).
+
+> No credentials, no external services, no Node — the plugin is pure markdown +
+> bash + Python stdlib (the CMA build additionally wants `pip install pyyaml`).
+
+### 2. Run the loop
+
+In a session:
+
+```
+/agent-team:start a CSV import feature                            # intake → routes into the loop
+/agent-team:workflows:deliver-feature CSV import for settings     # run the loop directly
+/agent-team:status                                                # read-only loop state
+```
+
+### 3. Preview / deploy the CMA surface (optional)
+
+```bash
+cma-check                                    # validate manifest + skill refs + no nesting (on PATH while enabled)
+python3 scripts/cma/build.py                 # dry-run: print resolved CMA JSON for every workflow
+python3 scripts/cma/build.py deliver-feature # one workflow
+python3 scripts/cma/build.py --model opus    # override model (also: CMA_MODEL=haiku ...)
+cma-deploy session <project> <workflow>      # fulfil against the Managed Agents API (dry-run by default)
 ```
 
 ---
@@ -45,8 +95,15 @@ issue, don't rationalize it away; when in doubt, FAIL. See `docs/coordination-ru
 
 ## Directory structure
 
+Everything below is the **standard plugin layout**: auto-discovered directories at
+the plugin root, the manifest under `.claude-plugin/`, all hook/monitor paths via
+`${CLAUDE_PLUGIN_ROOT}`. There is no `.claude/` directory — a plugin ships its
+governance through the plugin surface itself (hooks + rules, below).
+
 ```
 agent-team-scaffold/
+├── .claude-plugin/
+│   └── plugin.json               ★ the manifest — identity, explicit agent list, userConfig
 ├── agents/                       ★ the orchestration logic — md is the single source of truth
 │   ├── workflows/                │  end-to-end orchestrators (one per deliverable type)
 │   │   └── deliver-feature.md    │    the reference Planner→Generator→Evaluator loop (copy & rename)
@@ -63,42 +120,41 @@ agent-team-scaffold/
 │   ├── start.md                  │    requirements intake → routes into the loop
 │   ├── status.md                 │    read-only loop status
 │   └── workflows/deliver-feature.md   local surface of the reference workflow
-├── scripts/cma/                  the CMA layer — declare (yaml/md) → compile (build/check) → fulfil (deploy)
-│   ├── cma.yaml                  │    the ONLY config: agent · memory_stores · knowledge · projects · workflows
-│   ├── build.py                  │    DERIVE: projects × workflows → agent + session payloads (no API)
-│   ├── check.py                  │    VALIDATE: refs / scopes / workflows (no API; run in CI)
-│   ├── deploy.py                 │    FULFIL: POST /v1/agents · memory_stores · files · sessions (stdlib; dry-run by default)
-│   └── schemas/sprint-contract.json   output_schema for the planner (reader) leaf
-├── partner-built/                extension point for third-party sub-plugins (empty placeholder)
-│
-│   ── installable-plugin surface (auto-discovered at plugin root) ──
-├── .claude-plugin/
-│   ├── plugin.json               ★ the plugin manifest — identity + explicit agent list + userConfig
-│   └── marketplace.json          │    market index (install entry for Cowork / Claude Code)
-├── hooks/hooks.json              event-level hooks (SessionStart · SubagentStart/Stop · Pre/PostToolUse)
-│   └── *.sh                      │    session-start · log-agent · validate-manifest · validate-push
+├── hooks/
+│   ├── hooks.json                event wiring: SessionStart · SubagentStart/Stop · Pre/PostToolUse
+│   └── *.sh                      session-start (injects rules/) · log-agent · validate-manifest · validate-push
+├── rules/                        always-on guardrails, injected by the SessionStart hook
+│   ├── working-surface.md        │    src/ — one writer (the Generator)
+│   └── deliverable-package.md    │    out/ — packages staged for human sign-off
 ├── .mcp.json                     global MCP registration (a filesystem server; per-agent authorized)
 ├── .lsp.json                     LSP server registration (pyright example)
 ├── monitors/monitors.json        background monitor — watch-out.sh announces ./out/ sign-off packages
 ├── output-styles/loop-verdict.md verdict-first, evidence-cited communication style
-├── bin/cma-check · cma-deploy    executables added to PATH on enable (validate manifest · deploy to Managed Agents)
+├── bin/cma-check · cma-deploy    executables added to PATH on enable (validate manifest · deploy)
 ├── settings.json                 plugin-root settings: agent=coordinator + subagentStatusLine
-│
-│   ── local-development mirror ──
-├── .claude/                      local governance when you open this repo directly
-│   ├── settings.json             │    permissions allow/deny + hook registration
-│   ├── hooks/                    │    same scripts as hooks/ above (kept in sync)
-│   └── rules/                    │    working-surface (src/) · deliverable-package (out/)
+├── knowledge/house-style.md      agent-scope knowledge example (mounted read-only on CMA)
+├── scripts/cma/                  the CMA layer — declare (yaml/md) → compile (build/check) → fulfil (deploy)
+│   ├── cma.yaml                  │    the ONLY config: agent · memory_stores · knowledge · projects · workflows
+│   ├── build.py                  │    DERIVE: projects × workflows → agent + session payloads (no API)
+│   ├── check.py                  │    VALIDATE: refs / scopes / workflows (no API; run in CI)
+│   ├── deploy.py                 │    FULFIL: POST /v1/agents · memory_stores · files · sessions (dry-run by default)
+│   └── schemas/sprint-contract.json   output_schema for the planner (reader) leaf
+├── partner-built/                extension point for third-party sub-plugins (empty placeholder)
 └── docs/                         platform-design.zh · platform-guide.zh · memory-and-dreams · coordination-rules · agent-roster
 ```
 
-> **Two governance layers, on purpose.** The plugin-root files (`plugin.json`,
-> `hooks/hooks.json`, `.mcp.json`, `.lsp.json`, `monitors/`, `bin/`, root
-> `settings.json`, `output-styles/`) take effect when this is **installed as a
-> Claude Code plugin** — they use `${CLAUDE_PLUGIN_ROOT}` paths and are
-> auto-discovered. The `.claude/` directory is the **local-development mirror**
-> that takes effect when you just open the repo. The hook scripts are identical
-> in both; edit `hooks/` and copy to `.claude/hooks/`.
+### About `rules/` — how a plugin ships always-on guidance
+
+Claude Code loads `.claude/rules/*.md` for a **project**, but the plugin spec has
+no auto-loaded rules directory. The standard pattern (used here) is:
+
+- keep the rule files in the plugin's own `rules/` directory, with the same
+  `paths:` frontmatter a project rule would carry, and
+- inject their bodies from the **SessionStart hook** (`hooks/session-start.sh`) —
+  SessionStart stdout is added to context at zero model-token cost.
+
+If you fork this scaffold as a *project* (not a plugin), copy `rules/` to
+`.claude/rules/` and Claude Code will load them natively, scoped per-path.
 
 ### Why this layout
 - **`agents/` is the core**: orchestration logic in plain markdown, organized by
@@ -111,6 +167,35 @@ agent-team-scaffold/
 
 ---
 
+## Plugin surface — the spec, feature by feature
+
+Installed as a Claude Code plugin, the scaffold wires the full plugin feature set.
+Everything is a **runnable minimal example** — copy and adapt for your vertical.
+
+| Capability | File | Registered via | What it does |
+|---|---|---|---|
+| **Manifest** | `.claude-plugin/plugin.json` | — (required) | Identity, keywords, the **explicit agent list** (`agents:` is a replace-default field — listing each `.md` preserves the nested `specialists/` + `workflows/` layout), and the component references below. |
+| **Agents** | `agents/**/*.md` | `plugin.json → agents` | Frontmatter: `name`, `description`, `tools`, `model`, `maxTurns`, `skills`, `memory`. Invoked as `agent-team:planner` etc. |
+| **Skills** | `skills/<cat>/<name>/SKILL.md` | auto (`skills/` adds to default) | Methods loaded on demand; referenced from agent frontmatter `skills:[...]` by name. |
+| **Commands** | `commands/*.md` | `plugin.json → commands` | `/agent-team:start`, `/agent-team:status`, `/agent-team:workflows:deliver-feature`. Frontmatter: `description`, `argument-hint`, `allowed-tools`, `model`. |
+| **Hooks** (event-level, whole session) | `hooks/hooks.json` | `plugin.json → hooks` | `SessionStart` loads loop context **and injects `rules/`**; `SubagentStart`/`SubagentStop` append an audit trail; `PreToolUse(Bash)` guards risky pushes; `PostToolUse(Write\|Edit)` re-checks the CMA manifest. All via `${CLAUDE_PLUGIN_ROOT}`. |
+| **Rules** | `rules/*.md` | SessionStart hook (see above) | One-writer-per-surface guardrails for `src/` and `out/`. |
+| **MCP** (global register, per-agent authorize) | `.mcp.json` | `plugin.json → mcpServers` | A filesystem MCP server over `${CLAUDE_PROJECT_DIR}`. Registered globally; each subagent opts in via its frontmatter `tools:`. |
+| **LSP** | `.lsp.json` | `plugin.json → lspServers` | A pyright language server (diagnostics fed back after edits). |
+| **Monitor** (background) | `monitors/monitors.json` | `plugin.json → experimental.monitors` | `watch-out.sh` polls `./out/` and notifies when a deliverable is staged for sign-off. *(experimental)* |
+| **Output style** | `output-styles/loop-verdict.md` | `plugin.json → outputStyles` | Verdict-first, evidence-cited communication that matches the loop's discipline. |
+| **PATH binaries** | `bin/cma-check` · `bin/cma-deploy` | auto (`bin/`) | On the Bash PATH while enabled — validate the CMA manifest / deploy from anywhere. |
+| **Root settings** | `settings.json` | auto | The only two supported keys: `agent: coordinator` (the loop owner is the main-thread default) and a `subagentStatusLine`. |
+| **User config** | `plugin.json → userConfig` | — | Asked at enable time: **`default_model`** (export as `CMA_MODEL` for headless builds — coordinator stays opus) and **`evaluator_strictness`** (`standard` / `strict` / `panel`, read by the evaluators via `${user_config.evaluator_strictness}`). |
+
+> **What stays per-agent (no global override exists):** `model`, `tools`, and `skills` are
+> declared in each agent's own frontmatter. The one exception is `settings.json`'s `agent` key,
+> which promotes a single agent to the main thread. Plugin agents deliberately do **not**
+> carry `hooks`/`mcpServers`/`permissionMode` frontmatter — those fields are ignored when an
+> agent loads from a plugin.
+
+---
+
 ## Two surfaces, one source
 
 | | Local (Cowork / Claude Code) | Managed Agents (headless) |
@@ -118,31 +203,8 @@ agent-team-scaffold/
 | Trigger | `/agent-team:start` → a workflow command | steering event via `POST /v1/agents` |
 | Orchestration | the workflow command drives `Task` delegation | `build.py` → orchestrator + depth-1 leaves |
 | Source prompt | `agents/workflows/<wf>.md` | **the same file**, read by `build.py` |
-| Role agents | `agents/specialists/**` (auto-discovered) | same md → each leaf's `system.text` |
+| Role agents | `agents/specialists/**` | same md → each leaf's `system.text` |
 | Approval | interactive (`AskUserQuestion`) | output staged in `./out/`, human sign-off |
-
----
-
-## Plugin surface (team-level capabilities)
-
-Installed as a Claude Code plugin, the scaffold wires the full plugin feature set. Everything is a
-**runnable minimal example** — copy and adapt for your vertical.
-
-| Capability | File | What it does |
-|---|---|---|
-| **Manifest** | `.claude-plugin/plugin.json` | Identity, keywords, the **explicit agent list** (the nested `specialists/`+`workflows/` layout is preserved by listing each `.md` — `agents/` is a replace-default field), and the component references below. |
-| **Hooks** (event-level, whole session) | `hooks/hooks.json` | `SessionStart` loads loop context; `SubagentStart`/`SubagentStop` append an audit trail; `PreToolUse(Bash)` guards risky pushes; `PostToolUse(Write\|Edit)` re-checks the CMA manifest. All via `${CLAUDE_PLUGIN_ROOT}`. |
-| **MCP** (global register, per-agent authorize) | `.mcp.json` | A filesystem MCP server over `${CLAUDE_PROJECT_DIR}`. Registered globally; each subagent opts in via its frontmatter `tools:`/`mcpServers:`. |
-| **LSP** | `.lsp.json` | A pyright language server (diagnostics fed back after edits). |
-| **Monitor** (background) | `monitors/monitors.json` | `watch-out.sh` polls `./out/` and notifies when a deliverable is staged for sign-off. *(experimental)* |
-| **Output style** | `output-styles/loop-verdict.md` | Verdict-first, evidence-cited communication that matches the loop's discipline. |
-| **PATH binary** | `bin/cma-check` | `cma-check` on the Bash PATH while enabled — validates the CMA manifest from anywhere. |
-| **Root settings** | `settings.json` | The only two supported keys: `agent: coordinator` (the loop owner is the main-thread default) and a `subagentStatusLine`. |
-| **User config** | `plugin.json → userConfig` | Asked at enable time: **`default_model`** (the Sonnet-tier roles' model; export as `CMA_MODEL` for headless builds — coordinator stays opus) and **`evaluator_strictness`** (`standard` / `strict` / `panel`, read by the evaluators via `${user_config.evaluator_strictness}`). |
-
-> **What stays per-agent (no global override exists):** `model`, `tools`, and `mcpServers` are
-> declared in each agent's own frontmatter. The one exception is `settings.json`'s `agent` key,
-> which promotes a single agent to the main thread. (See the research notes in `docs/`.)
 
 ---
 
@@ -162,7 +224,7 @@ Agent (this fork) ── agent-scope memory/knowledge (shared by all projects)
          └─ Context  ephemeral — gone when the session ends
 ```
 
-`cma.yaml` now has `agent:` (identity + agent-scope memory/knowledge), `memory_stores:` /
+`cma.yaml` has `agent:` (identity + agent-scope memory/knowledge), `memory_stores:` /
 `knowledge:` catalogs (each tagged `scope:`), and `projects:` (each lists its memory/knowledge +
 workflows). `build.py` iterates **projects × workflows** and prints each session's `resources[]`
 with scope-aware id placeholders (`${MEMSTORE_<KEY>__<PROJECT>}` etc.).
@@ -200,31 +262,6 @@ per-agent → evaluator-calibration (read_write, evaluator's session only)
 
 ---
 
-## Use it
-
-### Local (Cowork / Claude Code)
-```bash
-claude plugin marketplace add ./agent-team-scaffold    # or your git remote
-```
-Then in a session:
-```
-/agent-team:start a CSV import feature       # intake → routes into the loop
-/agent-team:workflows:deliver-feature CSV import for settings   # run the loop directly
-/agent-team:status                           # read-only loop state
-```
-
-### Preview / deploy the CMA surface
-```bash
-python3 scripts/cma/check.py                 # validate manifest + skill refs + no nesting
-python3 scripts/cma/build.py                 # dry-run: print resolved CMA JSON for every workflow
-python3 scripts/cma/build.py deliver-feature # one workflow
-python3 scripts/cma/build.py --model opus    # override model (also: CMA_MODEL=haiku ...)
-python3 scripts/cma/build.py --post          # upload skills + POST /v1/agents (wire to your deploy)
-```
-(`build.py` dry-run needs only stdlib + pyyaml: `pip install pyyaml`.)
-
----
-
 ## Make it your own
 
 1. **Rename or specialize the roles** for your vertical — keep the invariant that
@@ -237,12 +274,31 @@ python3 scripts/cma/build.py --post          # upload skills + POST /v1/agents (
    each under `workflows:` in `scripts/cma/cma.yaml`.
 4. **Add domain skills** under `skills/<category>/`; reference them from an
    agent's `skills:` frontmatter (resolved by name — no copying, no sync).
-5. `python3 scripts/cma/check.py && python3 scripts/cma/build.py` to validate + preview.
+5. **Rewrite `rules/`** for your surfaces (which directory belongs to which role).
+6. `cma-check && python3 scripts/cma/build.py` to validate + preview.
 
 ## Design invariants (enforced by build.py, verifiable in the dry-run)
 - **One source, two surfaces** — md body is the only prompt; CMA derives, never copies.
 - **One-level delegation** — every leaf is `callable_agents: []`; no nesting.
 - **The producer never judges** — Generator builds, Evaluator judges; verdicts are binding.
-- **One writer per surface** — Generator → `src/`, resolver → `./out/`.
+- **One writer per surface** — Generator → `src/`, resolver → `./out/` (see `rules/`).
 - **Untrusted input is data** — reader leaves carry an `output_schema`.
 - **Model parameterized** — `${CMA_MODEL:-sonnet}`; upgrading is one line.
+
+## Files
+
+```
+.claude-plugin/plugin.json    manifest (identity + agent list + userConfig)
+agents/**/*.md                5 roles + 1 workflow (single source of truth)
+skills/**/SKILL.md            3 reference skills, by category
+commands/*.md                 /start /status /workflows:deliver-feature
+hooks/hooks.json + *.sh       5 events wired; session-start injects rules/
+rules/*.md                    working-surface (src/) · deliverable-package (out/)
+.mcp.json  .lsp.json          MCP + LSP registration
+monitors/  output-styles/     background monitor · loop-verdict style
+bin/cma-check  bin/cma-deploy PATH executables
+settings.json                 agent=coordinator + subagentStatusLine
+knowledge/house-style.md      agent-scope knowledge example
+scripts/cma/                  check.py · build.py · deploy.py · cma.yaml · schemas/
+docs/                         roster · coordination rules · memory & dreams · zh platform docs
+```

@@ -13,10 +13,15 @@ else
     FILE=$(echo "$INPUT" | grep -oE '"file_path"[[:space:]]*:[[:space:]]*"[^"]*"' | head -1 | sed 's/.*"file_path"[[:space:]]*:[[:space:]]*"//;s/"$//')
 fi
 
+# Prefer the plugin's own validator when running as an installed plugin
+# (${CLAUDE_PLUGIN_ROOT} is set); fall back to the repo-relative path locally.
+CHECK="scripts/cma/check.py"
+[ -n "${CLAUDE_PLUGIN_ROOT:-}" ] && [ -f "${CLAUDE_PLUGIN_ROOT}/scripts/cma/check.py" ] && CHECK="${CLAUDE_PLUGIN_ROOT}/scripts/cma/check.py"
+
 case "$FILE" in
     *agents/*|*skills/*|*scripts/cma/*)
-        if command -v python3 >/dev/null 2>&1 && [ -f scripts/cma/check.py ]; then
-            OUT=$(python3 scripts/cma/check.py 2>&1)
+        if command -v python3 >/dev/null 2>&1 && [ -f "$CHECK" ]; then
+            OUT=$(python3 "$CHECK" 2>&1)
             if [ $? -ne 0 ]; then
                 echo "[validate-manifest] CMA check reported issues:" >&2
                 echo "$OUT" >&2

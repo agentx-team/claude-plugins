@@ -57,5 +57,5 @@ services; adding infrastructure is a last resort.
 
 ## 9. Nothing is applied or published live
 All deploys, pushes, cluster mutations, and deck publishing are staged for a human operator —
-never executed by an agent (also enforced in `.claude/settings.json` deny + the `validate-push`
+never executed by an agent (also enforced by the `validate-push`
 hook). The model is parameterized in `cma.yaml`.

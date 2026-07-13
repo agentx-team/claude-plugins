@@ -6,6 +6,60 @@ A **cloud-native software delivery agent team** as a Claude Code plugin. Seven r
 backends (Go / Python) + a SolidJS frontend + a Helm chart for Envoy Gateway and AWS IRSA — built,
 shipped to the team's Kubernetes cluster, accepted black-box, and taken to market.
 
+Structurally it follows the [`agent-team-scaffold`](../agent-team-scaffold/) reference layout
+(same plugin surface: manifest, agents, skills, commands, hooks, rules-via-hook, MCP, settings,
+userConfig, CMA deploy layer) — this is the scaffold instantiated for one vertical:
+cloud-native service delivery.
+
+## How to use
+
+### 1. Install the plugin
+
+Add the AgentX marketplace (once) and install:
+
+```bash
+claude plugin marketplace add agentx-team/claude-plugins
+claude plugin install dev-studio@agentx-plugins
+```
+
+Or, working from a local checkout:
+
+```bash
+claude plugin marketplace add /path/to/claude-plugins   # repo root (the marketplace)
+claude plugin install dev-studio@agentx-plugins
+```
+
+On enable, the plugin asks for two **userConfig** values (both have defaults, just press Enter):
+`default_model` (the Sonnet-tier roles' model — the coordinator stays on opus) and
+`reviewer_strictness` (`standard` / `strict` / `panel`).
+
+Requirements: bash + `git` (hooks), `python3` (+ `pip install pyyaml` for the CMA build layer).
+No Node, no credentials. The `.mcp.json` registers the GitHub MCP server (HTTP) — the team
+monorepo lives on GitHub; authorize it on first use or remove the entry if you don't need it.
+
+### 2. Run the lifecycle
+
+```
+/dev-studio:start                        # intake → routes to the right workflow
+/dev-studio:workflows:deliver-service    # plan → build → review → package
+/dev-studio:workflows:ship-service       # package for the cluster → release gate
+/dev-studio:workflows:accept-service     # black-box e2e acceptance of the live service
+/dev-studio:workflows:promote-service    # slides + market assessment → accuracy gate
+/dev-studio:status                       # read-only lifecycle state
+```
+
+The full lifecycle: **deliver → ship → [human deploys] → accept → promote**. For `accept-service`,
+have the **product URL, API URL, and Grafana URL** ready — the tester sees nothing else.
+
+### 3. Preview / deploy the CMA surface (optional)
+
+```bash
+python3 scripts/cma/check.py            # validate manifest, skills, no nesting
+python3 scripts/cma/build.py            # dry-run: print resolved CMA JSON for every workflow
+python3 scripts/cma/build.py --model opus
+python3 scripts/cma/build.py --post     # upload skills + POST /v1/agents (wire to your deploy)
+```
+
 ## The core idea: separate the producer from the judge
 
 LLMs grade their own output leniently. So the agent that **generates** is never the agent that
@@ -65,8 +119,13 @@ grows by editing the **repo and its CI**, not by adding more agents.
 
 ## Directory layout
 
+Standard plugin layout, same shape as `agent-team-scaffold` (no `.claude/` directory — the
+plugin surface itself carries the governance):
+
 ```
 dev-studio/
+├── .claude-plugin/
+│   └── plugin.json             ★ the manifest — identity, explicit agent list, userConfig
 ├── agents/
 │   ├── specialists/            # the seven role definitions (md = single source of truth)
 │   │   ├── planning/planner.md
@@ -79,15 +138,39 @@ dev-studio/
 │   └── workflows/              # deliver-service, ship-service, accept-service, promote-service
 ├── commands/                   # local entry points: start, status, workflows/*
 ├── skills/                     # spec-authoring, adversarial-review, blackbox-acceptance,
-│                               #   market-assessment, promo-deck, loop-status
+│                               #   webapp-testing, market-assessment, promo-deck, deploy-pipeline,
+│                               #   scaffold-build, google-search, loop-status, wiki (+framework)
+├── hooks/
+│   ├── hooks.json              # SessionStart · SubagentStart/Stop · PreToolUse(Bash) · PostToolUse(Write|Edit)
+│   └── *.sh                    # session-start (injects rules/) · log-agent · validate-push · validate-manifest
+├── rules/                      # always-on guardrails, injected by the SessionStart hook
+│   ├── working-surface.md      #   src/ — engineer/operator write; reviewer read-only
+│   └── deliverable-package.md  #   out/ — package contents per workflow; nothing applied live
+├── .mcp.json                   # one MCP server: github (the monorepo lives on GitHub)
+├── settings.json               # agent=coordinator + subagentStatusLine
 ├── scripts/cma/                # the headless deploy layer (build.py + check.py + cma.yaml)
 │   └── schemas/service-contract.json
-├── .claude/                    # settings.json + hooks + rules (local governance)
-├── .claude-plugin/             # marketplace.json
-├── .mcp.json                   # one MCP server: github (the monorepo lives on GitHub)
 ├── docs/                       # agent-roster, coordination-rules
 └── partner-built/              # extension point for team sub-plugins
 ```
+
+**Rules note:** the plugin spec has no auto-loaded rules directory, so `rules/*.md` are injected
+into context by the SessionStart hook (zero model tokens). Forking this as a *project* instead of
+a plugin? Copy `rules/` to `.claude/rules/` and Claude Code loads them natively, scoped per-path.
+
+## Plugin surface
+
+| Capability | File | What it does |
+|---|---|---|
+| **Manifest** | `.claude-plugin/plugin.json` | Identity + the explicit agent list (preserves the nested layout) + `userConfig` (`default_model`, `reviewer_strictness`). |
+| **Agents** | `agents/**/*.md` | 7 roles + 4 workflow orchestrators; frontmatter carries `tools`/`model`/`skills`/`memory`. |
+| **Skills** | `skills/**/SKILL.md` | Methods by category, loaded on demand; referenced from agent frontmatter by name. |
+| **Commands** | `commands/*.md` | `/dev-studio:start`, `/dev-studio:status`, `/dev-studio:workflows:*`. |
+| **Hooks** | `hooks/hooks.json` | SessionStart injects lifecycle context + `rules/`; SubagentStart/Stop audit trail; PreToolUse warns on live-cluster mutations (`helm upgrade`, `kubectl apply`, `docker push`, `git push`); PostToolUse re-validates the CMA manifest after agent/skill edits. |
+| **Rules** | `rules/*.md` | One-writer-per-surface + nothing-applied-live guardrails. |
+| **MCP** | `.mcp.json` | GitHub MCP server (HTTP) for the team monorepo. |
+| **Settings** | `settings.json` | `agent: coordinator` (main-thread default) + subagent status line. |
+| **CMA layer** | `scripts/cma/` | `check.py` validates · `build.py` derives deploy JSON from the same md · `cma.yaml` declares the topology. |
 
 ## Two surfaces, one source
 
@@ -95,24 +178,6 @@ dev-studio/
   `/dev-studio:start` and the workflow commands interactively, with an approval gate at each step.
 - **Headless (Claude Managed Agents):** `scripts/cma/build.py` reads the *same* md assets and
   derives the CMA deploy JSON — no per-agent yaml. `cma.yaml` declares only the topology.
-
-```bash
-python3 scripts/cma/check.py            # validate manifest, skills, no nesting
-python3 scripts/cma/build.py            # dry-run: print resolved CMA JSON for every workflow
-python3 scripts/cma/build.py --model opus
-python3 scripts/cma/build.py --post     # upload skills + POST /v1/agents (wire to your deploy)
-```
-
-## Use it
-
-```
-/dev-studio:start                        # intake → routes to a workflow
-/dev-studio:workflows:deliver-service    # plan → build → review → package
-/dev-studio:workflows:ship-service       # package for the cluster → release gate
-/dev-studio:workflows:accept-service     # black-box e2e acceptance of the live service
-/dev-studio:workflows:promote-service    # slides + market assessment → accuracy gate
-/dev-studio:status                       # read-only lifecycle state
-```
 
 ## Design invariants (non-negotiable)
 
@@ -123,6 +188,7 @@ python3 scripts/cma/build.py --post     # upload skills + POST /v1/agents (wire 
 5. **One writer per surface** — engineer/operator/marketer → `src/`, packager → `./out/`, judges read-only.
 6. **One-level delegation** — leaves never nest.
 7. **The repo is the process spec** — follow its scripts/CI; proto-first; never hand-edit generated code.
-8. **Nothing applied or published live** — deploys/pushes/deck publishing are staged for a human.
+8. **Nothing applied or published live** — deploys/pushes/deck publishing are staged for a human
+   (enforced by the `validate-push` hook + `rules/deliverable-package.md`).
 
 See [`docs/coordination-rules.md`](docs/coordination-rules.md) for the full set.
