@@ -1,0 +1,6 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+# Cloned / taken-over projects land here; they are not part of the plugin.
+/projects/

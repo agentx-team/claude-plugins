@@ -51,6 +51,22 @@ monorepo lives on GitHub; authorize it on first use or remove the entry if you d
 The full lifecycle: **deliver → ship → [human deploys] → accept → promote**. For `accept-service`,
 have the **product URL, API URL, and Grafana URL** ready — the tester sees nothing else.
 
+### Dispatch shorthands
+
+Two generic dispatchers plus a mention shorthand cover ad-hoc use:
+
+```
+/dev-studio:workflow deliver-service orders API      # any workflow by name (= workflows:* above)
+/dev-studio:agent marketer 为 orders 服务做市场评估    # one role directly, skipping the gates
+@marketer 为 orders 服务做市场评估                     # same thing as a mention (rules/agent-dispatch.md)
+@agent-dev-studio:marketer …                          # Claude Code's native agent mention
+```
+
+`/dev-studio:agent` (and the `@role` mention) is a *direct* dispatch: one role, one delegation,
+no workflow gates — the reply notes which gate was skipped. Slash commands cannot address agents
+directly (`/dev-studio:marketer` is not a thing); agents are reached by delegation, which is what
+these dispatchers do for you.
+
 ### 3. Preview / deploy the CMA surface (optional)
 
 ```bash
@@ -136,7 +152,7 @@ dev-studio/
 │   │   ├── marketing/marketer.md
 │   │   └── coordination/coordinator.md
 │   └── workflows/              # deliver-service, ship-service, accept-service, promote-service
-├── commands/                   # local entry points: start, status, workflows/*
+├── commands/                   # local entry points: start, status, agent, workflow, workflows/*
 ├── skills/                     # spec-authoring, adversarial-review, blackbox-acceptance,
 │                               #   webapp-testing, market-assessment, promo-deck, deploy-pipeline,
 │                               #   scaffold-build, google-search, loop-status, wiki (+framework)
@@ -145,9 +161,9 @@ dev-studio/
 │   └── *.sh                    # session-start (injects rules/) · log-agent · validate-push · validate-manifest
 ├── rules/                      # always-on guardrails, injected by the SessionStart hook
 │   ├── working-surface.md      #   src/ — engineer/operator write; reviewer read-only
-│   └── deliverable-package.md  #   out/ — package contents per workflow; nothing applied live
+│   ├── deliverable-package.md  #   out/ — package contents per workflow; nothing applied live
+│   └── agent-dispatch.md       #   @role mention shorthand → Task delegation
 ├── .mcp.json                   # one MCP server: github (the monorepo lives on GitHub)
-├── settings.json               # agent=coordinator + subagentStatusLine
 ├── scripts/cma/                # the headless deploy layer (build.py + check.py + cma.yaml)
 │   └── schemas/service-contract.json
 ├── docs/                       # agent-roster, coordination-rules
@@ -169,8 +185,13 @@ a plugin? Copy `rules/` to `.claude/rules/` and Claude Code loads them natively,
 | **Hooks** | `hooks/hooks.json` | SessionStart injects lifecycle context + `rules/`; SubagentStart/Stop audit trail; PreToolUse warns on live-cluster mutations (`helm upgrade`, `kubectl apply`, `docker push`, `git push`); PostToolUse re-validates the CMA manifest after agent/skill edits. |
 | **Rules** | `rules/*.md` | One-writer-per-surface + nothing-applied-live guardrails. |
 | **MCP** | `.mcp.json` | GitHub MCP server (HTTP) for the team monorepo. |
-| **Settings** | `settings.json` | `agent: coordinator` (main-thread default) + subagent status line. |
 | **CMA layer** | `scripts/cma/` | `check.py` validates · `build.py` derives deploy JSON from the same md · `cma.yaml` declares the topology. |
+
+> **No plugin `settings.json` on purpose.** The plugin-level `settings.json` supports exactly two
+> keys — `agent` (promote one agent to the main thread) and `subagentStatusLine` — and dev-studio
+> uses neither: the coordinator is woken on demand (`/dev-studio:agent coordinator …` or
+> `@coordinator …`) instead of owning every session. See `agent-team-scaffold` for a working
+> example of the `settings.json → agent` capability.
 
 ## Two surfaces, one source
 

@@ -28,6 +28,8 @@
   "commands": [
     "./commands/start.md",
     "./commands/status.md",
+    "./commands/agent.md",
+    "./commands/workflow.md",
     "./commands/workflows/deliver-service.md",
     "./commands/workflows/ship-service.md",
     "./commands/workflows/accept-service.md",

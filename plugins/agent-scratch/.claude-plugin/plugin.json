@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "scratch",
+  "displayName": "Agent Scratch",
+  "version": "0.2.0",
+  "description": "Start-from-scratch session utilities: /scratch:fresh rescans ~/.claude (skills, plugins, agents, commands, MCP) so a new session in the current directory knows everything available; /scratch:takeover finds another directory's Claude session, absorbs its history into the current context, moves its files here, and continues the work.",
+  "author": { "name": "AgentX Team", "url": "https://github.com/agentx-team" },
+  "homepage": "https://github.com/agentx-team/claude-plugins/tree/main/plugins/agent-scratch",
+  "repository": "https://github.com/agentx-team/claude-plugins",
+  "license": "MIT",
+  "keywords": ["session", "migrate", "takeover", "scratch", "claude-home"],
+
+  "commands": [
+    "./commands/fresh.md",
+    "./commands/takeover.md"
+  ],
+  "hooks": "./hooks/hooks.json",
+
+  "defaultEnabled": true
+}

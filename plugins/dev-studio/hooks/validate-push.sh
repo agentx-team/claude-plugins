@@ -1,9 +1,9 @@
 #!/bin/bash
 # Claude Code PreToolUse hook (Bash): guard live-cluster and live-deploy actions.
 # This studio stages all deploys for human sign-off — it never applies them live.
-# If a command tries to mutate a live cluster or push images, warn loudly. The
-# hard block also lives in settings.json `deny`; this is defense-in-depth + a
-# clear message. Exit 0 (non-blocking message); settings.json deny does the stop.
+# If a command tries to mutate a live cluster or push images, warn loudly.
+# Advisory only (exit 0): a plugin cannot ship permission deny rules, so for a
+# hard block add these patterns to your project's .claude/settings.json `deny`.
 
 INPUT=$(cat)
 
