@@ -125,6 +125,41 @@ def _web_tools_from_fm(fm: dict, role: str) -> list:
     return [v for k, v in _WEB_TOOL_MAP.items() if k in declared]
 
 
+# ── memory stores (typed memory — see memory/README.md) ─────────────────────────
+# A memory store is attached at SESSION creation in `resources[]` (mounted under
+# /mnt/memory/), never on the agent. The catalog in cma.yaml declares each store's
+# scope/access/instructions/seed; real ids exist only after deploy, so the dry-run
+# emits scope-aware placeholders:
+#   scope=agent   → ${MEMSTORE_<KEY>}            (one store, all workflows share)
+#   scope=project → ${MEMSTORE_<KEY>__PROJECT}   (one per project)
+#   scope=session → ${MEMSTORE_<KEY>__SESSION}   (fresh per session)
+def _slug(s: str) -> str:
+    return re.sub(r"[^A-Z0-9]", "_", str(s).upper())
+
+
+def resolve_memory(refs, catalog: dict) -> list:
+    """memory refs (str key, or {store, access?, instructions?}) → CMA session
+    resources[] entries (type=memory_store), scope-aware."""
+    out = []
+    for ref in refs or []:
+        if isinstance(ref, str):
+            ref = {"store": ref}
+        key = ref["store"]
+        spec = (catalog or {}).get(key, {})
+        scope = spec.get("scope", "project")
+        suffix = {"project": "__PROJECT", "session": "__SESSION"}.get(scope, "")
+        entry = {
+            "type": "memory_store",
+            "memory_store_id": "${MEMSTORE_" + _slug(key) + suffix + "}",
+            "access": ref.get("access", spec.get("access", "read_write")),
+        }
+        instr = ref.get("instructions", spec.get("instructions"))
+        if instr:
+            entry["instructions"] = instr
+        out.append(entry)
+    return out
+
+
 def build_leaf(leaf: dict, model: str) -> dict:
     """One depth-1 subagent JSON from a cma.yaml leaf entry.
 
@@ -162,8 +197,13 @@ def build_leaf(leaf: dict, model: str) -> dict:
     return node
 
 
-def build_workflow(name: str, wf: dict, model: str, headless: str) -> dict:
-    """One orchestrator + its leaves → the full CMA payload for POST /v1/agents."""
+def build_workflow(name: str, wf: dict, model: str, headless: str,
+                   catalog: dict | None = None) -> dict:
+    """One orchestrator + its leaves → the CMA agent payload for POST /v1/agents,
+    plus a `session` stanza (resources[]) when memory stores are declared.
+    Memory aggregates: catalog agent/project-scope stores that any workflow uses
+    via `session_memory:` + per-leaf private `memory:` (the judges' calibration
+    stores). See memory/README.md for the typed-memory taxonomy."""
     fm, body = parse_frontmatter((REPO / wf["orchestrator"]).read_text())
     system = body.strip()
     if headless:
@@ -179,7 +219,34 @@ def build_workflow(name: str, wf: dict, model: str, headless: str) -> dict:
     }
     if fm.get("display_name"):
         orch["display_name"] = fm["display_name"]
-    return orch
+
+    # ── session resources: shared stores + workflow scratch + judge-private ──
+    catalog = catalog or {}
+    mem_refs = [k for k, spec in catalog.items()
+                if (spec or {}).get("scope") in ("agent", "project")
+                and k not in ("reviewer-calibration", "e2e-calibration")]
+    mem_refs += list(wf.get("session_memory") or [])
+    for leaf in wf.get("leaves", []):
+        for m in (leaf.get("memory") or []):
+            m = {"store": m} if isinstance(m, str) else dict(m)
+            m.setdefault("instructions",
+                         f"Private memory for the '{leaf.get('as','?')}' role. "
+                         f"{catalog.get(m['store'], {}).get('instructions','')}".strip())
+            mem_refs.append(m)
+    # de-dup by (store, access)
+    seen, mem_dd = set(), []
+    for r in mem_refs:
+        r = {"store": r} if isinstance(r, str) else r
+        k = (r["store"], r.get("access"))
+        if k not in seen:
+            seen.add(k)
+            mem_dd.append(r)
+    resources = resolve_memory(mem_dd, catalog)
+    if resources:
+        return {"agent": orch,
+                "session": {"agent": "${AGENT_ID}", "environment_id": "${ENVIRONMENT_ID}",
+                            "resources": resources}}
+    return {"agent": orch}
 
 
 def main(argv):
@@ -196,12 +263,15 @@ def main(argv):
     if targets:
         workflows = {k: v for k, v in workflows.items() if k in targets}
 
+    catalog = manifest.get("memory_stores") or {}
     for name, wf in workflows.items():
-        payload = build_workflow(name, wf, model, headless)
-        n_leaves = len(payload["callable_agents"])
-        writers = [l["name"] for l in payload["callable_agents"]
+        payload = build_workflow(name, wf, model, headless, catalog)
+        agent = payload["agent"]
+        n_leaves = len(agent["callable_agents"])
+        writers = [l["name"] for l in agent["callable_agents"]
                    if any(c["name"] in ("write", "edit") for ts in l["tools"] for c in ts["configs"])]
-        print(f"\n===== workflow: {name}  (model={model}, leaves={n_leaves}, writers={writers}) =====")
+        n_stores = len(payload.get("session", {}).get("resources", []))
+        print(f"\n===== workflow: {name}  (model={model}, leaves={n_leaves}, writers={writers}, memory_stores={n_stores}) =====")
         print(json.dumps(payload, indent=2, ensure_ascii=False))
         if do_post:
             print(f"  [--post] would upload skills + POST /v1/agents for '{name}' "

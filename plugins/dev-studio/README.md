@@ -166,6 +166,9 @@ dev-studio/
 ├── .mcp.json                   # one MCP server: github (the monorepo lives on GitHub)
 ├── scripts/cma/                # the headless deploy layer (build.py + check.py + cma.yaml)
 │   └── schemas/service-contract.json
+├── memory/                     # typed-memory taxonomy + seed files
+│   ├── README.md               #   [FACT]/[RULE]/[LEARNED]/[WARNING] — who writes what, where
+│   └── seeds/*.md              #   per-store seeds (incl. two PRIVATE judge calibration stores)
 ├── docs/                       # agent-roster, coordination-rules
 └── partner-built/              # extension point for team sub-plugins
 ```
@@ -185,7 +188,8 @@ a plugin? Copy `rules/` to `.claude/rules/` and Claude Code loads them natively,
 | **Hooks** | `hooks/hooks.json` | SessionStart injects lifecycle context + `rules/`; SubagentStart/Stop audit trail; PreToolUse warns on live-cluster mutations (`helm upgrade`, `kubectl apply`, `docker push`, `git push`); PostToolUse re-validates the CMA manifest after agent/skill edits. |
 | **Rules** | `rules/*.md` | One-writer-per-surface + nothing-applied-live guardrails. |
 | **MCP** | `.mcp.json` | GitHub MCP server (HTTP) for the team monorepo. |
-| **CMA layer** | `scripts/cma/` | `check.py` validates · `build.py` derives deploy JSON from the same md · `cma.yaml` declares the topology. |
+| **CMA layer** | `scripts/cma/` | `check.py` validates · `build.py` derives deploy JSON + session `resources[]` from the same md · `cma.yaml` declares the topology and the memory-store catalog. |
+| **Typed memory** | `memory/` | Every durable memory is `[FACT]` / `[RULE]` / `[LEARNED]` / `[WARNING]` (taxonomy + filing rules in `memory/README.md`). Stores: `team-standards` (RULE+FACT, read-only — includes the observability convention as facts), `project-context` (FACT+LEARNED), and **two private judge stores** — `reviewer-calibration` and `e2e-calibration` (LEARNED+WARNING) — never visible to producers or to each other. Seeds under `memory/seeds/` upload at deploy; each role's `## Memory` section defines its read/write habits; the coordinator owns LEARNED→RULE escalation (human gate) and WARNING expiry. |
 
 > **No plugin `settings.json` on purpose.** The plugin-level `settings.json` supports exactly two
 > keys — `agent` (promote one agent to the main thread) and `subagentStatusLine` — and dev-studio

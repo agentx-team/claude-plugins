@@ -33,8 +33,27 @@ def check_skills(fm: dict, where: str):
             err(f"{where}: skill '{nm}' not found under skills/")
 
 
+def check_memory_refs(refs, catalog: dict, where: str):
+    for ref in refs or []:
+        key = ref if isinstance(ref, str) else ref.get("store")
+        if key not in catalog:
+            err(f"{where}: memory store '{key}' not declared in `memory_stores:` catalog")
+
+
 def main():
     m = _load_yaml(MANIFEST.read_text())
+    catalog = m.get("memory_stores") or {}
+
+    # validate memory catalog (scope + access + seed file, per memory/README.md)
+    for key, spec in catalog.items():
+        spec = spec or {}
+        if spec.get("scope") not in (None, "agent", "project", "session"):
+            err(f"[memory_stores] '{key}' scope '{spec.get('scope')}' invalid (agent|project|session)")
+        if spec.get("access") not in (None, "read_write", "read_only"):
+            err(f"[memory_stores] '{key}' access '{spec.get('access')}' invalid (read_write|read_only)")
+        if spec.get("seed") and not (REPO / spec["seed"]).is_file():
+            err(f"[memory_stores] '{key}' seed file not found: {spec['seed']}")
+
     for name, wf in (m.get("workflows") or {}).items():
         orch = REPO / wf["orchestrator"]
         if not orch.is_file():
@@ -43,9 +62,11 @@ def main():
         if not fm.get("name"):
             err(f"[{name}] orchestrator has no frontmatter `name`")
         check_skills(fm, f"[{name}] {wf['orchestrator']}")
+        check_memory_refs(wf.get("session_memory"), catalog, f"[{name}] session_memory")
 
         for leaf in wf.get("leaves", []):
             tag = f"[{name}] leaf '{leaf.get('as','?')}'"
+            check_memory_refs(leaf.get("memory"), catalog, tag)
             md_key = "specialist" if "specialist" in leaf else "expert"
             if md_key in leaf:
                 exp = REPO / leaf[md_key]
