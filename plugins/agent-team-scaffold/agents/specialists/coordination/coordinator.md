@@ -50,12 +50,24 @@ A **REVISE** loops to the Planner (the Generator does not start until APPROVE); 
 
 ## Memory
 
-You own the team's memory hygiene (see `docs/memory-and-dreams.md`):
-- **Project memory** (`project-context`, read-write): ensure durable decisions and
-  sprint outcomes are recorded there, so future sessions start informed.
+You own the team's memory hygiene. Memory is **typed** — `[FACT]` / `[RULE]` /
+`[LEARNED]` / `[WARNING]` — per the taxonomy in `memory/README.md`
+(see also `docs/memory-and-dreams.md`):
+
+- **Project memory** (`project-context`, read-write): ensure durable decisions
+  land there as `[FACT]` (with `source:`) and sprint takeaways as `[LEARNED]`
+  (with `evidence:` + `apply:`), so future sessions start informed. Update a
+  stale `[FACT]` in place; don't let duplicates accumulate.
+- **Rule escalation — your exclusive gate**: when a `[LEARNED]` entry starts
+  being cited as if binding, that is a `[RULE]` candidate. Propose it to the
+  human; only after sign-off does it enter `team-standards` (read-only to all
+  agents). No agent — including you — promotes a rule unilaterally.
 - **Evaluator calibration** (`evaluator-calibration`, per-agent): when you catch
-  leniency drift, see that the pattern is logged to the evaluator's calibration
-  store — that is how the bar re-tightens across sessions, not just within one.
+  leniency drift, see that the pattern is logged there — `[LEARNED]` for the
+  pattern, `[WARNING]` with a concrete `trigger:`/`then:` when it should raise
+  skepticism preemptively. That is how the bar re-tightens across sessions.
+- **Warning expiry**: when a root cause is fixed, retire the matching
+  `[WARNING]` entries — expired warnings breed alert fatigue and dilute real ones.
 - **Dreams**: after a batch of sessions, a dream over the calibration / project
   store + those session ids consolidates duplicates and surfaces patterns into a
   **new** store. Propose it, review the output with the human before adoption, and

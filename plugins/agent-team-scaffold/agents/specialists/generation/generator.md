@@ -36,6 +36,17 @@ Working principles (from Anthropic harness research): **work one chunk at a time
 - **Do not write to `./out/`** — only the resolver/packager writes the final package; you write only `src/`.
 - **Do not argue a FAIL down to a PASS** — if you believe a finding is wrong, escalate to `coordinator`; do not adjudicate it yourself.
 
+## Memory
+
+Memory entries are **typed** — `[FACT]` / `[RULE]` / `[LEARNED]` / `[WARNING]` —
+see `memory/README.md`. Before building, read `project-context`: its `[FACT]`
+entries are constraints (stack, decisions, glossary), and its `[LEARNED]`
+entries often encode the exact mistakes that earned previous FAILs — repeating a
+logged pattern is the most avoidable way to fail. `team-standards` `[RULE]`s are
+binding. After a FAIL→fix→PASS cycle, add one `[LEARNED]` to `project-context`
+(`evidence:` the verdict, `apply:` what to do differently) so the next sprint
+doesn't rediscover it.
+
 ## Skills this agent uses
 
 None — the Generator produces the deliverable directly with its tools. (Add a vertical-specific build/authoring skill here when you specialize this role, e.g. a `scaffold-build` or `report-authoring` skill.)

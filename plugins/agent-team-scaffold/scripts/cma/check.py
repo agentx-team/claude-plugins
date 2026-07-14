@@ -65,13 +65,15 @@ def main():
     know = m.get("knowledge") or {}
     all_workflows = m.get("workflows") or {}
 
-    # validate memory catalog defaults (access + scope)
+    # validate memory catalog defaults (access + scope + seed file)
     for key, spec in catalog.items():
         spec = spec or {}
         if spec.get("access") not in (None, *_VALID_ACCESS):
             err(f"[memory_stores] '{key}' access '{spec.get('access')}' invalid (read_write|read_only)")
         if spec.get("scope") not in (None, *_VALID_SCOPE):
             err(f"[memory_stores] '{key}' scope '{spec.get('scope')}' invalid (agent|project|session)")
+        if spec.get("seed") and not (REPO / spec["seed"]).is_file():
+            err(f"[memory_stores] '{key}' seed file not found: {spec['seed']}")
     # validate knowledge catalog defaults (scope + type)
     for key, spec in know.items():
         spec = spec or {}

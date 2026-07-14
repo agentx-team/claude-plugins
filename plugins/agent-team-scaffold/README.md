@@ -133,6 +133,9 @@ agent-team-scaffold/
 ├── bin/cma-check · cma-deploy    executables added to PATH on enable (validate manifest · deploy)
 ├── settings.json                 plugin-root settings: agent=coordinator + subagentStatusLine
 ├── knowledge/house-style.md      agent-scope knowledge example (mounted read-only on CMA)
+├── memory/                       the typed-memory taxonomy + seed files
+│   ├── README.md                 │    [FACT]/[RULE]/[LEARNED]/[WARNING] — who writes what, where
+│   └── seeds/*.md                │    per-store seed examples, uploaded at deploy (cma.yaml `seed:`)
 ├── scripts/cma/                  the CMA layer — declare (yaml/md) → compile (build/check) → fulfil (deploy)
 │   ├── cma.yaml                  │    the ONLY config: agent · memory_stores · knowledge · projects · workflows
 │   ├── build.py                  │    DERIVE: projects × workflows → agent + session payloads (no API)
@@ -233,6 +236,28 @@ with scope-aware id placeholders (`${MEMSTORE_<KEY>__<PROJECT>}` etc.).
 
 The headless surface adds four Managed-Agents capabilities — see
 [`docs/memory-and-dreams.md`](docs/memory-and-dreams.md) for the full, citation-backed guide.
+
+### Typed memory: Fact · Rule · Learned · Warning
+
+Every durable memory the team writes is one of four types (full taxonomy, entry
+format, and filing rules in [`memory/README.md`](memory/README.md)):
+
+| Type | Captures | Litmus test | Who writes |
+|---|---|---|---|
+| **`[FACT]`** | verifiable project/world state, decisions, glossary | could a script check it? | any role, with `source:` |
+| **`[RULE]`** | binding must/never constraints | does violating it fail a review? | **human sign-off only** (coordinator escalates) |
+| **`[LEARNED]`** | distilled experience, with `evidence:` + `apply:` | would it change how I act next time? | the role that lived it |
+| **`[WARNING]`** | a pitfall with a concrete `trigger:` + `then:` | is there a trigger condition? | the role that hit it / coordinator |
+
+The types map onto the stores: `team-standards` holds RULE+FACT (read-only — no
+agent can relax a rule mid-sprint), `project-context` holds FACT+LEARNED,
+`evaluator-calibration` holds LEARNED+WARNING (the judge's private skepticism
+triggers). Each store's `seed:` in `cma.yaml` points at a worked example under
+`memory/seeds/`, uploaded as the store's first memory at deploy time
+(`cma-deploy`); each role's `## Memory` section says which types it reads and
+writes. The lifecycle is owned: roles append, the **coordinator** escalates
+LEARNED→RULE (human gate), retires fixed WARNINGs, and schedules **dreams** to
+consolidate the rest.
 
 - **Memory stores** are markdown collections attached **at session creation**
   (`resources[]`, mounted under `/mnt/memory/`), not fields on the agent. Scopes are a

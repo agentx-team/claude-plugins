@@ -192,6 +192,16 @@ def ensure_store(key: str, catalog: dict, tx: Transport, state: dict,
     name = f"{key}" + (f" · {project}" if scope == "project" and project else "")
     body = {"name": name, "description": spec.get("description", key)}
     res = tx.post("/v1/memory_stores", body, "memstore")
+    # seed: upload the typed seed file (memory/seeds/*.md) as the store's first memory
+    seed = spec.get("seed")
+    if seed:
+        seed_path = REPO / seed
+        if seed_path.is_file():
+            tx.post(f"/v1/memory_stores/{res['id']}/memories",
+                    {"path": f"/{seed_path.name}", "content": seed_path.read_text()},
+                    "memory")
+        else:
+            print(f"  ! seed file not found, store created unseeded: {seed}", file=sys.stderr)
     if scope != "session":
         state["stores"][sk] = res["id"]
         save_state(state)

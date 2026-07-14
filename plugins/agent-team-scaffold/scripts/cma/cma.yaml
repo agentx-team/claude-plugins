@@ -48,27 +48,35 @@ agent:
 # placeholders (the platform substitutes them).
 #   access: read_write (default) | read_only      -- use read_only for reference material (anti-injection)
 #   scope:  agent | project | session
+#   seed:   optional markdown file uploaded into the store at deploy time (memory/seeds/)
+#
+# Every entry in a store is TYPED — [FACT] / [RULE] / [LEARNED] / [WARNING] —
+# see memory/README.md for the taxonomy and entry format. The instructions below
+# tell each mounting agent which types it reads and which it may write.
 memory_stores:
   team-standards:
     scope: agent
     access: read_only
-    description: "Org-wide standards, definitions of done, house style. Shared, authoritative."
-    instructions: "Treat as authoritative team standards. Read before planning/evaluating; never write here."
+    seed: memory/seeds/team-standards.md
+    description: "Org-wide standards: binding [RULE] entries and stable org [FACT]s. Shared, authoritative."
+    instructions: "Authoritative team standards, typed [RULE]/[FACT]. [RULE] entries are binding — violating one fails a review. Read before planning/evaluating; never write here. To change a rule, propose it to the coordinator for human sign-off."
   project-context:
     scope: project
     access: read_write
-    description: "This project's decisions, glossary, prior conclusions, and open risks."
-    instructions: "The project's long-term memory. Record durable decisions and conclusions; check before starting."
+    seed: memory/seeds/project-context.md
+    description: "This project's memory: decisions and glossary as [FACT], distilled experience as [LEARNED]."
+    instructions: "The project's long-term memory, typed [FACT]/[LEARNED]. Check before starting. Write one entry per item using the tagged format in memory/README.md: [FACT] with its source; [LEARNED] with evidence + apply. Update a stale [FACT] in place rather than appending a duplicate."
   evaluator-calibration:
     scope: agent
     access: read_write
-    description: "The evaluator's own calibration memory: recurring failure modes, leniency-drift corrections."
-    instructions: "Your private calibration memory. Append patterns you keep missing; consult before each verdict."
+    seed: memory/seeds/evaluator-calibration.md
+    description: "The evaluator's private calibration memory: leniency patterns as [LEARNED], skepticism triggers as [WARNING]."
+    instructions: "Your private calibration memory, typed [LEARNED]/[WARNING]. Consult before each verdict: check whether any [WARNING] trigger matches the submission. Append after a verdict when you caught (or missed) a new pattern — [LEARNED] with evidence + apply, [WARNING] with a concrete trigger + then. This informs your skepticism; it never relaxes it."
   session-scratch:
     scope: session
     access: read_write
     description: "Single-session scratch (a place to spill context overflow). Discarded when the session ends."
-    instructions: "This session's scratch area; write freely. Do not treat it as long-term memory."
+    instructions: "This session's scratch area; write freely. Not typed memory: before the session ends, re-file anything durable into project-context ([FACT]/[LEARNED]) or your calibration store — scratch is discarded."
 
 # ── Knowledge (catalog, RAG) ────────────────────────────────────────────────────
 # Managed Agents has NO native vector retrieval: knowledge = docs mounted into the
