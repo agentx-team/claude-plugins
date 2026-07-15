@@ -8,7 +8,7 @@
   "homepage": "https://github.com/agentx-team/claude-plugins/tree/main/plugins/agent-scratch",
   "repository": "https://github.com/agentx-team/claude-plugins",
   "license": "MIT",
-  "keywords": ["session", "migrate", "takeover", "scratch", "claude-home"],
+  "keywords": ["session", "development", "migrate", "takeover", "scratch"],
 
   "commands": [
     "./commands/fresh.md",
