@@ -1,0 +1,2347 @@
+- generic [active] [ref=e1]:
+  - navigation "Main" [ref=e3]:
+    - generic [ref=e5]:
+      - link "Kiro" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]:
+          - img [ref=e11]
+          - img "Kiro" [ref=e47]
+      - list [ref=e52]:
+        - listitem [ref=e53]:
+          - link "CLI" [ref=e54] [cursor=pointer]:
+            - /url: /cli/
+        - listitem [ref=e55]:
+          - link "IDE" [ref=e56] [cursor=pointer]:
+            - /url: /ide/
+        - listitem [ref=e57]:
+          - link "Web" [ref=e58] [cursor=pointer]:
+            - /url: /web/
+        - listitem [ref=e59]:
+          - link "Mobile" [ref=e60] [cursor=pointer]:
+            - /url: /mobile/
+        - listitem [ref=e61]:
+          - link "Enterprise" [ref=e62] [cursor=pointer]:
+            - /url: /enterprise/
+        - listitem [ref=e63]:
+          - link "Pricing" [ref=e64] [cursor=pointer]:
+            - /url: /pricing/
+        - listitem [ref=e65]:
+          - link "Docs" [ref=e66] [cursor=pointer]:
+            - /url: /docs/
+        - listitem [ref=e67]:
+          - button "Community menu" [ref=e68] [cursor=pointer]:
+            - generic [ref=e69]: Community
+            - img [ref=e70]
+        - listitem [ref=e72]:
+          - button "Resources menu" [ref=e73] [cursor=pointer]:
+            - generic [ref=e74]: Resources
+            - img [ref=e75]
+      - generic [ref=e77]:
+        - button "Search across all Kiro content (Ctrl+K)" [ref=e81] [cursor=pointer]:
+          - generic [ref=e82]:
+            - img [ref=e83]
+            - generic [ref=e85]: Ctrl K
+        - link "SIGN IN" [ref=e86] [cursor=pointer]:
+          - /url: https://app.kiro.dev
+          - generic [ref=e87]: SIGN IN
+        - link "Downloads" [ref=e88] [cursor=pointer]:
+          - /url: /downloads/
+          - generic [ref=e89]: DOWNLOADS
+    - text: Ctrl K
+  - main [ref=e90]:
+    - generic [ref=e91]:
+      - complementary [ref=e92]:
+        - generic [ref=e95]:
+          - navigation "Documentation product" [ref=e96]:
+            - generic [ref=e97]:
+              - link "IDE" [ref=e98] [cursor=pointer]:
+                - /url: /docs/
+              - link "CLI" [ref=e99] [cursor=pointer]:
+                - /url: /docs/cli/
+              - link "Web" [ref=e100] [cursor=pointer]:
+                - /url: /docs/web/
+          - generic [ref=e102]:
+            - generic [ref=e104]:
+              - link "Get started" [ref=e105] [cursor=pointer]:
+                - /url: /docs/cli/
+              - button "Expand Get started" [ref=e106] [cursor=pointer]:
+                - img [ref=e107]
+            - link "Models" [ref=e109] [cursor=pointer]:
+              - /url: /docs/cli/models/
+            - generic [ref=e111]:
+              - link "Chat" [ref=e112] [cursor=pointer]:
+                - /url: /docs/cli/chat/
+              - button "Expand Chat" [ref=e113] [cursor=pointer]:
+                - img [ref=e114]
+            - generic [ref=e117]:
+              - link "Terminal UI" [ref=e118] [cursor=pointer]:
+                - /url: /docs/cli/terminal-ui/
+              - button "Expand Terminal UI" [ref=e119] [cursor=pointer]:
+                - img [ref=e120]
+            - generic [ref=e123]:
+              - link "Custom agents" [ref=e124] [cursor=pointer]:
+                - /url: /docs/cli/custom-agents/
+              - button "Expand Custom agents" [ref=e125] [cursor=pointer]:
+                - img [ref=e126]
+            - generic [ref=e129]:
+              - link "MCP" [ref=e130] [cursor=pointer]:
+                - /url: /docs/cli/mcp/
+              - button "Expand MCP" [ref=e131] [cursor=pointer]:
+                - img [ref=e132]
+            - link "Steering" [ref=e134] [cursor=pointer]:
+              - /url: /docs/cli/steering/
+            - link "Agent Skills" [ref=e135] [cursor=pointer]:
+              - /url: /docs/cli/skills/
+            - link "ACP" [ref=e136] [cursor=pointer]:
+              - /url: /docs/cli/acp/
+            - link "Headless mode" [ref=e137] [cursor=pointer]:
+              - /url: /docs/cli/headless/
+            - generic [ref=e139]:
+              - link "Experimental" [ref=e140] [cursor=pointer]:
+                - /url: /docs/cli/experimental/
+              - button "Expand Experimental" [ref=e141] [cursor=pointer]:
+                - img [ref=e142]
+            - link "Hooks" [ref=e144] [cursor=pointer]:
+              - /url: /docs/cli/hooks/
+            - link "Auto complete" [ref=e145] [cursor=pointer]:
+              - /url: /docs/cli/autocomplete/
+            - link "Code Intelligence" [ref=e146] [cursor=pointer]:
+              - /url: /docs/cli/code-intelligence/
+            - generic [ref=e148]:
+              - link "Billing for individuals" [ref=e149] [cursor=pointer]:
+                - /url: /docs/cli/billing/
+              - button "Expand Billing for individuals" [ref=e150] [cursor=pointer]:
+                - img [ref=e151]
+            - generic [ref=e154]:
+              - link "Enterprise" [ref=e155] [cursor=pointer]:
+                - /url: /docs/cli/enterprise/concepts/
+              - button "Expand Enterprise" [ref=e156] [cursor=pointer]:
+                - img [ref=e157]
+            - generic [ref=e160]:
+              - link "Privacy and security" [ref=e161] [cursor=pointer]:
+                - /url: /docs/cli/privacy-and-security/
+              - button "Expand Privacy and security" [ref=e162] [cursor=pointer]:
+                - img [ref=e163]
+            - generic [ref=e165]:
+              - generic [ref=e166]:
+                - link "Reference" [ref=e167] [cursor=pointer]:
+                  - /url: /docs/cli/reference/cli-commands/
+                - button "Collapse Reference" [expanded] [ref=e168] [cursor=pointer]:
+                  - img [ref=e169]
+              - generic [ref=e172]:
+                - link "CLI commands" [ref=e176] [cursor=pointer]:
+                  - /url: /docs/cli/reference/cli-commands/
+                - link "Slash commands" [ref=e178] [cursor=pointer]:
+                  - /url: /docs/cli/reference/slash-commands/
+                - link "Built-in tools" [ref=e180] [cursor=pointer]:
+                  - /url: /docs/cli/reference/built-in-tools/
+                - link "Exit codes" [ref=e182] [cursor=pointer]:
+                  - /url: /docs/cli/reference/exit-codes/
+                - link "Settings" [ref=e184] [cursor=pointer]:
+                  - /url: /docs/cli/reference/settings/
+            - link "Migrating from Q Developer" [ref=e185] [cursor=pointer]:
+              - /url: /docs/cli/migrating-from-q-developer/
+            - generic [ref=e187]:
+              - link "CLI 3.0 (Early Access)" [ref=e188] [cursor=pointer]:
+                - /url: /docs/cli/v3/
+              - button "Expand CLI 3.0 (Early Access)" [ref=e189] [cursor=pointer]:
+                - img [ref=e190]
+            - link "Upgrading from Q CLI" [ref=e192] [cursor=pointer]:
+              - /url: /docs/cli/migrating-from-q/
+      - generic [ref=e195]:
+        - generic [ref=e196]:
+          - navigation "breadcrumb" [ref=e199]:
+            - list [ref=e200]:
+              - listitem [ref=e201]:
+                - link "Docs" [ref=e202] [cursor=pointer]:
+                  - /url: /docs
+              - listitem [ref=e203]:
+                - img [ref=e204]
+              - listitem [ref=e206]:
+                - link "CLI" [ref=e207] [cursor=pointer]:
+                  - /url: /docs/cli
+              - listitem [ref=e208]:
+                - img [ref=e209]
+              - listitem [ref=e211]:
+                - link "Reference" [ref=e212] [cursor=pointer]:
+                  - /url: /docs/cli/reference
+              - listitem [ref=e213]:
+                - img [ref=e214]
+              - listitem [ref=e216]:
+                - link "Slash commands" [disabled] [ref=e217]
+          - heading "Slash commands" [level=1] [ref=e220]
+          - generic [ref=e221]:
+            - generic [ref=e222]:
+              - generic [ref=e223]:
+                - heading "Overview" [level=2] [ref=e224]
+                - link "Copy link to Overview section" [ref=e225] [cursor=pointer]:
+                  - /url: "#overview"
+                  - img [ref=e227]
+              - paragraph [ref=e230]:
+                - text: Slash commands are special commands you can use within an interactive chat session to quickly perform actions without leaving the conversation. They start with a forward slash (
+                - code [ref=e231]: /
+                - text: ) and provide shortcuts for common tasks.
+              - generic [ref=e232]:
+                - heading "Using slash commands" [level=2] [ref=e233]
+                - link "Copy link to Using slash commands section" [ref=e234] [cursor=pointer]:
+                  - /url: "#using-slash-commands"
+                  - img [ref=e236]
+              - paragraph [ref=e239]: "Slash commands are only available in interactive chat mode:"
+              - generic [ref=e240]:
+                - generic [ref=e241]:
+                  - generic [ref=e242]: bash
+                  - button "Copy code to clipboard" [ref=e243] [cursor=pointer]:
+                    - img [ref=e244]
+                  - status [ref=e247]
+                - code [ref=e250]:
+                  - text: kiro chat
+                  - generic [ref=e251]: "> /help"
+              - generic [ref=e252]:
+                - heading "Available commands" [level=2] [ref=e253]
+                - link "Copy link to Available commands section" [ref=e254] [cursor=pointer]:
+                  - /url: "#available-commands"
+                  - img [ref=e256]
+              - generic [ref=e259]:
+                - heading "/help" [level=3] [ref=e260]:
+                  - code [ref=e261]: /help
+                - link "Copy link to Help section" [ref=e262] [cursor=pointer]:
+                  - /url: "#help"
+                  - img [ref=e264]
+              - paragraph [ref=e267]: Switch to the Help Agent to ask questions about Kiro CLI features, or display classic help text.
+              - generic [ref=e268]:
+                - generic [ref=e269]:
+                  - generic [ref=e270]: bash
+                  - button "Copy code to clipboard" [ref=e271] [cursor=pointer]:
+                    - img [ref=e272]
+                  - status [ref=e275]
+                - code [ref=e278]:
+                  - generic [ref=e279]: "# Switch to Help Agent"
+                  - generic [ref=e280]: "> /help"
+                  - generic [ref=e281]: "# Ask a question directly"
+                  - generic [ref=e282]: "> /help How do I configure MCP servers?"
+                  - generic [ref=e283]: "# Show classic help text"
+                  - generic [ref=e284]: "> /help --legacy"
+                  - generic [ref=e285]: "# Show help for a specific command"
+                  - generic [ref=e286]: "> /help --legacy /context"
+              - paragraph [ref=e287]:
+                - text: See
+                - link "Help Agent" [ref=e288] [cursor=pointer]:
+                  - /url: /docs/cli/chat/help-agent/
+                - text: for more details.
+              - generic [ref=e289]:
+                - heading "/quit" [level=3] [ref=e290]:
+                  - code [ref=e291]: /quit
+                - link "Copy link to Quit section" [ref=e292] [cursor=pointer]:
+                  - /url: "#quit"
+                  - img [ref=e294]
+              - paragraph [ref=e297]: Exit the interactive chat session.
+              - generic [ref=e298]:
+                - generic [ref=e299]:
+                  - generic [ref=e300]: bash
+                  - button "Copy code to clipboard" [ref=e301] [cursor=pointer]:
+                    - img [ref=e302]
+                  - status [ref=e305]
+                - code [ref=e308]:
+                  - generic [ref=e309]: "> /quit"
+              - paragraph [ref=e310]: "Aliases: /exit, /q"
+              - generic [ref=e311]:
+                - heading "/clear" [level=3] [ref=e312]:
+                  - code [ref=e313]: /clear
+                - link "Copy link to Clear section" [ref=e314] [cursor=pointer]:
+                  - /url: "#clear"
+                  - img [ref=e316]
+              - paragraph [ref=e319]: Clear the current conversation history.
+              - generic [ref=e320]:
+                - generic [ref=e321]:
+                  - generic [ref=e322]: bash
+                  - button "Copy code to clipboard" [ref=e323] [cursor=pointer]:
+                    - img [ref=e324]
+                  - status [ref=e327]
+                - code [ref=e330]:
+                  - generic [ref=e331]: "> /clear"
+              - paragraph [ref=e332]: "Note: This only clears the display, not the saved conversation."
+              - generic [ref=e333]:
+                - heading "/context" [level=3] [ref=e334]:
+                  - code [ref=e335]: /context
+                - link "Copy link to Context section" [ref=e336] [cursor=pointer]:
+                  - /url: "#context"
+                  - img [ref=e338]
+              - paragraph [ref=e341]: Manage context files and view context window usage. Context rules determine which files are included in your Kiro session and are derived from the current active agent.
+              - generic [ref=e342]:
+                - generic [ref=e343]:
+                  - generic [ref=e344]: bash
+                  - button "Copy code to clipboard" [ref=e345] [cursor=pointer]:
+                    - img [ref=e346]
+                  - status [ref=e349]
+                - code [ref=e352]:
+                  - generic [ref=e353]: "# Display context rule configuration and matched files"
+                  - generic [ref=e354]: "> /context show"
+                  - generic [ref=e355]: "# Add context rules (filenames or glob patterns)"
+                  - generic [ref=e356]: "> /context add src/app.js"
+                  - generic [ref=e357]: "> /context add \"*.py\""
+                  - generic [ref=e358]: "> /context add \"src/**/*.js\""
+                  - generic [ref=e359]: "# Remove specified rules"
+                  - generic [ref=e360]: "> /context remove src/app.js"
+                  - generic [ref=e361]: "# Remove all rules"
+                  - generic [ref=e362]: "> /context clear"
+              - paragraph [ref=e363]:
+                - strong [ref=e364]: "Available subcommands:"
+              - list [ref=e365]:
+                - listitem [ref=e366]:
+                  - code [ref=e367]: show
+                  - text: "- Display the context rule configuration and matched files"
+                - listitem [ref=e368]:
+                  - code [ref=e369]: add
+                  - text: "- Add context rules (filenames or glob patterns)"
+                - listitem [ref=e370]:
+                  - code [ref=e371]: remove
+                  - text: "- Remove specified rules"
+              - paragraph [ref=e372]:
+                - strong [ref=e373]: "Notes:"
+              - list [ref=e374]:
+                - listitem [ref=e375]:
+                  - text: You can add specific files or use glob patterns (e.g.,
+                  - code [ref=e376]: "*.py"
+                  - text: ","
+                  - code [ref=e377]: src/**/*.js
+                  - text: )
+                - listitem [ref=e378]: Agent rules apply only to the current agent
+                - listitem [ref=e379]: Context changes are NOT preserved between chat sessions. To make changes permanent, edit the agent config file.
+                - listitem [ref=e380]: The files matched by these rules provide Kiro with additional information about your project or environment
+              - paragraph [ref=e381]:
+                - text: See
+                - link "Context Management" [ref=e382] [cursor=pointer]:
+                  - /url: /docs/cli/chat/context/
+                - text: for detailed documentation.
+              - generic [ref=e383]:
+                - heading "/model" [level=3] [ref=e384]:
+                  - code [ref=e385]: /model
+                - link "Copy link to Model section" [ref=e386] [cursor=pointer]:
+                  - /url: "#model"
+                  - img [ref=e388]
+              - paragraph [ref=e391]: Select an AI model for the current session. Use the interactive picker or specify a model name directly.
+              - generic [ref=e392]:
+                - generic [ref=e393]:
+                  - generic [ref=e394]: bash
+                  - button "Copy code to clipboard" [ref=e395] [cursor=pointer]:
+                    - img [ref=e396]
+                  - status [ref=e399]
+                - code [ref=e402]:
+                  - generic [ref=e403]: "# Open interactive model picker"
+                  - generic [ref=e404]: "> /model"
+                  - generic [ref=e405]: "# Select a model directly by name"
+                  - generic [ref=e406]: "> /model claude-opus-4.6"
+                  - generic [ref=e407]: "# Tab completion for model names"
+                  - generic [ref=e408]: "> /model clau<Tab>"
+                  - generic [ref=e409]: "# Explicitly write the current model as the default"
+                  - generic [ref=e410]: "> /model set-current-as-default"
+              - paragraph [ref=e411]:
+                - strong [ref=e412]: "Available subcommands:"
+              - list [ref=e413]:
+                - listitem [ref=e414]:
+                  - code [ref=e415]: set-current-as-default
+                  - text: "- Explicitly persist your current model selection as the default for all future sessions"
+              - paragraph [ref=e416]:
+                - strong [ref=e417]: "Features:"
+              - list [ref=e418]:
+                - listitem [ref=e419]: Tab completion shows available models from the API as you type
+                - listitem [ref=e420]: Ghost text hints appear showing matching model names
+                - listitem [ref=e421]: Fuzzy matching suggests similar models if exact name not found
+                - listitem [ref=e422]: Case-insensitive matching against model names and IDs
+              - paragraph [ref=e423]:
+                - strong [ref=e424]: "Note:"
+                - text: Your
+                - code [ref=e425]: /model
+                - text: selection persists automatically. Switch models once and Kiro saves the choice to
+                - code [ref=e426]: ~/.kiro/settings/cli.json
+                - text: ", carrying it into future sessions. The"
+                - code [ref=e427]: set-current-as-default
+                - text: subcommand is no longer required to make a selection stick; it remains available to explicitly write your current model as the default. See
+                - link "Persistence" [ref=e428] [cursor=pointer]:
+                  - /url: /docs/cli/chat/settings/#persistence
+                - text: for details.
+              - generic [ref=e429]:
+                - heading "/agent" [level=3] [ref=e430]:
+                  - code [ref=e431]: /agent
+                - link "Copy link to Agent section" [ref=e432] [cursor=pointer]:
+                  - /url: "#agent"
+                  - img [ref=e434]
+              - paragraph [ref=e437]: Manage agents and switch between different agent configurations.
+              - generic [ref=e438]:
+                - generic [ref=e439]:
+                  - generic [ref=e440]: bash
+                  - button "Copy code to clipboard" [ref=e441] [cursor=pointer]:
+                    - img [ref=e442]
+                  - status [ref=e445]
+                - code [ref=e448]:
+                  - generic [ref=e449]: "# List all available agents"
+                  - generic [ref=e450]: "> /agent list"
+                  - generic [ref=e451]: "# Create a new agent (AI-assisted by default)"
+                  - generic [ref=e452]: "> /agent create my-agent"
+                  - generic [ref=e453]: "# Create with description and MCP servers"
+                  - generic [ref=e454]: "> /agent create my-agent -D \"Code reviewer\" -m code-analysis"
+                  - generic [ref=e455]: "# Create using editor-based mode instead of AI generation"
+                  - generic [ref=e456]: "> /agent create my-agent --manual"
+                  - generic [ref=e457]: "# Create in a specific directory"
+                  - generic [ref=e458]: "> /agent create my-agent --directory workspace"
+                  - generic [ref=e459]: "# Generate is an alias for create"
+                  - generic [ref=e460]: "> /agent generate my-agent"
+                  - generic [ref=e461]: "# Edit the current agent"
+                  - generic [ref=e462]: "> /agent edit"
+                  - generic [ref=e463]: "# Edit a specific agent by name (interactive picker when no name given)"
+                  - generic [ref=e464]: "> /agent edit my-agent"
+                  - generic [ref=e465]: "# Edit an agent by file path"
+                  - generic [ref=e466]: "> /agent edit --path /absolute/path/to/my-agent.json"
+                  - generic [ref=e467]: "# Show agent config schema"
+                  - generic [ref=e468]: "> /agent schema"
+                  - generic [ref=e469]: "# Set default agent (interactive picker when no name given)"
+                  - generic [ref=e470]: "> /agent set-default my-agent"
+                  - generic [ref=e471]: "# Swap to a different agent at runtime"
+                  - generic [ref=e472]: "> /agent swap code-reviewer"
+              - paragraph [ref=e473]:
+                - strong [ref=e474]: "Available subcommands:"
+              - list [ref=e475]:
+                - listitem [ref=e476]:
+                  - code [ref=e477]: list
+                  - text: "- List all available agents with their descriptions"
+                - listitem [ref=e478]:
+                  - code [ref=e479]: create
+                  - text: "- Create a new agent using AI-assisted generation by default. Pass"
+                  - code [ref=e480]: "--manual"
+                  - text: for editor-based creation. Supports
+                  - code [ref=e481]: "-D"
+                  - text: (description),
+                  - code [ref=e482]: "-m"
+                  - text: (MCP server),
+                  - code [ref=e483]: "-d"
+                  - text: (directory), and
+                  - code [ref=e484]: "-f"
+                  - text: (template agent) flags.
+                - listitem [ref=e485]:
+                  - code [ref=e486]: edit
+                  - text: "- Edit an existing agent configuration. Shows an interactive picker when no agent name is provided. Supports"
+                  - code [ref=e487]: "--path"
+                  - text: for direct file access.
+                - listitem [ref=e488]:
+                  - code [ref=e489]: generate
+                  - text: "- Alias for"
+                  - code [ref=e490]: create
+                - listitem [ref=e491]:
+                  - code [ref=e492]: schema
+                  - text: "- Show agent config schema"
+                - listitem [ref=e493]:
+                  - code [ref=e494]: set-default
+                  - text: "- Define a default agent for new chat sessions. Shows an interactive picker when no agent name is provided."
+                - listitem [ref=e495]:
+                  - code [ref=e496]: swap
+                  - text: "- Swap to a new agent at runtime (shows agent descriptions for selection)"
+              - paragraph [ref=e497]:
+                - strong [ref=e498]: "Notes:"
+              - list [ref=e499]:
+                - listitem [ref=e500]:
+                  - text: Agents can be stored globally in
+                  - code [ref=e501]: ~/.kiro/agents/
+                  - text: or per-workspace in
+                  - code [ref=e502]: .kiro/agents/
+                - listitem [ref=e503]:
+                  - text: The
+                  - code [ref=e504]: "--directory"
+                  - text: flag accepts
+                  - code [ref=e505]: workspace
+                  - text: ","
+                  - code [ref=e506]: global
+                  - text: ", or a custom path"
+                - listitem [ref=e507]:
+                  - text: Launch kiro-cli chat with a specific agent using
+                  - code [ref=e508]: kiro-cli chat --agent agent_name
+                - listitem [ref=e509]:
+                  - text: Built-in agents (
+                  - code [ref=e510]: kiro_default
+                  - text: ","
+                  - code [ref=e511]: kiro_help
+                  - text: ","
+                  - code [ref=e512]: kiro_planner
+                  - text: ) cannot be edited
+                - listitem [ref=e513]:
+                  - text: Type
+                  - code [ref=e514]: /agent
+                  - text: or
+                  - code [ref=e515]: /agent swap
+                  - text: and press Tab to autocomplete agent names. Ghost text hints appear inline as you type, matching the behavior in
+                  - code [ref=e516]: /model
+                  - text: .
+                - listitem [ref=e517]:
+                  - text: Switching agents preserves your current
+                  - code [ref=e518]: /model
+                  - text: selection unless the target agent's configuration specifies a model of its own — then it switches to that one.
+              - paragraph [ref=e519]:
+                - text: When you edit an agent, changes are made in a
+                - strong [ref=e520]: temporary file
+                - text: first. If validation fails (for example, invalid JSON or missing required fields), you're prompted to continue editing or cancel. The original configuration file is never overwritten by a failed edit.
+              - paragraph [ref=e521]:
+                - text: See
+                - link "Custom Agents" [ref=e522] [cursor=pointer]:
+                  - /url: /docs/cli/custom-agents/
+                - text: for detailed documentation.
+              - generic [ref=e523]:
+                - heading "/spawn" [level=3] [ref=e524]:
+                  - code [ref=e525]: /spawn
+                - link "Copy link to Spawn section" [ref=e526] [cursor=pointer]:
+                  - /url: "#spawn"
+                  - img [ref=e528]
+              - paragraph [ref=e531]: Spawn a new agent session that runs a task in parallel with your current conversation.
+              - generic [ref=e532]:
+                - generic [ref=e533]:
+                  - generic [ref=e534]: bash
+                  - button "Copy code to clipboard" [ref=e535] [cursor=pointer]:
+                    - img [ref=e536]
+                  - status [ref=e539]
+                - code [ref=e542]:
+                  - generic [ref=e543]: "# Spawn an agent with a task"
+                  - generic [ref=e544]: "> /spawn Analyze the test coverage in src/utils and suggest improvements"
+                  - generic [ref=e545]: "# Give the spawned session a name"
+                  - generic [ref=e546]: "> /spawn --name test-analysis Review all failing tests and categorize the failures"
+              - paragraph [ref=e547]:
+                - text: Spawned sessions run alongside your main conversation without blocking it. Monitor them in real time with
+                - code [ref=e548]: Ctrl+G
+                - text: to open the crew monitor, which shows status for every spawned session.
+              - paragraph [ref=e549]:
+                - text: Unlike
+                - link "subagents" [ref=e550] [cursor=pointer]:
+                  - /url: /docs/cli/chat/subagents/
+                - text: ", which are spawned by the main agent to delegate focused work within a task graph,"
+                - code [ref=e551]: /spawn
+                - text: is a user-driven command that starts a fresh long-running session you can return to later.
+              - paragraph [ref=e552]:
+                - strong [ref=e553]: "Notes:"
+              - list [ref=e554]:
+                - listitem [ref=e555]:
+                  - text: A task description is required —
+                  - code [ref=e556]: /spawn
+                  - text: with no arguments fails.
+                - listitem [ref=e557]:
+                  - text: Use
+                  - code [ref=e558]: "--name"
+                  - text: to label a session for easier identification in the crew monitor.
+              - generic [ref=e559]:
+                - heading "/chat" [level=3] [ref=e560]:
+                  - code [ref=e561]: /chat
+                - link "Copy link to Chat section" [ref=e562] [cursor=pointer]:
+                  - /url: "#chat"
+                  - img [ref=e564]
+              - paragraph [ref=e567]: Manage chat sessions, including saving, loading, and switching between sessions. Kiro CLI automatically saves all chat sessions on every conversation turn.
+              - generic [ref=e568]:
+                - generic [ref=e569]:
+                  - generic [ref=e570]: bash
+                  - button "Copy code to clipboard" [ref=e571] [cursor=pointer]:
+                    - img [ref=e572]
+                  - status [ref=e575]
+                - code [ref=e578]:
+                  - generic [ref=e579]: "# Start a fresh conversation without restarting the CLI"
+                  - generic [ref=e580]: "> /chat new"
+                  - generic [ref=e581]: "# Start a fresh conversation with an initial prompt"
+                  - generic [ref=e582]: "> /chat new how do I set up a React project"
+                  - generic [ref=e583]: "# Open interactive session picker to resume a previous session"
+                  - generic [ref=e584]: "> /chat resume"
+                  - generic [ref=e585]: "# Save current session to a file"
+                  - generic [ref=e586]: "> /chat save /myproject/codereview.json"
+                  - generic [ref=e587]: "# Load a session from a file"
+                  - generic [ref=e588]: "> /chat load /myproject/codereview.json"
+              - paragraph [ref=e589]:
+                - strong [ref=e590]: "Available subcommands:"
+              - list [ref=e591]:
+                - listitem [ref=e592]:
+                  - code [ref=e593]: new
+                  - text: "- Start a fresh conversation without restarting the CLI. Optionally pass an initial prompt (e.g.,"
+                  - code [ref=e594]: /chat new how do I set up a React project
+                  - text: ). Use
+                  - code [ref=e595]: /chat resume
+                  - text: to return to previous sessions.
+                - listitem [ref=e596]:
+                  - code [ref=e597]: resume
+                  - text: "- Open interactive session picker to choose a session to resume"
+                - listitem [ref=e598]:
+                  - code [ref=e599]: save
+                  - text: "- Save current session to a file"
+                - listitem [ref=e600]:
+                  - code [ref=e601]: load
+                  - text: "- Load a session from a file ("
+                  - code [ref=e602]: .json
+                  - text: extension is optional)
+                - listitem [ref=e603]:
+                  - code [ref=e604]: save-via-script
+                  - text: "- Save session using a custom script (receives JSON via stdin)"
+                - listitem [ref=e605]:
+                  - code [ref=e606]: load-via-script
+                  - text: "- Load session using a custom script (outputs JSON to stdout)"
+              - paragraph [ref=e607]:
+                - strong [ref=e608]: "Notes:"
+              - list [ref=e609]:
+                - listitem [ref=e610]: Sessions are automatically saved on every conversation turn
+                - listitem [ref=e611]: Sessions are stored per directory, so each project has its own set of sessions
+                - listitem [ref=e612]: The session picker shows session name, last activity, and message preview
+                - listitem [ref=e613]:
+                  - text: "Use keyboard shortcuts in the picker:"
+                  - code [ref=e614]: ↑
+                  - text: /
+                  - code [ref=e615]: ↓
+                  - text: to navigate,
+                  - code [ref=e616]: Enter
+                  - text: to select,
+                  - code [ref=e617]: /
+                  - text: to filter
+              - generic [ref=e618]:
+                - heading "/session-id" [level=3] [ref=e619]:
+                  - code [ref=e620]: /session-id
+                - link "Copy link to Session id section" [ref=e621] [cursor=pointer]:
+                  - /url: "#session-id"
+                  - img [ref=e623]
+              - paragraph [ref=e626]:
+                - text: Print the current chat session ID. Useful when you want to resume this exact session later with
+                - code [ref=e627]: kiro-cli chat --resume-id <ID>
+                - text: or share the ID with support.
+              - generic [ref=e628]:
+                - generic [ref=e629]:
+                  - generic [ref=e630]: bash
+                  - button "Copy code to clipboard" [ref=e631] [cursor=pointer]:
+                    - img [ref=e632]
+                  - status [ref=e635]
+                - code [ref=e638]:
+                  - generic [ref=e639]: "> /session-id"
+              - paragraph [ref=e640]: On exit, Kiro CLI also shows a resume hint with the ID so you can jump back into the same session from your next terminal.
+              - generic [ref=e641]:
+                - heading "Custom session storage" [level=4] [ref=e642]
+                - link "Copy link to Custom session storage section" [ref=e643] [cursor=pointer]:
+                  - /url: "#custom-session-storage"
+                  - img [ref=e645]
+              - paragraph [ref=e648]: You can use custom scripts to control where chat sessions are saved to and loaded from. This allows you to store sessions in version control systems, cloud storage, databases, or any custom location.
+              - paragraph [ref=e649]:
+                - strong [ref=e650]: "Save via script:"
+              - generic [ref=e651]:
+                - generic [ref=e652]:
+                  - generic [ref=e653]: bash
+                  - button "Copy code to clipboard" [ref=e654] [cursor=pointer]:
+                    - img [ref=e655]
+                  - status [ref=e658]
+                - code [ref=e661]:
+                  - generic [ref=e662]: "> /chat save-via-script ./scripts/save-to-git.sh"
+              - paragraph [ref=e663]: "Your script receives the chat session JSON via stdin. Example script to save to Git notes:"
+              - generic [ref=e664]:
+                - generic [ref=e665]:
+                  - generic [ref=e666]: bash
+                  - button "Copy code to clipboard" [ref=e667] [cursor=pointer]:
+                    - img [ref=e668]
+                  - status [ref=e671]
+                - code [ref=e674]:
+                  - generic [ref=e675]: "#!/bin/bash"
+                  - generic [ref=e676]: set -ex
+                  - generic [ref=e677]:
+                    - text: COMMIT=
+                    - generic [ref=e678]: $(git rev-parse HEAD)
+                  - generic [ref=e679]:
+                    - text: TEMP=
+                    - generic [ref=e680]: $(mktemp)
+                  - generic [ref=e681]:
+                    - text: cat >
+                    - generic [ref=e682]: "\"$TEMP\""
+                  - generic [ref=e683]:
+                    - text: git notes --ref=kiro/notes add -F
+                    - generic [ref=e684]: "\"$TEMP\""
+                    - generic [ref=e685]: "\"$COMMIT\""
+                    - text: "--force"
+                  - generic [ref=e686]:
+                    - text: rm
+                    - generic [ref=e687]: "\"$TEMP\""
+                  - generic [ref=e688]:
+                    - text: echo
+                    - generic [ref=e689]:
+                      - text: "\"Saved to commit"
+                      - generic [ref=e690]: "${COMMIT:0:8}"
+                      - text: "\""
+                    - text: ">&2"
+              - paragraph [ref=e691]:
+                - strong [ref=e692]: "Load via script:"
+              - generic [ref=e693]:
+                - generic [ref=e694]:
+                  - generic [ref=e695]: bash
+                  - button "Copy code to clipboard" [ref=e696] [cursor=pointer]:
+                    - img [ref=e697]
+                  - status [ref=e700]
+                - code [ref=e703]:
+                  - generic [ref=e704]: "> /chat load-via-script ./scripts/load-from-git.sh"
+              - paragraph [ref=e705]: "Your script should output the chat session JSON to stdout. Example script to load from Git notes:"
+              - generic [ref=e706]:
+                - generic [ref=e707]:
+                  - generic [ref=e708]: bash
+                  - button "Copy code to clipboard" [ref=e709] [cursor=pointer]:
+                    - img [ref=e710]
+                  - status [ref=e713]
+                - code [ref=e716]:
+                  - generic [ref=e717]: "#!/bin/bash"
+                  - generic [ref=e718]: set -ex
+                  - generic [ref=e719]:
+                    - text: COMMIT=
+                    - generic [ref=e720]: $(git rev-parse HEAD)
+                  - generic [ref=e721]:
+                    - text: git notes --ref=kiro/notes show
+                    - generic [ref=e722]: "\"$COMMIT\""
+              - generic [ref=e723]:
+                - heading "/save" [level=3] [ref=e724]:
+                  - code [ref=e725]: /save
+                - link "Copy link to Save section" [ref=e726] [cursor=pointer]:
+                  - /url: "#save"
+                  - img [ref=e728]
+              - paragraph [ref=e731]: Save the current conversation to a file.
+              - generic [ref=e732]:
+                - generic [ref=e733]:
+                  - generic [ref=e734]: bash
+                  - button "Copy code to clipboard" [ref=e735] [cursor=pointer]:
+                    - img [ref=e736]
+                  - status [ref=e739]
+                - code [ref=e742]:
+                  - generic [ref=e743]: "# Save <PATH>"
+                  - generic [ref=e744]: "> /chat save /myproject/codereview.json"
+              - generic [ref=e745]:
+                - heading "/load" [level=3] [ref=e746]:
+                  - code [ref=e747]: /load
+                - link "Copy link to Load section" [ref=e748] [cursor=pointer]:
+                  - /url: "#load"
+                  - img [ref=e750]
+              - paragraph [ref=e753]: Load a previously saved conversation.
+              - generic [ref=e754]:
+                - generic [ref=e755]:
+                  - generic [ref=e756]: bash
+                  - button "Copy code to clipboard" [ref=e757] [cursor=pointer]:
+                    - img [ref=e758]
+                  - status [ref=e761]
+                - code [ref=e764]:
+                  - generic [ref=e765]: "# List available conversations"
+                  - generic [ref=e766]: "> /chat load /myproject/codereview.json"
+              - generic [ref=e767]:
+                - heading "/editor" [level=3] [ref=e768]:
+                  - code [ref=e769]: /editor
+                - link "Copy link to Editor section" [ref=e770] [cursor=pointer]:
+                  - /url: "#editor"
+                  - img [ref=e772]
+              - paragraph [ref=e775]: Open your default editor to compose a longer prompt.
+              - generic [ref=e776]:
+                - generic [ref=e777]:
+                  - generic [ref=e778]: bash
+                  - button "Copy code to clipboard" [ref=e779] [cursor=pointer]:
+                    - img [ref=e780]
+                  - status [ref=e783]
+                - code [ref=e786]:
+                  - generic [ref=e787]: "> /editor"
+              - paragraph [ref=e788]:
+                - text: Opens
+                - code [ref=e789]: $EDITOR
+                - text: (defaults to vi if not set) to compose a multi-line message. Useful for crafting detailed prompts, pasting code snippets, or writing longer instructions. Save and exit the editor to send the message.
+              - generic [ref=e790]:
+                - heading "/reply" [level=3] [ref=e791]:
+                  - code [ref=e792]: /reply
+                - link "Copy link to Reply section" [ref=e793] [cursor=pointer]:
+                  - /url: "#reply"
+                  - img [ref=e795]
+              - paragraph [ref=e798]: Open your editor with the most recent assistant message quoted for reply.
+              - generic [ref=e799]:
+                - generic [ref=e800]:
+                  - generic [ref=e801]: bash
+                  - button "Copy code to clipboard" [ref=e802] [cursor=pointer]:
+                    - img [ref=e803]
+                  - status [ref=e806]
+                - code [ref=e809]:
+                  - generic [ref=e810]: "> /reply"
+              - paragraph [ref=e811]:
+                - text: Opens
+                - code [ref=e812]: $EDITOR
+                - text: with the AI's last response quoted, allowing you to reference and respond to specific parts of the message. Useful for providing feedback on specific sections or asking follow-up questions about particular details.
+              - generic [ref=e813]:
+                - heading "/checkpoint" [level=3] [ref=e814]:
+                  - code [ref=e815]: /checkpoint
+                - link "Copy link to Checkpoint section" [ref=e816] [cursor=pointer]:
+                  - /url: "#checkpoint"
+                  - img [ref=e818]
+              - paragraph [ref=e821]: Manage workspace checkpoints to track and restore file changes.
+              - generic [ref=e822]:
+                - generic [ref=e823]:
+                  - generic [ref=e824]: bash
+                  - button "Copy code to clipboard" [ref=e825] [cursor=pointer]:
+                    - img [ref=e826]
+                  - status [ref=e829]
+                - code [ref=e832]:
+                  - generic [ref=e833]: "# Initialize a new checkpoint"
+                  - generic [ref=e834]: "> /checkpoint init"
+                  - generic [ref=e835]: "# List all checkpoints"
+                  - generic [ref=e836]: "> /checkpoint list"
+                  - generic [ref=e837]: "# Restore to a checkpoint (interactive picker)"
+                  - generic [ref=e838]: "> /checkpoint restore"
+                  - generic [ref=e839]: "# Restore to specific checkpoint"
+                  - generic [ref=e840]: "> /checkpoint restore 2"
+                  - generic [ref=e841]: "# Restore with exact state match (removes newer files)"
+                  - generic [ref=e842]: "> /checkpoint restore 2 --hard"
+                  - generic [ref=e843]: "# View checkpoint details"
+                  - generic [ref=e844]: "> /checkpoint expand 1"
+                  - generic [ref=e845]: "# View differences between checkpoints"
+                  - generic [ref=e846]: "> /checkpoint diff 1 2"
+                  - generic [ref=e847]: "# Clean up checkpoint data"
+                  - generic [ref=e848]: "> /checkpoint clean"
+              - paragraph [ref=e849]:
+                - strong [ref=e850]: "Available subcommands:"
+              - list [ref=e851]:
+                - listitem [ref=e852]:
+                  - code [ref=e853]: init
+                  - text: "- Create a snapshot of current workspace state"
+                - listitem [ref=e854]:
+                  - code [ref=e855]: list
+                  - text: "- Show available checkpoints with timestamps and file stats"
+                - listitem [ref=e856]:
+                  - code [ref=e857]: restore
+                  - text: "- Restore workspace to a previous checkpoint state"
+                - listitem [ref=e858]:
+                  - code [ref=e859]: expand
+                  - text: "- Show detailed checkpoint information"
+                - listitem [ref=e860]:
+                  - code [ref=e861]: diff
+                  - text: "- View differences between checkpoints"
+                - listitem [ref=e862]:
+                  - code [ref=e863]: clean
+                  - text: "- Clean up checkpoint shadow repository"
+              - paragraph [ref=e864]:
+                - strong [ref=e865]: "How it works:"
+              - list [ref=e866]:
+                - listitem [ref=e867]: Creates a shadow bare git repository to track file changes
+                - listitem [ref=e868]: Checkpoints created per conversation turn
+                - listitem [ref=e869]: Sub-checkpoints for each tool use
+                - listitem [ref=e870]: Conversation history reverts when restoring to a checkpoint
+                - listitem [ref=e871]: Auto-enabled in git repositories (ephemeral mode)
+                - listitem [ref=e872]: Can be manually initialized in non-git directories
+              - paragraph [ref=e873]:
+                - strong [ref=e874]: "Restore modes:"
+              - list [ref=e875]:
+                - listitem [ref=e876]:
+                  - strong [ref=e877]: Default
+                  - text: ": Reverts tracked changes and deletions, keeps files created after checkpoint"
+                - listitem [ref=e878]:
+                  - strong [ref=e879]: Hard mode
+                  - text: (
+                  - code [ref=e880]: "--hard"
+                  - text: "): Exactly matches checkpoint state, deletes files created after checkpoint"
+              - paragraph [ref=e881]:
+                - strong [ref=e882]: "Note:"
+                - text: This is an experimental feature. Enable with
+                - code [ref=e883]: kiro-cli settings chat.enableCheckpoint true
+                - text: .
+              - generic [ref=e884]:
+                - heading "/plan" [level=3] [ref=e885]:
+                  - code [ref=e886]: /plan
+                - link "Copy link to Plan section" [ref=e887] [cursor=pointer]:
+                  - /url: "#plan"
+                  - img [ref=e889]
+              - paragraph [ref=e892]: Switch to the Plan agent for breaking down complex ideas into implementation plans.
+              - generic [ref=e893]:
+                - generic [ref=e894]:
+                  - generic [ref=e895]: bash
+                  - button "Copy code to clipboard" [ref=e896] [cursor=pointer]:
+                    - img [ref=e897]
+                  - status [ref=e900]
+                - code [ref=e903]:
+                  - generic [ref=e904]: "# Switch to Plan agent"
+                  - generic [ref=e905]: "> /plan"
+                  - generic [ref=e906]: "# Switch with immediate prompt"
+                  - generic [ref=e907]: "> /plan Build a REST API for user management"
+              - paragraph [ref=e908]:
+                - text: The Plan agent specializes in breaking down complex ideas into actionable implementation plans. Use
+                - code [ref=e909]: Shift+Tab
+                - text: to return to your previous agent.
+              - generic [ref=e910]:
+                - heading "/guide" [level=3] [ref=e911]:
+                  - code [ref=e912]: /guide
+                - link "Copy link to Guide section" [ref=e913] [cursor=pointer]:
+                  - /url: "#guide"
+                  - img [ref=e915]
+              - paragraph [ref=e918]: Switch to the Guide agent for documentation-grounded help and onboarding.
+              - generic [ref=e919]:
+                - generic [ref=e920]:
+                  - generic [ref=e921]: bash
+                  - button "Copy code to clipboard" [ref=e922] [cursor=pointer]:
+                    - img [ref=e923]
+                  - status [ref=e926]
+                - code [ref=e929]:
+                  - generic [ref=e930]: "# Switch to Guide agent"
+                  - generic [ref=e931]: "> /guide"
+              - paragraph [ref=e932]:
+                - text: The Guide agent answers questions about Kiro CLI features, commands, tools, and settings using indexed documentation. It can also create configuration files in your
+                - code [ref=e933]: .kiro/
+                - text: directory (agents, prompts, steering files).
+              - paragraph [ref=e934]:
+                - text: Use
+                - code [ref=e935]: Shift+Tab
+                - text: or
+                - code [ref=e936]: /agent swap
+                - text: to return to your previous agent.
+              - note "Note" [ref=e937]:
+                - generic [ref=e938]:
+                  - img [ref=e939]
+                  - strong [ref=e941]: Info
+                - paragraph [ref=e943]:
+                  - text: The
+                  - code [ref=e944]: /guide
+                  - text: command is only available in the terminal UI. In the classic interface, use
+                  - code [ref=e945]: /help
+                  - text: for the same interactive agent experience.
+              - paragraph [ref=e946]:
+                - text: See
+                - link "Guide agent" [ref=e947] [cursor=pointer]:
+                  - /url: /docs/cli/chat/guide
+                - text: for detailed documentation.
+              - generic [ref=e948]:
+                - heading "/knowledge" [level=3] [ref=e949]:
+                  - code [ref=e950]: /knowledge
+                - link "Copy link to Knowledge section" [ref=e951] [cursor=pointer]:
+                  - /url: "#knowledge"
+                  - img [ref=e953]
+              - paragraph [ref=e956]: Manage your knowledge base for semantic search across files and directories.
+              - generic [ref=e957]:
+                - generic [ref=e958]:
+                  - generic [ref=e959]: bash
+                  - button "Copy code to clipboard" [ref=e960] [cursor=pointer]:
+                    - img [ref=e961]
+                  - status [ref=e964]
+                - code [ref=e967]:
+                  - generic [ref=e968]: "# Show all knowledge base entries"
+                  - generic [ref=e969]: "> /knowledge show"
+                  - generic [ref=e970]: "# Add a file or directory"
+                  - generic [ref=e971]: "> /knowledge add --name my-docs --path ./docs"
+                  - generic [ref=e972]: "# Add with include/exclude patterns"
+                  - generic [ref=e973]: "> /knowledge add --name src --path ./src --include \"*.ts\" --exclude \"*.test.ts\""
+                  - generic [ref=e974]: "# Add with indexing type"
+                  - generic [ref=e975]: "> /knowledge add --name api --path ./api --index-type Best"
+                  - generic [ref=e976]: "# Search the knowledge base"
+                  - generic [ref=e977]: "> /knowledge search \"authentication flow\""
+                  - generic [ref=e978]: "# Remove an entry"
+                  - generic [ref=e979]: "> /knowledge remove ./docs"
+                  - generic [ref=e980]: "# Update (re-index) an entry"
+                  - generic [ref=e981]: "> /knowledge update ./docs"
+                  - generic [ref=e982]: "# Re-index every knowledge base at once"
+                  - generic [ref=e983]: "> /knowledge update"
+                  - generic [ref=e984]: "# Clear entire knowledge base"
+                  - generic [ref=e985]: "> /knowledge clear"
+                  - generic [ref=e986]: "# Cancel background indexing operation"
+                  - generic [ref=e987]: "> /knowledge cancel"
+              - paragraph [ref=e988]:
+                - strong [ref=e989]: "Available subcommands:"
+              - list [ref=e990]:
+                - listitem [ref=e991]:
+                  - code [ref=e992]: show
+                  - text: "- List all knowledge base entries with status"
+                - listitem [ref=e993]:
+                  - code [ref=e994]: add
+                  - text: "- Add files or directories to knowledge base"
+                - listitem [ref=e995]:
+                  - code [ref=e996]: search
+                  - text: "- Semantically search indexed content"
+                - listitem [ref=e997]:
+                  - code [ref=e998]: remove
+                  - text: "(alias:"
+                  - code [ref=e999]: rm
+                  - text: ) - Remove entry by path
+                - listitem [ref=e1000]:
+                  - code [ref=e1001]: update
+                  - text: "- Re-index an existing entry. Run with no arguments to re-index every knowledge base at once."
+                - listitem [ref=e1002]:
+                  - code [ref=e1003]: clear
+                  - text: "- Clear entire knowledge base (requires confirmation)"
+                - listitem [ref=e1004]:
+                  - code [ref=e1005]: cancel
+                  - text: "- Cancel background indexing operation"
+              - paragraph [ref=e1006]:
+                - strong [ref=e1007]: "Add options:"
+              - list [ref=e1008]:
+                - listitem [ref=e1009]:
+                  - code [ref=e1010]: "--name, -n"
+                  - text: "- Entry name (required)"
+                - listitem [ref=e1011]:
+                  - code [ref=e1012]: "--path, -p"
+                  - text: "- File or directory path (required)"
+                - listitem [ref=e1013]:
+                  - code [ref=e1014]: "--include"
+                  - text: "- Include patterns (can specify multiple)"
+                - listitem [ref=e1015]:
+                  - code [ref=e1016]: "--exclude"
+                  - text: "- Exclude patterns (can specify multiple)"
+                - listitem [ref=e1017]:
+                  - code [ref=e1018]: "--index-type"
+                  - text: "- Fast or Best (default from settings)"
+              - paragraph [ref=e1019]:
+                - strong [ref=e1020]: "Note:"
+                - text: This is an experimental feature. Enable with
+                - code [ref=e1021]: kiro-cli settings chat.enableKnowledge true
+                - text: .
+              - paragraph [ref=e1022]:
+                - text: See
+                - link "Knowledge Management" [ref=e1023] [cursor=pointer]:
+                  - /url: /docs/cli/experimental/knowledge-management/
+                - text: for detailed documentation.
+              - generic [ref=e1024]:
+                - heading "/compact" [level=3] [ref=e1025]:
+                  - code [ref=e1026]: /compact
+                - link "Copy link to Compact section" [ref=e1027] [cursor=pointer]:
+                  - /url: "#compact"
+                  - img [ref=e1029]
+              - paragraph [ref=e1032]: Summarize the conversation to free up context space.
+              - generic [ref=e1033]:
+                - generic [ref=e1034]:
+                  - generic [ref=e1035]: bash
+                  - button "Copy code to clipboard" [ref=e1036] [cursor=pointer]:
+                    - img [ref=e1037]
+                  - status [ref=e1040]
+                - code [ref=e1043]:
+                  - generic [ref=e1044]: "> /compact"
+              - paragraph [ref=e1045]: Condenses the conversation history while preserving key information, useful when approaching context limits. The AI creates a summary of the conversation so far and replaces the message history with this summary, freeing up tokens in your context window.
+              - generic [ref=e1046]:
+                - heading "/paste" [level=3] [ref=e1047]:
+                  - code [ref=e1048]: /paste
+                - link "Copy link to Paste section" [ref=e1049] [cursor=pointer]:
+                  - /url: "#paste"
+                  - img [ref=e1051]
+              - paragraph [ref=e1054]: Paste an image from your clipboard into the conversation.
+              - generic [ref=e1055]:
+                - generic [ref=e1056]:
+                  - generic [ref=e1057]: bash
+                  - button "Copy code to clipboard" [ref=e1058] [cursor=pointer]:
+                    - img [ref=e1059]
+                  - status [ref=e1062]
+                - code [ref=e1065]:
+                  - generic [ref=e1066]: "> /paste"
+              - paragraph [ref=e1067]: Adds an image from your system clipboard to the conversation, allowing the AI to analyze screenshots, diagrams, error messages, or any visual content. Supports common image formats (PNG, JPEG, etc.).
+              - generic [ref=e1068]:
+                - heading "/tools" [level=3] [ref=e1069]:
+                  - code [ref=e1070]: /tools
+                - link "Copy link to Tools section" [ref=e1071] [cursor=pointer]:
+                  - /url: "#tools"
+                  - img [ref=e1073]
+              - paragraph [ref=e1076]: View tools and permissions. By default, Kiro will ask for your permission to use certain tools. You can control which tools you trust so that no confirmation is required.
+              - generic [ref=e1077]:
+                - generic [ref=e1078]:
+                  - generic [ref=e1079]: bash
+                  - button "Copy code to clipboard" [ref=e1080] [cursor=pointer]:
+                    - img [ref=e1081]
+                  - status [ref=e1084]
+                - code [ref=e1087]:
+                  - generic [ref=e1088]: "# View all tools, estimated token counts, and permissions"
+                  - generic [ref=e1089]: "> /tools"
+                  - generic [ref=e1090]: "# Show the input schema for all available tools"
+                  - generic [ref=e1091]: "> /tools schema"
+                  - generic [ref=e1092]: "# Trust a specific tool for the session"
+                  - generic [ref=e1093]: "> /tools trust write"
+                  - generic [ref=e1094]: "# Revert a tool to per-request confirmation"
+                  - generic [ref=e1095]: "> /tools untrust write"
+                  - generic [ref=e1096]: "# Trust all tools (equivalent to deprecated /acceptall)"
+                  - generic [ref=e1097]: "> /tools trust-all"
+                  - generic [ref=e1098]: "# Reset all tools to default permission levels"
+                  - generic [ref=e1099]: "> /tools reset"
+              - paragraph [ref=e1100]:
+                - strong [ref=e1101]: "Available subcommands:"
+              - list [ref=e1102]:
+                - listitem [ref=e1103]:
+                  - code [ref=e1104]: schema
+                  - text: "- Show the input schema for all available tools"
+                - listitem [ref=e1105]:
+                  - code [ref=e1106]: trust
+                  - text: "- Trust a specific tool or tools for the session"
+                - listitem [ref=e1107]:
+                  - code [ref=e1108]: untrust
+                  - text: "- Revert a tool or tools to per-request confirmation"
+                - listitem [ref=e1109]:
+                  - code [ref=e1110]: trust-all
+                  - text: "- Trust all tools (equivalent to deprecated /acceptall)"
+                - listitem [ref=e1111]:
+                  - code [ref=e1112]: reset
+                  - text: "- Reset all runtime permissions to defaults, including shell trust patterns, filesystem path permissions, and denied tools"
+              - paragraph [ref=e1113]:
+                - strong [ref=e1114]: "Output columns:"
+              - list [ref=e1115]:
+                - listitem [ref=e1116]:
+                  - code [ref=e1117]: ~Tokens
+                  - text: "- Estimated token count for each tool's schema (values 1000+ shown as"
+                  - code [ref=e1118]: k
+                  - text: )
+                - listitem [ref=e1119]:
+                  - code [ref=e1120]: Permission
+                  - text: "- Current permission status (Trusted, Ask, or Allowed)"
+                - listitem [ref=e1121]:
+                  - code [ref=e1122]: Total
+                  - text: "- Combined token count per origin (Native tools, each MCP server)"
+              - paragraph [ref=e1123]:
+                - strong [ref=e1124]: "Note:"
+                - text: For permanent tool configuration, see
+                - link "Agent Configuration Reference" [ref=e1125] [cursor=pointer]:
+                  - /url: /docs/cli/custom-agents/configuration-reference/#tools-field
+                - text: .
+              - generic [ref=e1126]:
+                - heading "/prompts" [level=3] [ref=e1127]:
+                  - code [ref=e1128]: /prompts
+                - link "Copy link to Prompts section" [ref=e1129] [cursor=pointer]:
+                  - /url: "#prompts"
+                  - img [ref=e1131]
+              - paragraph [ref=e1134]: View and retrieve prompts. Prompts are reusable templates that help you quickly access common workflows and tasks. These templates are provided by the MCP servers you have installed and configured.
+              - generic [ref=e1135]:
+                - generic [ref=e1136]:
+                  - generic [ref=e1137]: bash
+                  - button "Copy code to clipboard" [ref=e1138] [cursor=pointer]:
+                    - img [ref=e1139]
+                  - status [ref=e1142]
+                - code [ref=e1145]:
+                  - generic [ref=e1146]: "# List available prompts from a tool or show all available prompts"
+                  - generic [ref=e1147]: "> /prompts list"
+                  - generic [ref=e1148]: "# Show detailed information about a specific prompt"
+                  - generic [ref=e1149]: "> /prompts details code-review"
+                  - generic [ref=e1150]: "# Get a specific prompt by name"
+                  - generic [ref=e1151]: "> /prompts get code-review [arg]"
+                  - generic [ref=e1152]: "# Quick retrieval (without /prompts prefix)"
+                  - generic [ref=e1153]: "> @code-review [arg]"
+                  - generic [ref=e1154]: "# Create a new local prompt"
+                  - generic [ref=e1155]: "> /prompts create my-prompt"
+                  - generic [ref=e1156]: "# Edit an existing local prompt"
+                  - generic [ref=e1157]: "> /prompts edit my-prompt"
+                  - generic [ref=e1158]: "# Remove an existing local prompt"
+                  - generic [ref=e1159]: "> /prompts remove my-prompt"
+              - paragraph [ref=e1160]:
+                - strong [ref=e1161]: "Available subcommands:"
+              - list [ref=e1162]:
+                - listitem [ref=e1163]:
+                  - code [ref=e1164]: list
+                  - text: "- List available prompts from a tool or show all available prompts"
+                - listitem [ref=e1165]:
+                  - code [ref=e1166]: details
+                  - text: "- Show detailed information about a specific prompt"
+                - listitem [ref=e1167]:
+                  - code [ref=e1168]: get
+                  - text: "- Get a specific prompt by name"
+                - listitem [ref=e1169]:
+                  - code [ref=e1170]: create
+                  - text: "- Create a new local prompt"
+                - listitem [ref=e1171]:
+                  - code [ref=e1172]: edit
+                  - text: "- Edit an existing local prompt"
+                - listitem [ref=e1173]:
+                  - code [ref=e1174]: remove
+                  - text: "- Remove an existing local prompt"
+              - paragraph [ref=e1175]:
+                - strong [ref=e1176]: "Quick tip:"
+                - text: To retrieve a prompt directly, use
+                - code [ref=e1177]: "@<prompt name> [arg]"
+                - text: without the
+                - code [ref=e1178]: /prompts get
+                - text: prefix.
+              - paragraph [ref=e1179]:
+                - text: See
+                - link "Manage Prompts" [ref=e1180] [cursor=pointer]:
+                  - /url: /docs/cli/chat/manage-prompts/
+                - text: for detailed documentation.
+              - generic [ref=e1181]:
+                - heading "/hooks" [level=3] [ref=e1182]:
+                  - code [ref=e1183]: /hooks
+                - link "Copy link to Hooks section" [ref=e1184] [cursor=pointer]:
+                  - /url: "#hooks"
+                  - img [ref=e1186]
+              - paragraph [ref=e1189]: View context hooks.
+              - generic [ref=e1190]:
+                - generic [ref=e1191]:
+                  - generic [ref=e1192]: bash
+                  - button "Copy code to clipboard" [ref=e1193] [cursor=pointer]:
+                    - img [ref=e1194]
+                  - status [ref=e1197]
+                - code [ref=e1200]:
+                  - generic [ref=e1201]: "> /hooks"
+              - paragraph [ref=e1202]: Display active context hooks for the current session.
+              - generic [ref=e1203]:
+                - heading "/usage" [level=3] [ref=e1204]:
+                  - code [ref=e1205]: /usage
+                - link "Copy link to Usage section" [ref=e1206] [cursor=pointer]:
+                  - /url: "#usage"
+                  - img [ref=e1208]
+              - paragraph [ref=e1211]: Show billing and credits information.
+              - generic [ref=e1212]:
+                - generic [ref=e1213]:
+                  - generic [ref=e1214]: bash
+                  - button "Copy code to clipboard" [ref=e1215] [cursor=pointer]:
+                    - img [ref=e1216]
+                  - status [ref=e1219]
+                - code [ref=e1222]:
+                  - generic [ref=e1223]: "> /usage"
+              - paragraph [ref=e1224]: View your current usage statistics and remaining credits.
+              - generic [ref=e1225]:
+                - heading "/mcp" [level=3] [ref=e1226]:
+                  - code [ref=e1227]: /mcp
+                - link "Copy link to Mcp section" [ref=e1228] [cursor=pointer]:
+                  - /url: "#mcp"
+                  - img [ref=e1230]
+              - paragraph [ref=e1233]: View MCP servers and registry status.
+              - generic [ref=e1234]:
+                - generic [ref=e1235]:
+                  - generic [ref=e1236]: bash
+                  - button "Copy code to clipboard" [ref=e1237] [cursor=pointer]:
+                    - img [ref=e1238]
+                  - status [ref=e1241]
+                - code [ref=e1244]:
+                  - generic [ref=e1245]: "> /mcp"
+              - paragraph [ref=e1246]: Display Model Context Protocol servers currently active, their available tools, and registry status for managed servers.
+              - paragraph [ref=e1247]:
+                - text: When your organization has a registry configured,
+                - code [ref=e1248]: /mcp add
+                - text: and
+                - code [ref=e1249]: /mcp remove
+                - text: persist changes to your agent's configuration file, so additions and removals survive restarts.
+              - paragraph [ref=e1250]:
+                - strong [ref=e1251]: MCP disabled by your administrator
+              - paragraph [ref=e1252]:
+                - text: If your organization's administrator has disabled MCP in the Kiro console,
+                - code [ref=e1253]: /mcp
+                - text: "shows one of two messages:"
+              - list [ref=e1254]:
+                - listitem [ref=e1255]:
+                  - strong [ref=e1256]:
+                    - code [ref=e1257]: MCP has been disabled by your administrator
+                  - text: — MCP is turned off for your organization. All servers (user-configured, legacy, registry, and session-injected) are suppressed and no MCP tools are available to the agent.
+                - listitem [ref=e1258]:
+                  - strong [ref=e1259]:
+                    - code [ref=e1260]: Failed to retrieve MCP settings — MCP disabled
+                  - text: — the Kiro client couldn't reach the governance API. MCP fails closed for security. This is usually transient; retry, check connectivity, or contact your administrator if it persists.
+              - paragraph [ref=e1261]: MCP governance applies to IAM Identity Center and API key users. Builder ID and social auth users are not affected.
+              - paragraph [ref=e1262]:
+                - text: See
+                - link "MCP governance" [ref=e1263] [cursor=pointer]:
+                  - /url: /docs/enterprise/governance/mcp/
+                - text: for the administrator setup.
+              - paragraph [ref=e1264]:
+                - strong [ref=e1265]: "Related commands:"
+              - list [ref=e1266]:
+                - listitem [ref=e1267]:
+                  - code [ref=e1268]: /mcp auth
+                  - text: — Force re-authentication for a remote server
+                - listitem [ref=e1269]:
+                  - code [ref=e1270]: /mcp cancel-auth
+                  - text: — Cancel a stuck authentication flow
+                - listitem [ref=e1271]:
+                  - code [ref=e1272]: /mcp logout
+                  - text: — Remove stored credentials for a server
+              - generic [ref=e1273]:
+                - heading "/mcp auth" [level=3] [ref=e1274]:
+                  - code [ref=e1275]: /mcp auth
+                - link "Copy link to Mcp auth section" [ref=e1276] [cursor=pointer]:
+                  - /url: "#mcp-auth"
+                  - img [ref=e1278]
+              - paragraph [ref=e1281]: Force re-authentication for a remote MCP server whose OAuth token has expired or become invalid.
+              - generic [ref=e1282]:
+                - generic [ref=e1283]:
+                  - generic [ref=e1284]: bash
+                  - button "Copy code to clipboard" [ref=e1285] [cursor=pointer]:
+                    - img [ref=e1286]
+                  - status [ref=e1289]
+                - code [ref=e1292]:
+                  - generic [ref=e1293]: "# Re-authenticate with a specific server"
+                  - generic [ref=e1294]: "> /mcp auth my-server"
+              - paragraph [ref=e1295]: Use this when a remote MCP server stops responding due to an expired or revoked token. Kiro opens a browser-based OAuth flow to obtain a fresh token without requiring you to restart your session.
+              - paragraph [ref=e1296]:
+                - text: You can also press
+                - code [ref=e1297]: ^A
+                - text: in the MCP panel status view to trigger the same action.
+              - generic [ref=e1298]:
+                - heading "/mcp cancel-auth" [level=3] [ref=e1299]:
+                  - code [ref=e1300]: /mcp cancel-auth
+                - link "Copy link to Mcp cancel auth section" [ref=e1301] [cursor=pointer]:
+                  - /url: "#mcp-cancel-auth"
+                  - img [ref=e1303]
+              - paragraph [ref=e1306]: Abort a pending OAuth authentication flow that is stuck waiting for browser confirmation.
+              - generic [ref=e1307]:
+                - generic [ref=e1308]:
+                  - generic [ref=e1309]: bash
+                  - button "Copy code to clipboard" [ref=e1310] [cursor=pointer]:
+                    - img [ref=e1311]
+                  - status [ref=e1314]
+                - code [ref=e1317]:
+                  - generic [ref=e1318]: "# Cancel a stuck auth flow"
+                  - generic [ref=e1319]: "> /mcp cancel-auth my-server"
+              - paragraph [ref=e1320]:
+                - text: If you triggered an OAuth flow (either automatically or via
+                - code [ref=e1321]: /mcp auth
+                - text: ) and the server stays in a "waiting for authentication" state — for example, because the browser tab was closed or a popup was blocked — this command cancels the pending request so you can retry authentication or continue without that server.
+              - paragraph [ref=e1322]:
+                - text: You can also press
+                - code [ref=e1323]: ^X
+                - text: in the MCP panel status view to abort.
+              - generic [ref=e1324]:
+                - heading "/mcp logout" [level=3] [ref=e1325]:
+                  - code [ref=e1326]: /mcp logout
+                - link "Copy link to Mcp logout section" [ref=e1327] [cursor=pointer]:
+                  - /url: "#mcp-logout"
+                  - img [ref=e1329]
+              - paragraph [ref=e1332]: Remove stored OAuth credentials for a remote MCP server.
+              - generic [ref=e1333]:
+                - generic [ref=e1334]:
+                  - generic [ref=e1335]: bash
+                  - button "Copy code to clipboard" [ref=e1336] [cursor=pointer]:
+                    - img [ref=e1337]
+                  - status [ref=e1340]
+                - code [ref=e1343]:
+                  - generic [ref=e1344]: "# Remove credentials for a specific server"
+                  - generic [ref=e1345]: "> /mcp logout my-server"
+              - paragraph [ref=e1346]: This clears the locally cached token for the specified server. The next time the server requires authentication, a fresh OAuth flow is triggered. Use this when you need to switch accounts or fully revoke access.
+              - paragraph [ref=e1347]:
+                - text: You can also press
+                - code [ref=e1348]: ^R
+                - text: in the MCP panel status view to remove credentials.
+              - generic [ref=e1349]:
+                - heading "/theme" [level=3] [ref=e1350]:
+                  - code [ref=e1351]: /theme
+                - link "Copy link to Theme section" [ref=e1352] [cursor=pointer]:
+                  - /url: "#theme"
+                  - img [ref=e1354]
+              - paragraph [ref=e1357]: Override theme colors for prompt and response text.
+              - generic [ref=e1358]:
+                - generic [ref=e1359]:
+                  - generic [ref=e1360]: bash
+                  - button "Copy code to clipboard" [ref=e1361] [cursor=pointer]:
+                    - img [ref=e1362]
+                  - status [ref=e1365]
+                - code [ref=e1368]:
+                  - generic [ref=e1369]: "> /theme"
+              - paragraph [ref=e1370]: Customize the colors used for your prompt input and agent response text. Falls back to ANSI colors when terminal color detection has low confidence.
+              - generic [ref=e1371]:
+                - heading "/title" [level=3] [ref=e1372]:
+                  - code [ref=e1373]: /title
+                - link "Copy link to Title section" [ref=e1374] [cursor=pointer]:
+                  - /url: "#title"
+                  - img [ref=e1376]
+              - paragraph [ref=e1379]:
+                - text: Set, clear, or show the terminal window title for the current session. This helps you keep track of which session is running in which terminal window. The title displays as
+                - code [ref=e1380]: "kiro: <text>"
+                - text: .
+              - generic [ref=e1381]:
+                - generic [ref=e1382]:
+                  - generic [ref=e1383]: bash
+                  - button "Copy code to clipboard" [ref=e1384] [cursor=pointer]:
+                    - img [ref=e1385]
+                  - status [ref=e1388]
+                - code [ref=e1391]:
+                  - generic [ref=e1392]: "# Show the current title"
+                  - generic [ref=e1393]: "> /title"
+                  - generic [ref=e1394]: "# Set a sticky custom title"
+                  - generic [ref=e1395]: "> /title weekly standup notes"
+                  - generic [ref=e1396]: "# Clear the custom title"
+                  - generic [ref=e1397]: "> /title --clear"
+              - paragraph [ref=e1398]:
+                - text: A title you set manually is sticky — it persists through session updates until you clear it with
+                - code [ref=e1399]: "--clear"
+                - text: .
+              - paragraph [ref=e1400]:
+                - text: Requires the terminal title feature to be enabled. Turn it on from
+                - code [ref=e1401]: /settings display
+                - text: →
+                - strong [ref=e1402]: Terminal title
+                - text: ; when it's off,
+                - code [ref=e1403]: /title
+                - text: tells you how to enable it.
+              - note "Note" [ref=e1404]:
+                - generic [ref=e1405]:
+                  - img [ref=e1406]
+                  - strong [ref=e1408]: Info
+                - paragraph [ref=e1410]:
+                  - text: Titles are truncated to 60 characters. Some terminals ignore the OSC 0 escape sequence used to set the title, and under tmux you need
+                  - code [ref=e1411]: set-titles on
+                  - text: for the outer terminal to update. The title resets on exit, with exact behavior varying by terminal.
+              - paragraph [ref=e1412]:
+                - text: See
+                - link "In-session settings" [ref=e1413] [cursor=pointer]:
+                  - /url: /docs/cli/chat/settings/
+                - text: for the
+                - code [ref=e1414]: /settings display
+                - text: toggle.
+              - generic [ref=e1415]:
+                - heading "/copy" [level=3] [ref=e1416]:
+                  - code [ref=e1417]: /copy
+                - link "Copy link to Copy section" [ref=e1418] [cursor=pointer]:
+                  - /url: "#copy"
+                  - img [ref=e1420]
+              - paragraph [ref=e1423]: Copy the last assistant response to your clipboard.
+              - generic [ref=e1424]:
+                - generic [ref=e1425]:
+                  - generic [ref=e1426]: bash
+                  - button "Copy code to clipboard" [ref=e1427] [cursor=pointer]:
+                    - img [ref=e1428]
+                  - status [ref=e1431]
+                - code [ref=e1434]:
+                  - generic [ref=e1435]: "> /copy"
+              - paragraph [ref=e1436]: Copies the full content of the most recent assistant response, including all segments across tool calls. Works over SSH and through terminal multiplexers (tmux, Zellij) via OSC 52 clipboard escape sequences. Payloads over 100KB are skipped to avoid silent truncation on terminals with size limits.
+              - generic [ref=e1437]:
+                - heading "/transcript" [level=3] [ref=e1438]:
+                  - code [ref=e1439]: /transcript
+                - link "Copy link to Transcript section" [ref=e1440] [cursor=pointer]:
+                  - /url: "#transcript"
+                  - img [ref=e1442]
+              - paragraph [ref=e1445]: Open the conversation transcript in your pager, or save it to a file.
+              - generic [ref=e1446]:
+                - generic [ref=e1447]:
+                  - generic [ref=e1448]: bash
+                  - button "Copy code to clipboard" [ref=e1449] [cursor=pointer]:
+                    - img [ref=e1450]
+                  - status [ref=e1453]
+                - code [ref=e1456]:
+                  - generic [ref=e1457]: "# Open the transcript in your pager"
+                  - generic [ref=e1458]: "> /transcript"
+                  - generic [ref=e1459]: "# Render the transcript as plaintext or JSON"
+                  - generic [ref=e1460]: "> /transcript --plain"
+                  - generic [ref=e1461]: "> /transcript --json"
+                  - generic [ref=e1462]: "# Export the conversation to a file (markdown by default)"
+                  - generic [ref=e1463]: "> /transcript save conversation.md"
+                  - generic [ref=e1464]: "# Export as plaintext or JSON"
+                  - generic [ref=e1465]: "> /transcript save conversation.txt --plain"
+                  - generic [ref=e1466]: "> /transcript save conversation.json --json"
+              - paragraph [ref=e1467]:
+                - text: Opens the full conversation history in
+                - code [ref=e1468]: $PAGER
+                - text: (defaults to
+                - code [ref=e1469]: less
+                - text: ", or"
+                - code [ref=e1470]: notepad
+                - text: on Windows). Press
+                - code [ref=e1471]: q
+                - text: to exit and return to the chat. Also available via
+                - code [ref=e1472]: Ctrl+T
+                - text: .
+              - paragraph [ref=e1473]:
+                - strong [ref=e1474]: "Available subcommands:"
+              - list [ref=e1475]:
+                - listitem [ref=e1476]:
+                  - code [ref=e1477]: save
+                  - text: "- Export the conversation to a file as markdown (default), plaintext, or JSON"
+              - paragraph [ref=e1478]:
+                - strong [ref=e1479]: "Format flags:"
+              - list [ref=e1480]:
+                - listitem [ref=e1481]:
+                  - code [ref=e1482]: "--plain"
+                  - text: "- Render the transcript as plaintext instead of formatted markdown"
+                - listitem [ref=e1483]:
+                  - code [ref=e1484]: "--json"
+                  - text: "- Render the transcript as JSON"
+              - paragraph [ref=e1485]:
+                - text: The
+                - code [ref=e1486]: "--plain"
+                - text: and
+                - code [ref=e1487]: "--json"
+                - text: flags switch the rendered transcript format inline, so you can read the conversation the way you want without leaving the pager. Combine them with
+                - code [ref=e1488]: save
+                - text: to control the exported format —
+                - code [ref=e1489]: save
+                - text: writes markdown by default, and the flag (not the file extension) determines the format.
+              - generic [ref=e1490]:
+                - heading "/code" [level=3] [ref=e1491]:
+                  - code [ref=e1492]: /code
+                - link "Copy link to Code section" [ref=e1493] [cursor=pointer]:
+                  - /url: "#code"
+                  - img [ref=e1495]
+              - paragraph [ref=e1498]: Manage code intelligence configuration and get feedback.
+              - generic [ref=e1499]:
+                - generic [ref=e1500]:
+                  - generic [ref=e1501]: bash
+                  - button "Copy code to clipboard" [ref=e1502] [cursor=pointer]:
+                    - img [ref=e1503]
+                  - status [ref=e1506]
+                - code [ref=e1509]:
+                  - generic [ref=e1510]: "# Initialize LSP-powered code intelligence in the current directory"
+                  - generic [ref=e1511]: "> /code init"
+                  - generic [ref=e1512]: "# Force reinitialization in the current directory - restarts LSP servers"
+                  - generic [ref=e1513]: "> /code init -f"
+                  - generic [ref=e1514]: "# Get a complete overview of the workspace"
+                  - generic [ref=e1515]: "> /code overview"
+                  - generic [ref=e1516]: "# Get overview with cleaner output"
+                  - generic [ref=e1517]: "> /code overview --silent"
+                  - generic [ref=e1518]: "# Get workspace status and LSP server statuses"
+                  - generic [ref=e1519]: "> /code status"
+                  - generic [ref=e1520]: "# View LSP logs for troubleshooting"
+                  - generic [ref=e1521]: "> /code logs # Show last 20 ERROR logs"
+                  - generic [ref=e1522]: "> /code logs -l INFO # Show INFO level and above"
+                  - generic [ref=e1523]: "> /code logs -n 50 # Show last 50 entries"
+                  - generic [ref=e1524]: "> /code logs -l DEBUG -n 100 # Show last 100 DEBUG+ logs"
+                  - generic [ref=e1525]: "> /code logs -p ./lsp-logs.json # Export logs to JSON file"
+              - paragraph [ref=e1526]:
+                - strong [ref=e1527]: "Available subcommands:"
+              - list [ref=e1528]:
+                - listitem [ref=e1529]:
+                  - code [ref=e1530]: init
+                  - text: "- Initialize LSP servers for enhanced code intelligence"
+                - listitem [ref=e1531]:
+                  - code [ref=e1532]: overview
+                  - text: "- Get a complete overview of the workspace structure"
+                - listitem [ref=e1533]:
+                  - code [ref=e1534]: status
+                  - text: "- Show the detailed status of the LSP servers and workspace status"
+                - listitem [ref=e1535]:
+                  - code [ref=e1536]: logs
+                  - text: "- View logs"
+              - generic [ref=e1537]:
+                - heading "/experiment" [level=3] [ref=e1538]:
+                  - code [ref=e1539]: /experiment
+                - link "Copy link to Experiment section" [ref=e1540] [cursor=pointer]:
+                  - /url: "#experiment"
+                  - img [ref=e1542]
+              - paragraph [ref=e1545]: Toggle experimental features.
+              - generic [ref=e1546]:
+                - generic [ref=e1547]:
+                  - generic [ref=e1548]: bash
+                  - button "Copy code to clipboard" [ref=e1549] [cursor=pointer]:
+                    - img [ref=e1550]
+                  - status [ref=e1553]
+                - code [ref=e1556]:
+                  - generic [ref=e1557]: "> /experiment"
+              - paragraph [ref=e1558]: Enable or disable experimental CLI features.
+              - generic [ref=e1559]:
+                - heading "/tangent" [level=3] [ref=e1560]:
+                  - code [ref=e1561]: /tangent
+                - link "Copy link to Tangent section" [ref=e1562] [cursor=pointer]:
+                  - /url: "#tangent"
+                  - img [ref=e1564]
+              - paragraph [ref=e1567]: Create conversation checkpoints to explore side topics.
+              - generic [ref=e1568]:
+                - generic [ref=e1569]:
+                  - generic [ref=e1570]: bash
+                  - button "Copy code to clipboard" [ref=e1571] [cursor=pointer]:
+                    - img [ref=e1572]
+                  - status [ref=e1575]
+                - code [ref=e1578]:
+                  - generic [ref=e1579]: "> /tangent"
+              - paragraph [ref=e1580]:
+                - text: Enter or exit
+                - link "tangent mode" [ref=e1581] [cursor=pointer]:
+                  - /url: /docs/cli/experimental/tangent-mode/
+                - text: to explore tangential topics without disrupting your main conversation. Use
+                - code [ref=e1582]: Ctrl+T
+                - text: as a keyboard shortcut (when tangent mode is enabled).
+              - generic [ref=e1583]:
+                - heading "/todos" [level=3] [ref=e1584]:
+                  - code [ref=e1585]: /todos
+                - link "Copy link to Todos section" [ref=e1586] [cursor=pointer]:
+                  - /url: "#todos"
+                  - img [ref=e1588]
+              - paragraph [ref=e1591]: View, manage, and resume to-do lists.
+              - generic [ref=e1592]:
+                - generic [ref=e1593]:
+                  - generic [ref=e1594]: bash
+                  - button "Copy code to clipboard" [ref=e1595] [cursor=pointer]:
+                    - img [ref=e1596]
+                  - status [ref=e1599]
+                - code [ref=e1602]:
+                  - generic [ref=e1603]: "# View todo"
+                  - generic [ref=e1604]: "> /todo"
+                  - generic [ref=e1605]: "# Add todo"
+                  - generic [ref=e1606]: "> /todo add \"Fix authentication bug\""
+                  - generic [ref=e1607]: "# Complete todo"
+                  - generic [ref=e1608]: "> /todo complete 1"
+              - generic [ref=e1609]:
+                - heading "/issue" [level=3] [ref=e1610]:
+                  - code [ref=e1611]: /issue
+                - link "Copy link to Issue section" [ref=e1612] [cursor=pointer]:
+                  - /url: "#issue"
+                  - img [ref=e1614]
+              - paragraph [ref=e1617]: Create a new GitHub issue or make a feature request.
+              - generic [ref=e1618]:
+                - generic [ref=e1619]:
+                  - generic [ref=e1620]: bash
+                  - button "Copy code to clipboard" [ref=e1621] [cursor=pointer]:
+                    - img [ref=e1622]
+                  - status [ref=e1625]
+                - code [ref=e1628]:
+                  - generic [ref=e1629]: "> /issue"
+              - paragraph [ref=e1630]: Opens a workflow to submit issues or feature requests to the Kiro team.
+              - generic [ref=e1631]:
+                - heading "/logdump" [level=3] [ref=e1632]:
+                  - code [ref=e1633]: /logdump
+                - link "Copy link to Logdump section" [ref=e1634] [cursor=pointer]:
+                  - /url: "#logdump"
+                  - img [ref=e1636]
+              - paragraph [ref=e1639]: Create a zip file with logs for support investigation and troubleshooting.
+              - generic [ref=e1640]:
+                - generic [ref=e1641]:
+                  - generic [ref=e1642]: bash
+                  - button "Copy code to clipboard" [ref=e1643] [cursor=pointer]:
+                    - img [ref=e1644]
+                  - status [ref=e1647]
+                - code [ref=e1650]:
+                  - generic [ref=e1651]: "# Create log archive with chat logs"
+                  - generic [ref=e1652]: "> /logdump"
+                  - generic [ref=e1653]: "# Include MCP server logs"
+                  - generic [ref=e1654]: "> /logdump --mcp"
+              - paragraph [ref=e1655]:
+                - strong [ref=e1656]: "Available options:"
+              - list [ref=e1657]:
+                - listitem [ref=e1658]:
+                  - code [ref=e1659]: "--mcp"
+                  - text: "- Include MCP server logs in addition to chat logs"
+              - paragraph [ref=e1660]:
+                - strong [ref=e1661]: "Output:"
+              - paragraph [ref=e1662]:
+                - text: Creates a timestamped zip file in the current directory with the format
+                - code [ref=e1663]: q-logs-YYYY-MM-DDTHH-MM-SSZ.zip
+                - text: .
+              - paragraph [ref=e1664]:
+                - strong [ref=e1665]: "What's included:"
+              - list [ref=e1666]:
+                - listitem [ref=e1667]:
+                  - code [ref=e1668]: logs/kiro-chat.log
+                  - text: "- Main chat logs (always included)"
+                - listitem [ref=e1669]:
+                  - code [ref=e1670]: logs/mcp.log
+                  - text: "- MCP server logs (only with"
+                  - code [ref=e1671]: "--mcp"
+                  - text: flag)
+              - paragraph [ref=e1672]:
+                - strong [ref=e1673]: "When to use:"
+              - list [ref=e1674]:
+                - listitem [ref=e1675]: Reporting bugs or unexpected errors
+                - listitem [ref=e1676]: Sharing diagnostic information with AWS support
+                - listitem [ref=e1677]: Investigating agent or MCP server issues
+                - listitem [ref=e1678]: Troubleshooting tool execution problems
+              - paragraph [ref=e1679]:
+                - strong [ref=e1680]: "Example output:"
+              - generic [ref=e1681]:
+                - generic [ref=e1682]:
+                  - button "Copy code to clipboard" [ref=e1683] [cursor=pointer]:
+                    - img [ref=e1684]
+                  - status [ref=e1687]
+                - code [ref=e1690]: Collecting logs... ✓ Successfully created q-logs-2025-01-22T14-30-52Z.zip with 1 log file
+              - paragraph [ref=e1691]:
+                - strong [ref=e1692]: "Note:"
+                - text: Review the log contents before sharing publicly, as logs may contain file paths and conversation history from your session.
+              - paragraph [ref=e1693]:
+                - strong [ref=e1694]: "Related:"
+                - text: See also
+                - link "kiro-cli diagnostic" [ref=e1695] [cursor=pointer]:
+                  - /url: /docs/cli/reference/cli-commands/#kiro-cli-diagnostic
+                - text: for system diagnostics and
+                - code [ref=e1696]: /code logs
+                - text: for LSP server logs.
+              - generic [ref=e1697]:
+                - heading "/settings" [level=3] [ref=e1698]:
+                  - code [ref=e1699]: /settings
+                - link "Copy link to Settings section" [ref=e1700] [cursor=pointer]:
+                  - /url: "#settings"
+                  - img [ref=e1702]
+              - paragraph [ref=e1705]: Configure theme, keybindings, terminal input, display preferences, and prompt history scope through an interactive menu.
+              - generic [ref=e1706]:
+                - generic [ref=e1707]:
+                  - generic [ref=e1708]: bash
+                  - button "Copy code to clipboard" [ref=e1709] [cursor=pointer]:
+                    - img [ref=e1710]
+                  - status [ref=e1713]
+                - code [ref=e1716]:
+                  - generic [ref=e1717]: "# Open the settings menu"
+                  - generic [ref=e1718]: "> /settings"
+                  - generic [ref=e1719]: "# Customize theme colors"
+                  - generic [ref=e1720]: "> /settings theme"
+                  - generic [ref=e1721]: "# View keyboard shortcuts"
+                  - generic [ref=e1722]: "> /settings keybindings"
+                  - generic [ref=e1723]: "# Configure multi-line input for your terminal"
+                  - generic [ref=e1724]: "> /settings terminal"
+                  - generic [ref=e1725]: "# Toggle animations, ASCII art, icons, and thinking display"
+                  - generic [ref=e1726]: "> /settings display"
+                  - generic [ref=e1727]: "# Choose per-session or global prompt history"
+                  - generic [ref=e1728]: "> /settings history"
+              - paragraph [ref=e1729]:
+                - strong [ref=e1730]: "Available subcommands:"
+              - list [ref=e1731]:
+                - listitem [ref=e1732]:
+                  - code [ref=e1733]: theme
+                  - text: — Customize prompt and response colors with a live preview
+                - listitem [ref=e1734]:
+                  - code [ref=e1735]: keybindings
+                  - text: — View configurable keyboard shortcuts (read-only reference)
+                - listitem [ref=e1736]:
+                  - code [ref=e1737]: terminal
+                  - text: — Enable
+                  - code [ref=e1738]: Shift+Enter
+                  - text: /
+                  - code [ref=e1739]: Option+Enter
+                  - text: for multi-line input. Auto-configures supported terminal apps (VS Code, Alacritty, Zed, Apple Terminal, and others) or shows manual workarounds for unsupported terminals
+                - listitem [ref=e1740]:
+                  - code [ref=e1741]: display
+                  - text: — Toggle animations, ASCII art, icon rendering, and the thinking display (
+                  - code [ref=e1742]: Show thinking
+                  - text: )
+                - listitem [ref=e1743]:
+                  - code [ref=e1744]: history
+                  - text: — Switch prompt history between
+                  - code [ref=e1745]: session
+                  - text: (default) and
+                  - code [ref=e1746]: global
+                  - text: modes
+              - paragraph [ref=e1747]:
+                - strong [ref=e1748]: "Notes:"
+              - list [ref=e1749]:
+                - listitem [ref=e1750]:
+                  - text: The
+                  - code [ref=e1751]: terminal
+                  - text: subcommand creates a
+                  - code [ref=e1752]: .bak
+                  - text: backup before modifying any terminal configuration files.
+                - listitem [ref=e1753]:
+                  - text: tmux users need
+                  - code [ref=e1754]: set -s extended-keys on
+                  - text: in their
+                  - code [ref=e1755]: tmux.conf
+                  - text: for
+                  - code [ref=e1756]: Shift+Enter
+                  - text: to work.
+                - listitem [ref=e1757]:
+                  - text: Animation, ASCII art, and icon changes apply immediately. The
+                  - code [ref=e1758]: Show thinking
+                  - text: toggle and
+                  - code [ref=e1759]: history
+                  - text: mode apply to your next session.
+              - paragraph [ref=e1760]:
+                - text: See
+                - link "In-session settings" [ref=e1761] [cursor=pointer]:
+                  - /url: /docs/cli/chat/settings/
+                - text: for the full subcommand reference.
+              - generic [ref=e1762]:
+                - heading "/effort" [level=3] [ref=e1763]:
+                  - code [ref=e1764]: /effort
+                - link "Copy link to Effort section" [ref=e1765] [cursor=pointer]:
+                  - /url: "#effort"
+                  - img [ref=e1767]
+              - paragraph [ref=e1770]: Set the model's reasoning effort level for the current session.
+              - generic [ref=e1771]:
+                - generic [ref=e1772]:
+                  - generic [ref=e1773]: bash
+                  - button "Copy code to clipboard" [ref=e1774] [cursor=pointer]:
+                    - img [ref=e1775]
+                  - status [ref=e1778]
+                - code [ref=e1781]:
+                  - generic [ref=e1782]: "# Open interactive effort picker"
+                  - generic [ref=e1783]: "> /effort"
+                  - generic [ref=e1784]: "# Set a specific level"
+                  - generic [ref=e1785]: "> /effort high"
+                  - generic [ref=e1786]: "> /effort max"
+              - paragraph [ref=e1787]:
+                - strong [ref=e1788]: "Available levels:"
+                - code [ref=e1789]: low
+                - text: ","
+                - code [ref=e1790]: medium
+                - text: ","
+                - code [ref=e1791]: high
+                - text: ","
+                - code [ref=e1792]: xhigh
+                - text: ","
+                - code [ref=e1793]: max
+              - paragraph [ref=e1794]: Which levels are available depends on the active model. Higher effort levels use more tokens but produce more thorough responses for complex tasks.
+              - paragraph [ref=e1795]:
+                - text: Your
+                - code [ref=e1796]: /effort
+                - text: choice persists automatically. Change the level once and Kiro remembers it for future sessions. You can also set persistent per-model defaults in
+                - code [ref=e1797]: ~/.kiro/settings/cli.json
+                - text: under
+                - code [ref=e1798]: chat.modelDefaults
+                - text: ":"
+              - generic [ref=e1799]:
+                - generic [ref=e1800]:
+                  - generic [ref=e1801]: json
+                  - button "Copy code to clipboard" [ref=e1802] [cursor=pointer]:
+                    - img [ref=e1803]
+                  - status [ref=e1806]
+                - code [ref=e1809]:
+                  - generic [ref=e1810]: "{"
+                  - generic [ref=e1811]: "\"chat\": {"
+                  - generic [ref=e1812]: "\"modelDefaults\": {"
+                  - generic [ref=e1813]: "\"claude-sonnet-4\": {"
+                  - generic [ref=e1814]: "\"effort\": \"high\""
+                  - generic [ref=e1815]: "},"
+                  - generic [ref=e1816]: "\"claude-opus-4\": {"
+                  - generic [ref=e1817]: "\"effort\": \"max\""
+                  - generic [ref=e1818]: "}"
+                  - generic [ref=e1819]: "}"
+                  - generic [ref=e1820]: "}"
+                  - generic [ref=e1821]: "}"
+              - paragraph [ref=e1822]:
+                - strong [ref=e1823]: "Precedence order:"
+                - text: loaded session effort > user defaults in cli.json > built-in defaults.
+              - paragraph [ref=e1824]:
+                - text: Workspace-level overrides are also supported via
+                - code [ref=e1825]: .kiro/settings/cli.json
+                - text: in your project root.
+              - paragraph [ref=e1826]:
+                - text: See
+                - link "Effort" [ref=e1827] [cursor=pointer]:
+                  - /url: /docs/cli/chat/effort/
+                - text: for detailed documentation.
+              - generic [ref=e1828]:
+                - heading "/goal" [level=3] [ref=e1829]:
+                  - code [ref=e1830]: /goal
+                - link "Copy link to Goal section" [ref=e1831] [cursor=pointer]:
+                  - /url: "#goal"
+                  - img [ref=e1833]
+              - paragraph [ref=e1836]: Start a goal-driven iterative loop where the agent works autonomously toward an objective and verifies completion before stopping.
+              - generic [ref=e1837]:
+                - generic [ref=e1838]:
+                  - generic [ref=e1839]: bash
+                  - button "Copy code to clipboard" [ref=e1840] [cursor=pointer]:
+                    - img [ref=e1841]
+                  - status [ref=e1844]
+                - code [ref=e1847]:
+                  - generic [ref=e1848]: "# Set a goal (default: 5 iterations)"
+                  - generic [ref=e1849]: "> /goal refactor the auth module to use JWT tokens and ensure all tests pass"
+                  - generic [ref=e1850]: "# Allow more iterations for complex tasks"
+                  - generic [ref=e1851]: "> /goal --max 10 migrate the entire test suite from Jest to Vitest"
+                  - generic [ref=e1852]: "# Cancel an active goal"
+                  - generic [ref=e1853]: "> /goal clear"
+              - paragraph [ref=e1854]:
+                - text: Unlike a regular prompt,
+                - code [ref=e1855]: /goal
+                - text: keeps the agent running through multiple cycles of implementation and self-check until the acceptance criteria in your goal statement are met. Be explicit about what "done" looks like — "all tests pass" or "no TypeScript errors" gives the agent a concrete verification target.
+              - paragraph [ref=e1856]:
+                - strong [ref=e1857]: "Available subcommands:"
+              - list [ref=e1858]:
+                - listitem [ref=e1859]:
+                  - code [ref=e1860]: clear
+                  - text: — Cancel the active goal loop and return to standard interactive mode
+              - paragraph [ref=e1861]:
+                - strong [ref=e1862]: "Options:"
+              - list [ref=e1863]:
+                - listitem [ref=e1864]:
+                  - code [ref=e1865]: "--max <number>"
+                  - text: "— Maximum number of iterations (default: 5)"
+              - paragraph [ref=e1866]:
+                - strong [ref=e1867]: "Notes:"
+              - list [ref=e1868]:
+                - listitem [ref=e1869]:
+                  - text: The agent runs up to 5 iterations by default. Use
+                  - code [ref=e1870]: "--max"
+                  - text: to increase for complex tasks.
+                - listitem [ref=e1871]: You can interrupt the agent at any point during a goal to give additional instructions.
+                - listitem [ref=e1872]: File changes made during the loop remain on disk even after clearing.
+                - listitem [ref=e1873]:
+                  - text: Use
+                  - link "queue steering" [ref=e1874] [cursor=pointer]:
+                    - /url: /docs/cli/chat/queue-steering/
+                  - text: (Ctrl+S) to nudge the agent mid-loop without cancelling.
+              - paragraph [ref=e1875]:
+                - text: See
+                - link "Goal" [ref=e1876] [cursor=pointer]:
+                  - /url: /docs/cli/chat/goal/
+                - text: for detailed documentation.
+              - generic [ref=e1877]:
+                - heading "/rewind" [level=3] [ref=e1878]:
+                  - code [ref=e1879]: /rewind
+                - link "Copy link to Rewind section" [ref=e1880] [cursor=pointer]:
+                  - /url: "#rewind"
+                  - img [ref=e1882]
+              - paragraph [ref=e1885]: Fork the conversation at an earlier turn to explore a different path.
+              - generic [ref=e1886]:
+                - generic [ref=e1887]:
+                  - generic [ref=e1888]: bash
+                  - button "Copy code to clipboard" [ref=e1889] [cursor=pointer]:
+                    - img [ref=e1890]
+                  - status [ref=e1893]
+                - code [ref=e1896]:
+                  - generic [ref=e1897]: "# Open interactive turn picker"
+                  - generic [ref=e1898]: "> /rewind"
+                  - generic [ref=e1899]: "# Jump to a specific turn by index"
+                  - generic [ref=e1900]: "> /rewind 4"
+              - paragraph [ref=e1901]:
+                - text: Creates a new session starting from the selected turn. The original session is preserved and you can switch back with
+                - code [ref=e1902]: /chat load
+                - text: or
+                - code [ref=e1903]: /chat resume
+                - text: .
+              - paragraph [ref=e1904]: The interactive picker shows prompt previews, tool call details, and context usage percentage at each turn, listed newest-first.
+              - paragraph [ref=e1905]:
+                - strong [ref=e1906]: "Notes:"
+              - list [ref=e1907]:
+                - listitem [ref=e1908]: The new session is a fork, not a destructive rewrite. Your original conversation remains intact.
+                - listitem [ref=e1909]: Useful for backtracking when a conversation went in the wrong direction, or for exploring alternative approaches from the same starting point.
+              - paragraph [ref=e1910]:
+                - text: See
+                - link "Rewind" [ref=e1911] [cursor=pointer]:
+                  - /url: /docs/cli/chat/rewind/
+                - text: for detailed documentation.
+              - generic [ref=e1912]:
+                - heading "/changelog" [level=3] [ref=e1913]:
+                  - code [ref=e1914]: /changelog
+                - link "Copy link to Changelog section" [ref=e1915] [cursor=pointer]:
+                  - /url: "#changelog"
+                  - img [ref=e1917]
+              - paragraph [ref=e1920]: View recent release notes inline in the CLI.
+              - generic [ref=e1921]:
+                - generic [ref=e1922]:
+                  - generic [ref=e1923]: bash
+                  - button "Copy code to clipboard" [ref=e1924] [cursor=pointer]:
+                    - img [ref=e1925]
+                  - status [ref=e1928]
+                - code [ref=e1931]:
+                  - generic [ref=e1932]: "> /changelog"
+              - paragraph [ref=e1933]: Displays the latest Kiro CLI release notes directly in your terminal, so you can see what changed without leaving your session.
+              - generic [ref=e1934]:
+                - heading "Skill-based slash commands" [level=3] [ref=e1935]
+                - link "Copy link to Skill based slash commands section" [ref=e1936] [cursor=pointer]:
+                  - /url: "#skill-based-slash-commands"
+                  - img [ref=e1938]
+              - paragraph [ref=e1941]:
+                - text: In addition to the built-in commands above, skills defined in
+                - code [ref=e1942]: .kiro/skills/
+                - text: and
+                - code [ref=e1943]: ~/.kiro/skills/
+                - text: are automatically available as slash commands. Type
+                - code [ref=e1944]: /
+                - text: followed by the skill name to invoke it directly.
+              - generic [ref=e1945]:
+                - generic [ref=e1946]:
+                  - generic [ref=e1947]: bash
+                  - button "Copy code to clipboard" [ref=e1948] [cursor=pointer]:
+                    - img [ref=e1949]
+                  - status [ref=e1952]
+                - code [ref=e1955]:
+                  - generic [ref=e1956]: "# Invoke a skill named \"pr-review\""
+                  - generic [ref=e1957]: "> /pr-review"
+                  - generic [ref=e1958]: "# Invoke a skill named \"cdk-deploy\""
+                  - generic [ref=e1959]: "> /cdk-deploy"
+              - paragraph [ref=e1960]:
+                - text: The available skill commands depend on which skills are present in your workspace and global skill directories. See
+                - link "Agent Skills" [ref=e1961] [cursor=pointer]:
+                  - /url: /docs/cli/skills/
+                - text: for details on creating and managing skills.
+              - generic [ref=e1962]:
+                - heading "Keyboard shortcuts" [level=3] [ref=e1963]
+                - link "Copy link to Keyboard shortcuts section" [ref=e1964] [cursor=pointer]:
+                  - /url: "#keyboard-shortcuts"
+                  - img [ref=e1966]
+              - paragraph [ref=e1969]: "In interactive mode, you can also use:"
+              - list [ref=e1970]:
+                - listitem [ref=e1971]:
+                  - code [ref=e1972]: Ctrl+C
+                  - text: "- Cancel current input / exit session"
+                - listitem [ref=e1973]:
+                  - code [ref=e1974]: Ctrl+D
+                  - text: "- Exit session"
+                - listitem [ref=e1975]:
+                  - code [ref=e1976]: Ctrl+D/U
+                  - text: "- Navigate between subagents in the monitor"
+                - listitem [ref=e1977]:
+                  - code [ref=e1978]: Ctrl+G
+                  - text: "- Open subagent execution monitor"
+                - listitem [ref=e1979]:
+                  - code [ref=e1980]: Ctrl+J
+                  - text: "- Insert newline (all terminals including tmux)"
+                - listitem [ref=e1981]:
+                  - code [ref=e1982]: Ctrl+O
+                  - text: "- Expand collapsed shell output"
+                - listitem [ref=e1983]:
+                  - code [ref=e1984]: Ctrl+R
+                  - text: "- Reverse incremental history search"
+                - listitem [ref=e1985]:
+                  - code [ref=e1986]: Ctrl+S
+                  - text: "- Fuzzy search commands and context files, use tab to select multiple items"
+                - listitem [ref=e1987]:
+                  - code [ref=e1988]: Ctrl+T
+                  - text: "- Toggle tangent mode for isolated conversations (if enabled)"
+                - listitem [ref=e1989]:
+                  - code [ref=e1990]: Alt+Enter
+                  - text: "- Insert newline (Terminal.app, Ghostty)"
+                - listitem [ref=e1991]:
+                  - code [ref=e1992]: Alt+Backspace
+                  - text: "- Delete previous word"
+                - listitem [ref=e1993]:
+                  - code [ref=e1994]: Shift+Enter
+                  - text: "- Insert newline (iTerm2, Ghostty, Kitty, Warp, Zed)"
+                - listitem [ref=e1995]:
+                  - code [ref=e1996]: Shift+Tab
+                  - text: "- Enter plan mode"
+                - listitem [ref=e1997]:
+                  - code [ref=e1998]: Up/Down arrows
+                  - text: "- Navigate prompt history (per-session by default; configure with"
+                  - code [ref=e1999]: /settings history
+                  - text: )
+                - listitem [ref=e2000]:
+                  - code [ref=e2001]: Tab
+                  - text: "- Drill into approval options / autocomplete file references"
+                - listitem [ref=e2002]:
+                  - code [ref=e2003]: Esc
+                  - text: "- Close panels, cancel agent execution, clear prompt queue"
+              - generic [ref=e2004]:
+                - heading "Next steps" [level=2] [ref=e2005]
+                - link "Copy link to Next steps section" [ref=e2006] [cursor=pointer]:
+                  - /url: "#next-steps"
+                  - img [ref=e2008]
+              - list [ref=e2011]:
+                - listitem [ref=e2012]:
+                  - text: Learn about
+                  - link "CLI Commands" [ref=e2013] [cursor=pointer]:
+                    - /url: /docs/cli/reference/cli-commands/
+                  - text: for terminal usage
+                - listitem [ref=e2014]:
+                  - text: Explore
+                  - link "Chat" [ref=e2015] [cursor=pointer]:
+                    - /url: /docs/cli/chat/
+                  - text: for interactive chat features
+                - listitem [ref=e2016]:
+                  - text: Check
+                  - link "Context Management" [ref=e2017] [cursor=pointer]:
+                    - /url: /docs/cli/chat/context/
+                  - text: for advanced context handling
+            - generic [ref=e2018]:
+              - img [ref=e2019]
+              - generic [ref=e2021]: "Page updated: July 2, 2026"
+            - generic [ref=e2022]:
+              - 'link "Previous: CLI commands" [ref=e2024] [cursor=pointer]':
+                - /url: /docs/cli/reference/cli-commands/
+                - img [ref=e2025]
+                - generic [ref=e2027]: CLI commands
+              - 'link "Next: Built-in tools" [ref=e2029] [cursor=pointer]':
+                - /url: /docs/cli/reference/built-in-tools/
+                - generic [ref=e2030]: Built-in tools
+                - img [ref=e2031]
+        - complementary [ref=e2033]:
+          - generic [ref=e2035]:
+            - button "Copy page as Markdown" [ref=e2036] [cursor=pointer]:
+              - img [ref=e2037]
+              - generic [ref=e2040]: Copy page
+            - button "More page actions" [ref=e2041] [cursor=pointer]:
+              - img [ref=e2042]
+          - generic [ref=e2044]:
+            - generic [ref=e2045]:
+              - img [ref=e2046]
+              - generic [ref=e2049]: On this page
+            - navigation [ref=e2052]:
+              - list [ref=e2055]:
+                - listitem [ref=e2056]:
+                  - link "Overview" [ref=e2057] [cursor=pointer]:
+                    - /url: "#overview"
+                    - generic [ref=e2058]: Overview
+                - listitem [ref=e2059]:
+                  - link "Using slash commands" [ref=e2060] [cursor=pointer]:
+                    - /url: "#using-slash-commands"
+                    - generic [ref=e2061]: Using slash commands
+                - listitem [ref=e2062]:
+                  - link "Available commands" [ref=e2063] [cursor=pointer]:
+                    - /url: "#available-commands"
+                    - generic [ref=e2064]: Available commands
+                - listitem [ref=e2065]:
+                  - link "/help" [ref=e2066] [cursor=pointer]:
+                    - /url: "#help"
+                    - generic [ref=e2067]: /help
+                - listitem [ref=e2068]:
+                  - link "/quit" [ref=e2069] [cursor=pointer]:
+                    - /url: "#quit"
+                    - generic [ref=e2070]: /quit
+                - listitem [ref=e2071]:
+                  - link "/clear" [ref=e2072] [cursor=pointer]:
+                    - /url: "#clear"
+                    - generic [ref=e2073]: /clear
+                - listitem [ref=e2074]:
+                  - link "/context" [ref=e2075] [cursor=pointer]:
+                    - /url: "#context"
+                    - generic [ref=e2076]: /context
+                - listitem [ref=e2077]:
+                  - link "/model" [ref=e2078] [cursor=pointer]:
+                    - /url: "#model"
+                    - generic [ref=e2079]: /model
+                - listitem [ref=e2080]:
+                  - link "/agent" [ref=e2081] [cursor=pointer]:
+                    - /url: "#agent"
+                    - generic [ref=e2082]: /agent
+                - listitem [ref=e2083]:
+                  - link "/spawn" [ref=e2084] [cursor=pointer]:
+                    - /url: "#spawn"
+                    - generic [ref=e2085]: /spawn
+                - listitem [ref=e2086]:
+                  - link "/chat" [ref=e2087] [cursor=pointer]:
+                    - /url: "#chat"
+                    - generic [ref=e2088]: /chat
+                - listitem [ref=e2089]:
+                  - link "/session-id" [ref=e2090] [cursor=pointer]:
+                    - /url: "#session-id"
+                    - generic [ref=e2091]: /session-id
+                - listitem [ref=e2092]:
+                  - link "Custom session storage" [ref=e2093] [cursor=pointer]:
+                    - /url: "#custom-session-storage"
+                    - generic [ref=e2094]: Custom session storage
+                - listitem [ref=e2095]:
+                  - link "/save" [ref=e2096] [cursor=pointer]:
+                    - /url: "#save"
+                    - generic [ref=e2097]: /save
+                - listitem [ref=e2098]:
+                  - link "/load" [ref=e2099] [cursor=pointer]:
+                    - /url: "#load"
+                    - generic [ref=e2100]: /load
+                - listitem [ref=e2101]:
+                  - link "/editor" [ref=e2102] [cursor=pointer]:
+                    - /url: "#editor"
+                    - generic [ref=e2103]: /editor
+                - listitem [ref=e2104]:
+                  - link "/reply" [ref=e2105] [cursor=pointer]:
+                    - /url: "#reply"
+                    - generic [ref=e2106]: /reply
+                - listitem [ref=e2107]:
+                  - link "/checkpoint" [ref=e2108] [cursor=pointer]:
+                    - /url: "#checkpoint"
+                    - generic [ref=e2109]: /checkpoint
+                - listitem [ref=e2110]:
+                  - link "/plan" [ref=e2111] [cursor=pointer]:
+                    - /url: "#plan"
+                    - generic [ref=e2112]: /plan
+                - listitem [ref=e2113]:
+                  - link "/guide" [ref=e2114] [cursor=pointer]:
+                    - /url: "#guide"
+                    - generic [ref=e2115]: /guide
+                - listitem [ref=e2116]:
+                  - link "/knowledge" [ref=e2117] [cursor=pointer]:
+                    - /url: "#knowledge"
+                    - generic [ref=e2118]: /knowledge
+                - listitem [ref=e2119]:
+                  - link "/compact" [ref=e2120] [cursor=pointer]:
+                    - /url: "#compact"
+                    - generic [ref=e2121]: /compact
+                - listitem [ref=e2122]:
+                  - link "/paste" [ref=e2123] [cursor=pointer]:
+                    - /url: "#paste"
+                    - generic [ref=e2124]: /paste
+                - listitem [ref=e2125]:
+                  - link "/tools" [ref=e2126] [cursor=pointer]:
+                    - /url: "#tools"
+                    - generic [ref=e2127]: /tools
+                - listitem [ref=e2128]:
+                  - link "/prompts" [ref=e2129] [cursor=pointer]:
+                    - /url: "#prompts"
+                    - generic [ref=e2130]: /prompts
+                - listitem [ref=e2131]:
+                  - link "/hooks" [ref=e2132] [cursor=pointer]:
+                    - /url: "#hooks"
+                    - generic [ref=e2133]: /hooks
+                - listitem [ref=e2134]:
+                  - link "/usage" [ref=e2135] [cursor=pointer]:
+                    - /url: "#usage"
+                    - generic [ref=e2136]: /usage
+                - listitem [ref=e2137]:
+                  - link "/mcp" [ref=e2138] [cursor=pointer]:
+                    - /url: "#mcp"
+                    - generic [ref=e2139]: /mcp
+                - listitem [ref=e2140]:
+                  - link "/mcp auth" [ref=e2141] [cursor=pointer]:
+                    - /url: "#mcp-auth"
+                    - generic [ref=e2142]: /mcp auth
+                - listitem [ref=e2143]:
+                  - link "/mcp cancel-auth" [ref=e2144] [cursor=pointer]:
+                    - /url: "#mcp-cancel-auth"
+                    - generic [ref=e2145]: /mcp cancel-auth
+                - listitem [ref=e2146]:
+                  - link "/mcp logout" [ref=e2147] [cursor=pointer]:
+                    - /url: "#mcp-logout"
+                    - generic [ref=e2148]: /mcp logout
+                - listitem [ref=e2149]:
+                  - link "/theme" [ref=e2150] [cursor=pointer]:
+                    - /url: "#theme"
+                    - generic [ref=e2151]: /theme
+                - listitem [ref=e2152]:
+                  - link "/title" [ref=e2153] [cursor=pointer]:
+                    - /url: "#title"
+                    - generic [ref=e2154]: /title
+                - listitem [ref=e2155]:
+                  - link "/copy" [ref=e2156] [cursor=pointer]:
+                    - /url: "#copy"
+                    - generic [ref=e2157]: /copy
+                - listitem [ref=e2158]:
+                  - link "/transcript" [ref=e2159] [cursor=pointer]:
+                    - /url: "#transcript"
+                    - generic [ref=e2160]: /transcript
+                - listitem [ref=e2161]:
+                  - link "/code" [ref=e2162] [cursor=pointer]:
+                    - /url: "#code"
+                    - generic [ref=e2163]: /code
+                - listitem [ref=e2164]:
+                  - link "/experiment" [ref=e2165] [cursor=pointer]:
+                    - /url: "#experiment"
+                    - generic [ref=e2166]: /experiment
+                - listitem [ref=e2167]:
+                  - link "/tangent" [ref=e2168] [cursor=pointer]:
+                    - /url: "#tangent"
+                    - generic [ref=e2169]: /tangent
+                - listitem [ref=e2170]:
+                  - link "/todos" [ref=e2171] [cursor=pointer]:
+                    - /url: "#todos"
+                    - generic [ref=e2172]: /todos
+                - listitem [ref=e2173]:
+                  - link "/issue" [ref=e2174] [cursor=pointer]:
+                    - /url: "#issue"
+                    - generic [ref=e2175]: /issue
+                - listitem [ref=e2176]:
+                  - link "/logdump" [ref=e2177] [cursor=pointer]:
+                    - /url: "#logdump"
+                    - generic [ref=e2178]: /logdump
+                - listitem [ref=e2179]:
+                  - link "/settings" [ref=e2180] [cursor=pointer]:
+                    - /url: "#settings"
+                    - generic [ref=e2181]: /settings
+                - listitem [ref=e2182]:
+                  - link "/effort" [ref=e2183] [cursor=pointer]:
+                    - /url: "#effort"
+                    - generic [ref=e2184]: /effort
+                - listitem [ref=e2185]:
+                  - link "/goal" [ref=e2186] [cursor=pointer]:
+                    - /url: "#goal"
+                    - generic [ref=e2187]: /goal
+                - listitem [ref=e2188]:
+                  - link "/rewind" [ref=e2189] [cursor=pointer]:
+                    - /url: "#rewind"
+                    - generic [ref=e2190]: /rewind
+                - listitem [ref=e2191]:
+                  - link "/changelog" [ref=e2192] [cursor=pointer]:
+                    - /url: "#changelog"
+                    - generic [ref=e2193]: /changelog
+                - listitem [ref=e2194]:
+                  - link "Skill-based slash commands" [ref=e2195] [cursor=pointer]:
+                    - /url: "#skill-based-slash-commands"
+                    - generic [ref=e2196]: Skill-based slash commands
+                - listitem [ref=e2197]:
+                  - link "Keyboard shortcuts" [ref=e2198] [cursor=pointer]:
+                    - /url: "#keyboard-shortcuts"
+                    - generic [ref=e2199]: Keyboard shortcuts
+                - listitem [ref=e2200]:
+                  - link "Next steps" [ref=e2201] [cursor=pointer]:
+                    - /url: "#next-steps"
+                    - generic [ref=e2202]: Next steps
+    - separator [ref=e2203]
+  - contentinfo [ref=e2204]:
+    - generic [ref=e2206]:
+      - img "Kiro" [ref=e2210]
+      - navigation "Footer Navigation" [ref=e2211]:
+        - generic [ref=e2212]:
+          - heading "Product" [level=2] [ref=e2213]
+          - list [ref=e2214]:
+            - listitem [ref=e2215]:
+              - link "About Kiro" [ref=e2216] [cursor=pointer]:
+                - /url: /about/
+            - listitem [ref=e2217]:
+              - link "IDE" [ref=e2218] [cursor=pointer]:
+                - /url: /ide/
+            - listitem [ref=e2219]:
+              - link "CLI" [ref=e2220] [cursor=pointer]:
+                - /url: /cli/
+            - listitem [ref=e2221]:
+              - link "Web" [ref=e2222] [cursor=pointer]:
+                - /url: /web/
+            - listitem [ref=e2223]:
+              - link "Mobile" [ref=e2224] [cursor=pointer]:
+                - /url: /mobile/
+            - listitem [ref=e2225]:
+              - link "Pricing" [ref=e2226] [cursor=pointer]:
+                - /url: /pricing/
+            - listitem [ref=e2227]:
+              - link "Downloads" [ref=e2228] [cursor=pointer]:
+                - /url: /downloads/
+        - generic [ref=e2229]:
+          - heading "For" [level=2] [ref=e2230]
+          - list [ref=e2231]:
+            - listitem [ref=e2232]:
+              - link "Enterprise" [ref=e2233] [cursor=pointer]:
+                - /url: /enterprise/
+            - listitem [ref=e2234]:
+              - link "Startups" [ref=e2235] [cursor=pointer]:
+                - /url: /startups/
+            - listitem [ref=e2236]:
+              - link "Students" [ref=e2237] [cursor=pointer]:
+                - /url: /students/
+        - generic [ref=e2238]:
+          - heading "Community" [level=2] [ref=e2239]
+          - list [ref=e2240]:
+            - listitem [ref=e2241]:
+              - link "Overview" [ref=e2242] [cursor=pointer]:
+                - /url: /community/
+            - listitem [ref=e2243]:
+              - link "Ambassadors" [ref=e2244] [cursor=pointer]:
+                - /url: /ambassadors/
+            - listitem [ref=e2245]:
+              - link "Discord" [ref=e2246] [cursor=pointer]:
+                - /url: /discord/
+            - listitem [ref=e2247]:
+              - link "Events" [ref=e2248] [cursor=pointer]:
+                - /url: /events/
+            - listitem [ref=e2249]:
+              - link "Powers" [ref=e2250] [cursor=pointer]:
+                - /url: /powers/
+            - listitem [ref=e2251]:
+              - link "Shop" [ref=e2252] [cursor=pointer]:
+                - /url: https://shop.kiro.dev
+            - listitem [ref=e2253]:
+              - link "Showcase" [ref=e2254] [cursor=pointer]:
+                - /url: /showcase/
+        - generic [ref=e2255]:
+          - heading "Resources" [level=2] [ref=e2256]
+          - list [ref=e2257]:
+            - listitem [ref=e2258]:
+              - link "Docs" [ref=e2259] [cursor=pointer]:
+                - /url: /docs/
+            - listitem [ref=e2260]:
+              - link "Blog" [ref=e2261] [cursor=pointer]:
+                - /url: /blog/
+            - listitem [ref=e2262]:
+              - link "Changelog" [ref=e2263] [cursor=pointer]:
+                - /url: /changelog/
+            - listitem [ref=e2264]:
+              - link "FAQs" [ref=e2265] [cursor=pointer]:
+                - /url: /faq/
+            - listitem [ref=e2266]:
+              - link "Report a bug" [ref=e2267] [cursor=pointer]:
+                - /url: https://github.com/kirodotdev/Kiro/issues/new/choose
+            - listitem [ref=e2268]:
+              - link "Suggest an idea" [ref=e2269] [cursor=pointer]:
+                - /url: https://github.com/kirodotdev/Kiro/issues/new?template=feature_request.yml
+            - listitem [ref=e2270]:
+              - link "Billing support" [ref=e2271] [cursor=pointer]:
+                - /url: https://app.kiro.dev/settings/account
+        - generic [ref=e2272]:
+          - heading "Social" [level=2] [ref=e2273]
+          - list "Social" [ref=e2274]:
+            - listitem [ref=e2275]:
+              - link "Join our Discord community" [ref=e2276] [cursor=pointer]:
+                - /url: https://discord.gg/kirodotdev
+                - img [ref=e2277]
+            - listitem [ref=e2279]:
+              - link "Follow us on LinkedIn" [ref=e2280] [cursor=pointer]:
+                - /url: https://www.linkedin.com/showcase/kirodotdev
+                - img [ref=e2281]
+            - listitem [ref=e2283]:
+              - link "Follow us on X" [ref=e2284] [cursor=pointer]:
+                - /url: https://x.com/kirodotdev
+                - img [ref=e2285]
+            - listitem [ref=e2287]:
+              - link "Follow us on Instagram" [ref=e2288] [cursor=pointer]:
+                - /url: https://www.instagram.com/kirodotdev
+                - img [ref=e2289]
+            - listitem [ref=e2291]:
+              - link "Follow us on YouTube" [ref=e2292] [cursor=pointer]:
+                - /url: https://www.youtube.com/@kirodotdev
+                - img [ref=e2293]
+            - listitem [ref=e2295]:
+              - link "Follow us on Bluesky" [ref=e2296] [cursor=pointer]:
+                - /url: https://bsky.app/profile/kiro.dev
+                - img [ref=e2297]
+            - listitem [ref=e2300]:
+              - link "Follow us on Twitch" [ref=e2301] [cursor=pointer]:
+                - /url: https://www.twitch.tv/kirodotdev
+                - img [ref=e2302]
+    - generic [ref=e2306]:
+      - link "AWS Amazon" [ref=e2308] [cursor=pointer]:
+        - /url: https://aws.amazon.com
+        - img [ref=e2309]
+      - generic [ref=e2312]:
+        - link "Site Terms" [ref=e2313] [cursor=pointer]:
+          - /url: https://aws.amazon.com/terms/
+        - link "License" [ref=e2314] [cursor=pointer]:
+          - /url: /license/
+        - link "Responsible AI Policy" [ref=e2315] [cursor=pointer]:
+          - /url: https://aws.amazon.com/ai/responsible-ai/policy/
+        - link "Legal" [ref=e2316] [cursor=pointer]:
+          - /url: https://aws.amazon.com/legal/
+        - link "Privacy Policy" [ref=e2317] [cursor=pointer]:
+          - /url: https://aws.amazon.com/privacy/
+        - link "Cookie Preferences" [ref=e2318] [cursor=pointer]:
+          - /url: "#"
+  - alert [ref=e2319]

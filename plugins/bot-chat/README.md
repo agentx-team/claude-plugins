@@ -146,7 +146,7 @@ The plugin ships its own `.mcp.json` (the local `bot-channel` bridge only). **No
 | `BOT_REQUIRE_MENTION` | no | **`true`** | `X-Config.requireMention` |
 | `BOT_ORG_ID` | no | — | `X-Org-Id` header; empty = the bot's own org (Personal org for personal bots) |
 | `BOT_GLOBAL_ROOM_NAME` | no | — | Enables **global room mode** (see above): all host sessions → one room named this; inbound disabled |
-| `BOT_API_URL` | no | `https://agentx.nx.run/bots.v1.BotService/McpServer` | — |
+| `BOT_API_URL` | no | `https://agentxapi.nx.run/bots.v1.BotService/McpServer` | — |
 | `BOT_POLL_MS` | no | `5000` | — |
 
 Server-side queue semantics: at most **10** pending inbound messages per
@@ -164,7 +164,7 @@ message stays re-readable for **≥3s** before it is pruned.
 ## Architecture
 ```
                     ┌────────────── outbound (shell, 0 tokens) ──────────────┐
-/bot cmd, Stop hook ─ curl ─► https://agentx.nx.run/bots.v1.BotService/McpServer ─► IM room
+/bot cmd, Stop hook ─ curl ─► https://agentxapi.nx.run/bots.v1.BotService/McpServer ─► IM room
                                         ▲ bot_receive (poll)
 bot-channel (stdio, .mcp.json) ─────────┘
         │ notifications/claude/channel

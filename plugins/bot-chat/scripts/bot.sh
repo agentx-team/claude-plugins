@@ -17,7 +17,7 @@ set -euo pipefail
 
 TOOL="$1"; SID="${2:-}"; ARGS="${3:-}"; [ -z "$ARGS" ] && ARGS='{}'
 
-URL="${BOT_API_URL:-https://agentx.nx.run/bots.v1.BotService/McpServer}"
+URL="${BOT_API_URL:-https://agentxapi.nx.run/bots.v1.BotService/McpServer}"
 # Missing env details go to stderr only; stdout (prompt-visible via the /bot
 # command expansion) carries a generic reason.
 if [ -z "${BOT_ID:-}" ] || [ -z "${BOT_API_KEY:-}" ]; then

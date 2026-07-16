@@ -1,0 +1,877 @@
+- generic [active] [ref=e1]:
+  - navigation "Main" [ref=e3]:
+    - generic [ref=e5]:
+      - link "Kiro" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]:
+          - img [ref=e11]
+          - img "Kiro" [ref=e47]
+      - list [ref=e52]:
+        - listitem [ref=e53]:
+          - link "CLI" [ref=e54] [cursor=pointer]:
+            - /url: /cli/
+        - listitem [ref=e55]:
+          - link "IDE" [ref=e56] [cursor=pointer]:
+            - /url: /ide/
+        - listitem [ref=e57]:
+          - link "Web" [ref=e58] [cursor=pointer]:
+            - /url: /web/
+        - listitem [ref=e59]:
+          - link "Mobile" [ref=e60] [cursor=pointer]:
+            - /url: /mobile/
+        - listitem [ref=e61]:
+          - link "Enterprise" [ref=e62] [cursor=pointer]:
+            - /url: /enterprise/
+        - listitem [ref=e63]:
+          - link "Pricing" [ref=e64] [cursor=pointer]:
+            - /url: /pricing/
+        - listitem [ref=e65]:
+          - link "Docs" [ref=e66] [cursor=pointer]:
+            - /url: /docs/
+        - listitem [ref=e67]:
+          - button "Community menu" [ref=e68] [cursor=pointer]:
+            - generic [ref=e69]: Community
+            - img [ref=e70]
+        - listitem [ref=e72]:
+          - button "Resources menu" [ref=e73] [cursor=pointer]:
+            - generic [ref=e74]: Resources
+            - img [ref=e75]
+      - generic [ref=e77]:
+        - button "Search across all Kiro content (Ctrl+K)" [ref=e81] [cursor=pointer]:
+          - generic [ref=e82]:
+            - img [ref=e83]
+            - generic [ref=e85]: Ctrl K
+        - link "SIGN IN" [ref=e86] [cursor=pointer]:
+          - /url: https://app.kiro.dev
+          - generic [ref=e87]: SIGN IN
+        - link "Downloads" [ref=e88] [cursor=pointer]:
+          - /url: /downloads/
+          - generic [ref=e89]: DOWNLOADS
+    - text: Ctrl K
+  - main [ref=e90]:
+    - generic [ref=e91]:
+      - complementary [ref=e92]:
+        - generic [ref=e95]:
+          - navigation "Documentation product" [ref=e96]:
+            - generic [ref=e97]:
+              - link "IDE" [ref=e98] [cursor=pointer]:
+                - /url: /docs/
+              - link "CLI" [ref=e99] [cursor=pointer]:
+                - /url: /docs/cli/
+              - link "Web" [ref=e100] [cursor=pointer]:
+                - /url: /docs/web/
+          - generic [ref=e102]:
+            - generic [ref=e104]:
+              - link "Get started" [ref=e105] [cursor=pointer]:
+                - /url: /docs/cli/
+              - button "Expand Get started" [ref=e106] [cursor=pointer]:
+                - img [ref=e107]
+            - link "Models" [ref=e109] [cursor=pointer]:
+              - /url: /docs/cli/models/
+            - generic [ref=e111]:
+              - link "Chat" [ref=e112] [cursor=pointer]:
+                - /url: /docs/cli/chat/
+              - button "Expand Chat" [ref=e113] [cursor=pointer]:
+                - img [ref=e114]
+            - generic [ref=e117]:
+              - link "Terminal UI" [ref=e118] [cursor=pointer]:
+                - /url: /docs/cli/terminal-ui/
+              - button "Expand Terminal UI" [ref=e119] [cursor=pointer]:
+                - img [ref=e120]
+            - generic [ref=e123]:
+              - link "Custom agents" [ref=e124] [cursor=pointer]:
+                - /url: /docs/cli/custom-agents/
+              - button "Expand Custom agents" [ref=e125] [cursor=pointer]:
+                - img [ref=e126]
+            - generic [ref=e129]:
+              - link "MCP" [ref=e130] [cursor=pointer]:
+                - /url: /docs/cli/mcp/
+              - button "Expand MCP" [ref=e131] [cursor=pointer]:
+                - img [ref=e132]
+            - link "Steering" [ref=e134] [cursor=pointer]:
+              - /url: /docs/cli/steering/
+            - link "Agent Skills" [ref=e135] [cursor=pointer]:
+              - /url: /docs/cli/skills/
+            - link "ACP" [ref=e136] [cursor=pointer]:
+              - /url: /docs/cli/acp/
+            - link "Headless mode" [ref=e137] [cursor=pointer]:
+              - /url: /docs/cli/headless/
+            - generic [ref=e139]:
+              - link "Experimental" [ref=e140] [cursor=pointer]:
+                - /url: /docs/cli/experimental/
+              - button "Expand Experimental" [ref=e141] [cursor=pointer]:
+                - img [ref=e142]
+            - link "Hooks" [ref=e144] [cursor=pointer]:
+              - /url: /docs/cli/hooks/
+            - link "Auto complete" [ref=e145] [cursor=pointer]:
+              - /url: /docs/cli/autocomplete/
+            - link "Code Intelligence" [ref=e146] [cursor=pointer]:
+              - /url: /docs/cli/code-intelligence/
+            - generic [ref=e148]:
+              - link "Billing for individuals" [ref=e149] [cursor=pointer]:
+                - /url: /docs/cli/billing/
+              - button "Expand Billing for individuals" [ref=e150] [cursor=pointer]:
+                - img [ref=e151]
+            - generic [ref=e154]:
+              - link "Enterprise" [ref=e155] [cursor=pointer]:
+                - /url: /docs/cli/enterprise/concepts/
+              - button "Expand Enterprise" [ref=e156] [cursor=pointer]:
+                - img [ref=e157]
+            - generic [ref=e160]:
+              - link "Privacy and security" [ref=e161] [cursor=pointer]:
+                - /url: /docs/cli/privacy-and-security/
+              - button "Expand Privacy and security" [ref=e162] [cursor=pointer]:
+                - img [ref=e163]
+            - generic [ref=e166]:
+              - link "Reference" [ref=e167] [cursor=pointer]:
+                - /url: /docs/cli/reference/cli-commands/
+              - button "Expand Reference" [ref=e168] [cursor=pointer]:
+                - img [ref=e169]
+            - link "Migrating from Q Developer" [ref=e171] [cursor=pointer]:
+              - /url: /docs/cli/migrating-from-q-developer/
+            - generic [ref=e173]:
+              - link "CLI 3.0 (Early Access)" [ref=e174] [cursor=pointer]:
+                - /url: /docs/cli/v3/
+              - button "Expand CLI 3.0 (Early Access)" [ref=e175] [cursor=pointer]:
+                - img [ref=e176]
+            - link "Upgrading from Q CLI" [ref=e178] [cursor=pointer]:
+              - /url: /docs/cli/migrating-from-q/
+      - generic [ref=e181]:
+        - generic [ref=e182]:
+          - navigation "breadcrumb" [ref=e185]:
+            - list [ref=e186]:
+              - listitem [ref=e187]:
+                - link "Docs" [ref=e188] [cursor=pointer]:
+                  - /url: /docs
+              - listitem [ref=e189]:
+                - img [ref=e190]
+              - listitem [ref=e192]:
+                - link "CLI" [ref=e193] [cursor=pointer]:
+                  - /url: /docs/cli
+              - listitem [ref=e194]:
+                - img [ref=e195]
+              - listitem [ref=e197]:
+                - link "Acp" [disabled] [ref=e198]
+          - heading "Agent Client Protocol (ACP)" [level=1] [ref=e201]
+          - generic [ref=e202]:
+            - generic [ref=e203]:
+              - paragraph [ref=e204]:
+                - text: Kiro CLI implements the
+                - link "Agent Client Protocol (ACP)" [ref=e205] [cursor=pointer]:
+                  - /url: https://agentclientprotocol.com/get-started/introduction
+                - text: ", an open standard that enables AI agents to work with any compatible editor. This means you can use Kiro's agentic capabilities in JetBrains IDEs, Zed, and other ACP-compatible editors."
+              - generic [ref=e206]:
+                - heading "What is ACP?" [level=2] [ref=e207]
+                - link "Copy link to What is acp section" [ref=e208] [cursor=pointer]:
+                  - /url: "#what-is-acp"
+                  - img [ref=e210]
+              - paragraph [ref=e213]: AI coding agents and editors are tightly coupled, but interoperability isn't the default. Each editor must build custom integrations for every agent, and agents must implement editor-specific APIs. This creates integration overhead, limited compatibility, and developer lock-in.
+              - paragraph [ref=e214]: ACP solves this by providing a standardized protocol for agent-editor communication—similar to how the Language Server Protocol (LSP) standardized language server integration. Agents that implement ACP work with any compatible editor, and editors that support ACP gain access to all ACP-compatible agents.
+              - generic [ref=e215]:
+                - heading "Quick start" [level=2] [ref=e216]
+                - link "Copy link to Quick start section" [ref=e217] [cursor=pointer]:
+                  - /url: "#quick-start"
+                  - img [ref=e219]
+              - paragraph [ref=e222]: "Run Kiro as an ACP agent:"
+              - generic [ref=e223]:
+                - generic [ref=e224]:
+                  - generic [ref=e225]: bash
+                  - button "Copy code to clipboard" [ref=e226] [cursor=pointer]:
+                    - img [ref=e227]
+                  - status [ref=e230]
+                - code [ref=e233]: kiro-cli acp
+              - paragraph [ref=e234]: "To use a specific agent configuration:"
+              - generic [ref=e235]:
+                - generic [ref=e236]:
+                  - generic [ref=e237]: bash
+                  - button "Copy code to clipboard" [ref=e238] [cursor=pointer]:
+                    - img [ref=e239]
+                  - status [ref=e242]
+                - code [ref=e245]:
+                  - generic [ref=e246]: kiro-cli acp --agent my-agent
+              - paragraph [ref=e247]: The agent communicates over stdin/stdout using JSON-RPC 2.0. Configure your editor to spawn this command, and you're ready to go.
+              - generic [ref=e248]:
+                - heading "Editor setup" [level=2] [ref=e249]
+                - link "Copy link to Editor setup section" [ref=e250] [cursor=pointer]:
+                  - /url: "#editor-setup"
+                  - img [ref=e252]
+              - paragraph [ref=e255]: Kiro CLI can be used as an ACP agent in any editor that supports the protocol.
+              - note "Note" [ref=e256]:
+                - generic [ref=e257]:
+                  - img [ref=e258]
+                  - strong [ref=e260]: Info
+                - paragraph [ref=e262]:
+                  - text: Use the full path to
+                  - code [ref=e263]: kiro-cli
+                  - text: in your editor configuration. IDEs often don't inherit your shell's PATH, so commands like
+                  - code [ref=e264]: kiro-cli
+                  - text: may not be found. Run
+                  - code [ref=e265]: which kiro-cli
+                  - text: to find the path on your system (commonly
+                  - code [ref=e266]: ~/.local/bin/kiro-cli
+                  - text: on Linux/macOS).
+              - generic [ref=e267]:
+                - heading "JetBrains IDEs" [level=3] [ref=e268]
+                - link "Copy link to Jetbrains ides section" [ref=e269] [cursor=pointer]:
+                  - /url: "#jetbrains-ides"
+                  - img [ref=e271]
+              - paragraph [ref=e274]:
+                - text: JetBrains IDEs (IntelliJ IDEA, WebStorm, PyCharm, etc.) support ACP through AI Assistant. See the
+                - link "JetBrains ACP documentation" [ref=e275] [cursor=pointer]:
+                  - /url: https://www.jetbrains.com/help/ai-assistant/acp.html
+                - text: for full details.
+              - generic [ref=e277]:
+                - 'generic "Video: acp intellij" [ref=e278]'
+                - button "Play video" [ref=e279] [cursor=pointer]:
+                  - img [ref=e280]
+              - paragraph [ref=e282]: "To add Kiro as a custom agent:"
+              - list [ref=e283]:
+                - listitem [ref=e284]: Open the AI Chat tool window
+                - listitem [ref=e285]:
+                  - text: Click the settings button and select
+                  - strong [ref=e286]: Add Custom Agent
+                - listitem [ref=e287]:
+                  - text: Add the following to
+                  - code [ref=e288]: ~/.jetbrains/acp.json
+                  - text: ":"
+              - generic [ref=e289]:
+                - generic [ref=e290]:
+                  - generic [ref=e291]: json
+                  - button "Copy code to clipboard" [ref=e292] [cursor=pointer]:
+                    - img [ref=e293]
+                  - status [ref=e296]
+                - code [ref=e299]:
+                  - generic [ref=e300]: "{"
+                  - generic [ref=e301]: "\"agent_servers\": {"
+                  - generic [ref=e302]: "\"Kiro Agent\": {"
+                  - generic [ref=e303]: "\"command\": \"/full/path/to/kiro-cli\","
+                  - generic [ref=e304]: "\"args\": [\"acp\"]"
+                  - generic [ref=e305]: "}"
+                  - generic [ref=e306]: "}"
+                  - generic [ref=e307]: "}"
+              - paragraph [ref=e308]: The agent will appear in the AI Chat mode selector.
+              - generic [ref=e309]:
+                - heading "Zed" [level=3] [ref=e310]
+                - link "Copy link to Zed section" [ref=e311] [cursor=pointer]:
+                  - /url: "#zed"
+                  - img [ref=e313]
+              - paragraph [ref=e316]:
+                - text: Zed supports ACP agents natively. See the
+                - link "Zed external agents documentation" [ref=e317] [cursor=pointer]:
+                  - /url: https://zed.dev/docs/ai/external-agents#custom-agents
+                - text: for full details. Add the following to your Zed settings (
+                - code [ref=e318]: ~/.config/zed/settings.json
+                - text: "):"
+              - generic [ref=e320]:
+                - 'generic "Video: acp zed" [ref=e321]'
+                - button "Play video" [ref=e322] [cursor=pointer]:
+                  - img [ref=e323]
+              - generic [ref=e325]:
+                - generic [ref=e326]:
+                  - generic [ref=e327]: json
+                  - button "Copy code to clipboard" [ref=e328] [cursor=pointer]:
+                    - img [ref=e329]
+                  - status [ref=e332]
+                - code [ref=e335]:
+                  - generic [ref=e336]: "{"
+                  - generic [ref=e337]: "\"agent_servers\": {"
+                  - generic [ref=e338]: "\"Kiro Agent\": {"
+                  - generic [ref=e339]: "\"type\": \"custom\","
+                  - generic [ref=e340]: "\"command\": \"~/.local/bin/kiro-cli\","
+                  - generic [ref=e341]: "\"args\": [\"acp\"],"
+                  - generic [ref=e342]: "\"env\": {}"
+                  - generic [ref=e343]: "}"
+                  - generic [ref=e344]: "}"
+                  - generic [ref=e345]: "}"
+              - paragraph [ref=e346]: Select "Kiro Agent" from the agent picker in Zed's AI panel.
+              - generic [ref=e347]:
+                - heading "Other editors" [level=3] [ref=e348]
+                - link "Copy link to Other editors section" [ref=e349] [cursor=pointer]:
+                  - /url: "#other-editors"
+                  - img [ref=e351]
+              - paragraph [ref=e354]:
+                - text: Any editor supporting ACP can integrate Kiro by spawning
+                - code [ref=e355]: kiro-cli acp
+                - text: and communicating via JSON-RPC over stdio. See the
+                - link "ACP specification" [ref=e356] [cursor=pointer]:
+                  - /url: https://agentclientprotocol.com
+                - text: for protocol details.
+              - generic [ref=e357]:
+                - heading "Supported ACP methods" [level=2] [ref=e358]
+                - link "Copy link to Supported acp methods section" [ref=e359] [cursor=pointer]:
+                  - /url: "#supported-acp-methods"
+                  - img [ref=e361]
+              - paragraph [ref=e364]: Kiro CLI implements the following ACP methods, giving you access to session management, model selection, and streaming responses when using Kiro through any ACP-compatible editor.
+              - generic [ref=e365]:
+                - heading "Core protocol" [level=3] [ref=e366]
+                - link "Copy link to Core protocol section" [ref=e367] [cursor=pointer]:
+                  - /url: "#core-protocol"
+                  - img [ref=e369]
+              - table [ref=e373]:
+                - rowgroup [ref=e374]:
+                  - row "Method Description" [ref=e375]:
+                    - columnheader "Method" [ref=e376]
+                    - columnheader "Description" [ref=e377]
+                - rowgroup [ref=e378]:
+                  - row "initialize Initialize the connection and exchange capabilities" [ref=e379]:
+                    - cell "initialize" [ref=e380]:
+                      - code [ref=e381]: initialize
+                    - cell "Initialize the connection and exchange capabilities" [ref=e382]
+                  - row "session/new Create a new chat session" [ref=e383]:
+                    - cell "session/new" [ref=e384]:
+                      - code [ref=e385]: session/new
+                    - cell "Create a new chat session" [ref=e386]
+                  - row "session/load Load an existing session by ID" [ref=e387]:
+                    - cell "session/load" [ref=e388]:
+                      - code [ref=e389]: session/load
+                    - cell "Load an existing session by ID" [ref=e390]
+                  - row "session/prompt Send a prompt to the agent" [ref=e391]:
+                    - cell "session/prompt" [ref=e392]:
+                      - code [ref=e393]: session/prompt
+                    - cell "Send a prompt to the agent" [ref=e394]
+                  - row "session/cancel Cancel the current operation" [ref=e395]:
+                    - cell "session/cancel" [ref=e396]:
+                      - code [ref=e397]: session/cancel
+                    - cell "Cancel the current operation" [ref=e398]
+                  - row "session/set_mode Switch agent mode (e.g., different agent configs)" [ref=e399]:
+                    - cell "session/set_mode" [ref=e400]:
+                      - code [ref=e401]: session/set_mode
+                    - cell "Switch agent mode (e.g., different agent configs)" [ref=e402]
+                  - row "session/set_model Change the model for the session" [ref=e403]:
+                    - cell "session/set_model" [ref=e404]:
+                      - code [ref=e405]: session/set_model
+                    - cell "Change the model for the session" [ref=e406]
+              - generic [ref=e407]:
+                - heading "Agent capabilities" [level=3] [ref=e408]
+                - link "Copy link to Agent capabilities section" [ref=e409] [cursor=pointer]:
+                  - /url: "#agent-capabilities"
+                  - img [ref=e411]
+              - paragraph [ref=e414]: "The Kiro ACP agent advertises these capabilities during initialization:"
+              - list [ref=e415]:
+                - listitem [ref=e416]:
+                  - code [ref=e417]: "loadSession: true"
+                  - text: "- Supports loading existing sessions"
+                - listitem [ref=e418]:
+                  - code [ref=e419]: "promptCapabilities.image: true"
+                  - text: "- Supports image content in prompts"
+              - generic [ref=e420]:
+                - heading "Session updates" [level=3] [ref=e421]
+                - link "Copy link to Session updates section" [ref=e422] [cursor=pointer]:
+                  - /url: "#session-updates"
+                  - img [ref=e424]
+              - paragraph [ref=e427]:
+                - text: The agent sends these session update types via
+                - code [ref=e428]: session/notification
+                - text: ":"
+              - table [ref=e430]:
+                - rowgroup [ref=e431]:
+                  - row "Update Type Description" [ref=e432]:
+                    - columnheader "Update Type" [ref=e433]
+                    - columnheader "Description" [ref=e434]
+                - rowgroup [ref=e435]:
+                  - row "AgentMessageChunk Streaming text/content from the agent" [ref=e436]:
+                    - cell "AgentMessageChunk" [ref=e437]:
+                      - code [ref=e438]: AgentMessageChunk
+                    - cell "Streaming text/content from the agent" [ref=e439]
+                  - row "ToolCall Tool invocation with name, parameters, status" [ref=e440]:
+                    - cell "ToolCall" [ref=e441]:
+                      - code [ref=e442]: ToolCall
+                    - cell "Tool invocation with name, parameters, status" [ref=e443]
+                  - row "ToolCallUpdate Progress updates for running tools" [ref=e444]:
+                    - cell "ToolCallUpdate" [ref=e445]:
+                      - code [ref=e446]: ToolCallUpdate
+                    - cell "Progress updates for running tools" [ref=e447]
+                  - row "TurnEnd Signals the agent turn has completed" [ref=e448]:
+                    - cell "TurnEnd" [ref=e449]:
+                      - code [ref=e450]: TurnEnd
+                    - cell "Signals the agent turn has completed" [ref=e451]
+              - generic [ref=e452]:
+                - heading "Kiro extensions" [level=2] [ref=e453]
+                - link "Copy link to Kiro extensions section" [ref=e454] [cursor=pointer]:
+                  - /url: "#kiro-extensions"
+                  - img [ref=e456]
+              - paragraph [ref=e459]:
+                - text: Kiro extends ACP with custom methods (prefixed with
+                - code [ref=e460]: _kiro.dev/
+                - text: per the ACP spec) to expose Kiro-specific features like
+                - link "slash commands" [ref=e461] [cursor=pointer]:
+                  - /url: /docs/cli/reference/slash-commands
+                - text: ","
+                - link "MCP servers" [ref=e462] [cursor=pointer]:
+                  - /url: /docs/cli/mcp
+                - text: ", and"
+                - link "context compaction" [ref=e463] [cursor=pointer]:
+                  - /url: /docs/cli/chat#managing-context
+                - text: . Clients that don't support these extensions can safely ignore them—they're optional enhancements.
+              - note "Note" [ref=e464]:
+                - generic [ref=e465]:
+                  - img [ref=e466]
+                  - strong [ref=e468]: Warning
+                - paragraph [ref=e470]: These extensions are experimental and subject to change in future releases.
+              - generic [ref=e471]:
+                - heading "Slash commands" [level=3] [ref=e472]
+                - link "Copy link to Slash commands section" [ref=e473] [cursor=pointer]:
+                  - /url: "#slash-commands"
+                  - img [ref=e475]
+              - table [ref=e479]:
+                - rowgroup [ref=e480]:
+                  - row "Method Type Description" [ref=e481]:
+                    - columnheader "Method" [ref=e482]
+                    - columnheader "Type" [ref=e483]
+                    - columnheader "Description" [ref=e484]
+                - rowgroup [ref=e485]:
+                  - row "_kiro.dev/commands/execute Request Execute a slash command (e.g., /agent swap, /context add)" [ref=e486]:
+                    - cell "_kiro.dev/commands/execute" [ref=e487]:
+                      - code [ref=e488]: _kiro.dev/commands/execute
+                    - cell "Request" [ref=e489]
+                    - cell "Execute a slash command (e.g., /agent swap, /context add)" [ref=e490]:
+                      - text: Execute a slash command (e.g.,
+                      - code [ref=e491]: /agent swap
+                      - text: ","
+                      - code [ref=e492]: /context add
+                      - text: )
+                  - row "_kiro.dev/commands/options Request Get autocomplete suggestions for a partial command" [ref=e493]:
+                    - cell "_kiro.dev/commands/options" [ref=e494]:
+                      - code [ref=e495]: _kiro.dev/commands/options
+                    - cell "Request" [ref=e496]
+                    - cell "Get autocomplete suggestions for a partial command" [ref=e497]
+                  - row "_kiro.dev/commands/available Notification Sent after session creation with the list of available commands" [ref=e498]:
+                    - cell "_kiro.dev/commands/available" [ref=e499]:
+                      - code [ref=e500]: _kiro.dev/commands/available
+                    - cell "Notification" [ref=e501]
+                    - cell "Sent after session creation with the list of available commands" [ref=e502]
+              - generic [ref=e503]:
+                - heading "MCP server events" [level=3] [ref=e504]
+                - link "Copy link to Mcp server events section" [ref=e505] [cursor=pointer]:
+                  - /url: "#mcp-server-events"
+                  - img [ref=e507]
+              - table [ref=e511]:
+                - rowgroup [ref=e512]:
+                  - row "Method Type Description" [ref=e513]:
+                    - columnheader "Method" [ref=e514]
+                    - columnheader "Type" [ref=e515]
+                    - columnheader "Description" [ref=e516]
+                - rowgroup [ref=e517]:
+                  - row "_kiro.dev/mcp/oauth_request Notification Provides OAuth URL when an MCP server requires authentication" [ref=e518]:
+                    - cell "_kiro.dev/mcp/oauth_request" [ref=e519]:
+                      - code [ref=e520]: _kiro.dev/mcp/oauth_request
+                    - cell "Notification" [ref=e521]
+                    - cell "Provides OAuth URL when an MCP server requires authentication" [ref=e522]
+                  - row "_kiro.dev/mcp/server_initialized Notification Indicates an MCP server has finished initializing and its tools are available" [ref=e523]:
+                    - cell "_kiro.dev/mcp/server_initialized" [ref=e524]:
+                      - code [ref=e525]: _kiro.dev/mcp/server_initialized
+                    - cell "Notification" [ref=e526]
+                    - cell "Indicates an MCP server has finished initializing and its tools are available" [ref=e527]
+              - generic [ref=e528]:
+                - heading "Session management" [level=3] [ref=e529]
+                - link "Copy link to Session management section" [ref=e530] [cursor=pointer]:
+                  - /url: "#session-management"
+                  - img [ref=e532]
+              - table [ref=e536]:
+                - rowgroup [ref=e537]:
+                  - row "Method Type Description" [ref=e538]:
+                    - columnheader "Method" [ref=e539]
+                    - columnheader "Type" [ref=e540]
+                    - columnheader "Description" [ref=e541]
+                - rowgroup [ref=e542]:
+                  - row "_kiro.dev/compaction/status Notification Reports progress when compacting conversation context" [ref=e543]:
+                    - cell "_kiro.dev/compaction/status" [ref=e544]:
+                      - code [ref=e545]: _kiro.dev/compaction/status
+                    - cell "Notification" [ref=e546]
+                    - cell "Reports progress when compacting conversation context" [ref=e547]
+                  - row "_kiro.dev/clear/status Notification Reports status when clearing session history" [ref=e548]:
+                    - cell "_kiro.dev/clear/status" [ref=e549]:
+                      - code [ref=e550]: _kiro.dev/clear/status
+                    - cell "Notification" [ref=e551]
+                    - cell "Reports status when clearing session history" [ref=e552]
+                  - row "_session/terminate Notification Terminates a subagent session" [ref=e553]:
+                    - cell "_session/terminate" [ref=e554]:
+                      - code [ref=e555]: _session/terminate
+                    - cell "Notification" [ref=e556]
+                    - cell "Terminates a subagent session" [ref=e557]
+              - generic [ref=e558]:
+                - 'heading "Example: Initialize connection" [level=2] [ref=e559]'
+                - link "Copy link to Example initialize connection section" [ref=e560] [cursor=pointer]:
+                  - /url: "#example-initialize-connection"
+                  - img [ref=e562]
+              - paragraph [ref=e565]: "Here's how an ACP client initializes a connection with Kiro:"
+              - generic [ref=e566]:
+                - generic [ref=e567]:
+                  - generic [ref=e568]: json
+                  - button "Copy code to clipboard" [ref=e569] [cursor=pointer]:
+                    - img [ref=e570]
+                  - status [ref=e573]
+                - code [ref=e576]:
+                  - generic [ref=e577]: // Client sends initialize request
+                  - generic [ref=e578]: "{"
+                  - generic [ref=e579]: "\"jsonrpc\": \"2.0\","
+                  - generic [ref=e580]: "\"id\": 0,"
+                  - generic [ref=e581]: "\"method\": \"initialize\","
+                  - generic [ref=e582]: "\"params\": {"
+                  - generic [ref=e583]: "\"protocolVersion\": 1,"
+                  - generic [ref=e584]: "\"clientCapabilities\": {"
+                  - generic [ref=e585]: "\"fs\": {"
+                  - generic [ref=e586]: "\"readTextFile\": true,"
+                  - generic [ref=e587]: "\"writeTextFile\": true"
+                  - generic [ref=e588]: "},"
+                  - generic [ref=e589]: "\"terminal\": true"
+                  - generic [ref=e590]: "},"
+                  - generic [ref=e591]: "\"clientInfo\": {"
+                  - generic [ref=e592]: "\"name\": \"my-editor\","
+                  - generic [ref=e593]: "\"version\": \"1.0.0\""
+                  - generic [ref=e594]: "}"
+                  - generic [ref=e595]: "}"
+                  - generic [ref=e596]: "}"
+                  - generic [ref=e597]: // Kiro responds with capabilities
+                  - generic [ref=e598]: "{"
+                  - generic [ref=e599]: "\"jsonrpc\": \"2.0\","
+                  - generic [ref=e600]: "\"id\": 0,"
+                  - generic [ref=e601]: "\"result\": {"
+                  - generic [ref=e602]: "\"protocolVersion\": 1,"
+                  - generic [ref=e603]: "\"agentCapabilities\": {"
+                  - generic [ref=e604]: "\"loadSession\": true,"
+                  - generic [ref=e605]: "\"promptCapabilities\": {"
+                  - generic [ref=e606]: "\"image\": true"
+                  - generic [ref=e607]: "}"
+                  - generic [ref=e608]: "},"
+                  - generic [ref=e609]: "\"agentInfo\": {"
+                  - generic [ref=e610]: "\"name\": \"kiro-cli\","
+                  - generic [ref=e611]: "\"version\": \"1.5.0\""
+                  - generic [ref=e612]: "}"
+                  - generic [ref=e613]: "}"
+                  - generic [ref=e614]: "}"
+              - paragraph [ref=e615]: "After initialization, create a session and start prompting:"
+              - generic [ref=e616]:
+                - generic [ref=e617]:
+                  - generic [ref=e618]: json
+                  - button "Copy code to clipboard" [ref=e619] [cursor=pointer]:
+                    - img [ref=e620]
+                  - status [ref=e623]
+                - code [ref=e626]:
+                  - generic [ref=e627]: // Create a new session
+                  - generic [ref=e628]: "{"
+                  - generic [ref=e629]: "\"jsonrpc\": \"2.0\","
+                  - generic [ref=e630]: "\"id\": 1,"
+                  - generic [ref=e631]: "\"method\": \"session/new\","
+                  - generic [ref=e632]: "\"params\": {"
+                  - generic [ref=e633]: "\"cwd\": \"/home/user/my-project\","
+                  - generic [ref=e634]: "\"mcpServers\": []"
+                  - generic [ref=e635]: "}"
+                  - generic [ref=e636]: "}"
+                  - generic [ref=e637]: // Send a prompt
+                  - generic [ref=e638]: "{"
+                  - generic [ref=e639]: "\"jsonrpc\": \"2.0\","
+                  - generic [ref=e640]: "\"id\": 2,"
+                  - generic [ref=e641]: "\"method\": \"session/prompt\","
+                  - generic [ref=e642]: "\"params\": {"
+                  - generic [ref=e643]: "\"sessionId\": \"sess_abc123\","
+                  - generic [ref=e644]: "\"content\": ["
+                  - generic [ref=e645]: "{"
+                  - generic [ref=e646]: "\"type\": \"text\","
+                  - generic [ref=e647]: "\"text\": \"Explain this codebase\""
+                  - generic [ref=e648]: "}"
+                  - generic [ref=e649]: "]"
+                  - generic [ref=e650]: "}"
+                  - generic [ref=e651]: "}"
+              - generic [ref=e652]:
+                - heading "Session storage" [level=2] [ref=e653]
+                - link "Copy link to Session storage section" [ref=e654] [cursor=pointer]:
+                  - /url: "#session-storage"
+                  - img [ref=e656]
+              - paragraph [ref=e659]: "ACP sessions are persisted to disk at:"
+              - generic [ref=e660]:
+                - generic [ref=e661]:
+                  - button "Copy code to clipboard" [ref=e662] [cursor=pointer]:
+                    - img [ref=e663]
+                  - status [ref=e666]
+                - code [ref=e669]: ~/.kiro/sessions/cli/
+              - paragraph [ref=e670]: "Each session creates two files:"
+              - list [ref=e671]:
+                - listitem [ref=e672]:
+                  - code [ref=e673]: <session-id>.json
+                  - text: "- Session metadata and state"
+                - listitem [ref=e674]:
+                  - code [ref=e675]: <session-id>.jsonl
+                  - text: "- Event log (conversation history)"
+              - generic [ref=e676]:
+                - heading "Logging" [level=2] [ref=e677]
+                - link "Copy link to Logging section" [ref=e678] [cursor=pointer]:
+                  - /url: "#logging"
+                  - img [ref=e680]
+              - paragraph [ref=e683]: "ACP agent logs are written to the standard Kiro log location:"
+              - table [ref=e685]:
+                - rowgroup [ref=e686]:
+                  - row "Platform Location" [ref=e687]:
+                    - columnheader "Platform" [ref=e688]
+                    - columnheader "Location" [ref=e689]
+                - rowgroup [ref=e690]:
+                  - row "macOS $TMPDIR/kiro-log/kiro-chat.log" [ref=e691]:
+                    - cell "macOS" [ref=e692]
+                    - cell "$TMPDIR/kiro-log/kiro-chat.log" [ref=e693]:
+                      - code [ref=e694]: $TMPDIR/kiro-log/kiro-chat.log
+                  - row "Linux $XDG_RUNTIME_DIR/kiro-log/kiro-chat.log" [ref=e695]:
+                    - cell "Linux" [ref=e696]
+                    - cell "$XDG_RUNTIME_DIR/kiro-log/kiro-chat.log" [ref=e697]:
+                      - code [ref=e698]: $XDG_RUNTIME_DIR/kiro-log/kiro-chat.log
+              - paragraph [ref=e699]: "Control log verbosity with environment variables:"
+              - generic [ref=e700]:
+                - generic [ref=e701]:
+                  - generic [ref=e702]: bash
+                  - button "Copy code to clipboard" [ref=e703] [cursor=pointer]:
+                    - img [ref=e704]
+                  - status [ref=e707]
+                - code [ref=e710]:
+                  - generic [ref=e711]: KIRO_LOG_LEVEL=debug kiro-cli acp
+                  - generic [ref=e712]: KIRO_CHAT_LOG_FILE=/path/to/custom.log kiro-cli acp
+              - generic [ref=e713]:
+                - heading "Related" [level=2] [ref=e714]
+                - link "Copy link to Related section" [ref=e715] [cursor=pointer]:
+                  - /url: "#related"
+                  - img [ref=e717]
+              - list [ref=e720]:
+                - listitem [ref=e721]:
+                  - link "Interactive Chat" [ref=e722] [cursor=pointer]:
+                    - /url: /docs/cli/chat
+                  - text: "- Uses ACP internally"
+                - listitem [ref=e723]:
+                  - link "MCP Integration" [ref=e724] [cursor=pointer]:
+                    - /url: /docs/cli/mcp
+                  - text: "- MCP servers can be passed to ACP sessions"
+                - listitem [ref=e725]:
+                  - link "CLI Commands Reference" [ref=e726] [cursor=pointer]:
+                    - /url: /docs/cli/reference/cli-commands
+            - generic [ref=e727]:
+              - img [ref=e728]
+              - generic [ref=e730]: "Page updated: May 27, 2026"
+            - generic [ref=e731]:
+              - 'link "Previous: Agent Skills" [ref=e733] [cursor=pointer]':
+                - /url: /docs/cli/skills/
+                - img [ref=e734]
+                - generic [ref=e736]: Agent Skills
+              - 'link "Next: Headless mode" [ref=e738] [cursor=pointer]':
+                - /url: /docs/cli/headless/
+                - generic [ref=e739]: Headless mode
+                - img [ref=e740]
+        - complementary [ref=e742]:
+          - generic [ref=e744]:
+            - button "Copy page as Markdown" [ref=e745] [cursor=pointer]:
+              - img [ref=e746]
+              - generic [ref=e749]: Copy page
+            - button "More page actions" [ref=e750] [cursor=pointer]:
+              - img [ref=e751]
+          - generic [ref=e753]:
+            - generic [ref=e754]:
+              - img [ref=e755]
+              - generic [ref=e758]: On this page
+            - navigation [ref=e761]:
+              - list [ref=e764]:
+                - listitem [ref=e765]:
+                  - link "What is ACP?" [ref=e766] [cursor=pointer]:
+                    - /url: "#what-is-acp"
+                    - generic [ref=e767]: What is ACP?
+                - listitem [ref=e768]:
+                  - link "Quick start" [ref=e769] [cursor=pointer]:
+                    - /url: "#quick-start"
+                    - generic [ref=e770]: Quick start
+                - listitem [ref=e771]:
+                  - link "Editor setup" [ref=e772] [cursor=pointer]:
+                    - /url: "#editor-setup"
+                    - generic [ref=e773]: Editor setup
+                - listitem [ref=e774]:
+                  - link "JetBrains IDEs" [ref=e775] [cursor=pointer]:
+                    - /url: "#jetbrains-ides"
+                    - generic [ref=e776]: JetBrains IDEs
+                - listitem [ref=e777]:
+                  - link "Zed" [ref=e778] [cursor=pointer]:
+                    - /url: "#zed"
+                    - generic [ref=e779]: Zed
+                - listitem [ref=e780]:
+                  - link "Other editors" [ref=e781] [cursor=pointer]:
+                    - /url: "#other-editors"
+                    - generic [ref=e782]: Other editors
+                - listitem [ref=e783]:
+                  - link "Supported ACP methods" [ref=e784] [cursor=pointer]:
+                    - /url: "#supported-acp-methods"
+                    - generic [ref=e785]: Supported ACP methods
+                - listitem [ref=e786]:
+                  - link "Core protocol" [ref=e787] [cursor=pointer]:
+                    - /url: "#core-protocol"
+                    - generic [ref=e788]: Core protocol
+                - listitem [ref=e789]:
+                  - link "Agent capabilities" [ref=e790] [cursor=pointer]:
+                    - /url: "#agent-capabilities"
+                    - generic [ref=e791]: Agent capabilities
+                - listitem [ref=e792]:
+                  - link "Session updates" [ref=e793] [cursor=pointer]:
+                    - /url: "#session-updates"
+                    - generic [ref=e794]: Session updates
+                - listitem [ref=e795]:
+                  - link "Kiro extensions" [ref=e796] [cursor=pointer]:
+                    - /url: "#kiro-extensions"
+                    - generic [ref=e797]: Kiro extensions
+                - listitem [ref=e798]:
+                  - link "Slash commands" [ref=e799] [cursor=pointer]:
+                    - /url: "#slash-commands"
+                    - generic [ref=e800]: Slash commands
+                - listitem [ref=e801]:
+                  - link "MCP server events" [ref=e802] [cursor=pointer]:
+                    - /url: "#mcp-server-events"
+                    - generic [ref=e803]: MCP server events
+                - listitem [ref=e804]:
+                  - link "Session management" [ref=e805] [cursor=pointer]:
+                    - /url: "#session-management"
+                    - generic [ref=e806]: Session management
+                - listitem [ref=e807]:
+                  - 'link "Example: Initialize connection" [ref=e808] [cursor=pointer]':
+                    - /url: "#example-initialize-connection"
+                    - generic [ref=e809]: "Example: Initialize connection"
+                - listitem [ref=e810]:
+                  - link "Session storage" [ref=e811] [cursor=pointer]:
+                    - /url: "#session-storage"
+                    - generic [ref=e812]: Session storage
+                - listitem [ref=e813]:
+                  - link "Logging" [ref=e814] [cursor=pointer]:
+                    - /url: "#logging"
+                    - generic [ref=e815]: Logging
+                - listitem [ref=e816]:
+                  - link "Related" [ref=e817] [cursor=pointer]:
+                    - /url: "#related"
+                    - generic [ref=e818]: Related
+    - separator [ref=e819]
+  - contentinfo [ref=e820]:
+    - generic [ref=e822]:
+      - img "Kiro" [ref=e826]
+      - navigation "Footer Navigation" [ref=e827]:
+        - generic [ref=e828]:
+          - heading "Product" [level=2] [ref=e829]
+          - list [ref=e830]:
+            - listitem [ref=e831]:
+              - link "About Kiro" [ref=e832] [cursor=pointer]:
+                - /url: /about/
+            - listitem [ref=e833]:
+              - link "IDE" [ref=e834] [cursor=pointer]:
+                - /url: /ide/
+            - listitem [ref=e835]:
+              - link "CLI" [ref=e836] [cursor=pointer]:
+                - /url: /cli/
+            - listitem [ref=e837]:
+              - link "Web" [ref=e838] [cursor=pointer]:
+                - /url: /web/
+            - listitem [ref=e839]:
+              - link "Mobile" [ref=e840] [cursor=pointer]:
+                - /url: /mobile/
+            - listitem [ref=e841]:
+              - link "Pricing" [ref=e842] [cursor=pointer]:
+                - /url: /pricing/
+            - listitem [ref=e843]:
+              - link "Downloads" [ref=e844] [cursor=pointer]:
+                - /url: /downloads/
+        - generic [ref=e845]:
+          - heading "For" [level=2] [ref=e846]
+          - list [ref=e847]:
+            - listitem [ref=e848]:
+              - link "Enterprise" [ref=e849] [cursor=pointer]:
+                - /url: /enterprise/
+            - listitem [ref=e850]:
+              - link "Startups" [ref=e851] [cursor=pointer]:
+                - /url: /startups/
+            - listitem [ref=e852]:
+              - link "Students" [ref=e853] [cursor=pointer]:
+                - /url: /students/
+        - generic [ref=e854]:
+          - heading "Community" [level=2] [ref=e855]
+          - list [ref=e856]:
+            - listitem [ref=e857]:
+              - link "Overview" [ref=e858] [cursor=pointer]:
+                - /url: /community/
+            - listitem [ref=e859]:
+              - link "Ambassadors" [ref=e860] [cursor=pointer]:
+                - /url: /ambassadors/
+            - listitem [ref=e861]:
+              - link "Discord" [ref=e862] [cursor=pointer]:
+                - /url: /discord/
+            - listitem [ref=e863]:
+              - link "Events" [ref=e864] [cursor=pointer]:
+                - /url: /events/
+            - listitem [ref=e865]:
+              - link "Powers" [ref=e866] [cursor=pointer]:
+                - /url: /powers/
+            - listitem [ref=e867]:
+              - link "Shop" [ref=e868] [cursor=pointer]:
+                - /url: https://shop.kiro.dev
+            - listitem [ref=e869]:
+              - link "Showcase" [ref=e870] [cursor=pointer]:
+                - /url: /showcase/
+        - generic [ref=e871]:
+          - heading "Resources" [level=2] [ref=e872]
+          - list [ref=e873]:
+            - listitem [ref=e874]:
+              - link "Docs" [ref=e875] [cursor=pointer]:
+                - /url: /docs/
+            - listitem [ref=e876]:
+              - link "Blog" [ref=e877] [cursor=pointer]:
+                - /url: /blog/
+            - listitem [ref=e878]:
+              - link "Changelog" [ref=e879] [cursor=pointer]:
+                - /url: /changelog/
+            - listitem [ref=e880]:
+              - link "FAQs" [ref=e881] [cursor=pointer]:
+                - /url: /faq/
+            - listitem [ref=e882]:
+              - link "Report a bug" [ref=e883] [cursor=pointer]:
+                - /url: https://github.com/kirodotdev/Kiro/issues/new/choose
+            - listitem [ref=e884]:
+              - link "Suggest an idea" [ref=e885] [cursor=pointer]:
+                - /url: https://github.com/kirodotdev/Kiro/issues/new?template=feature_request.yml
+            - listitem [ref=e886]:
+              - link "Billing support" [ref=e887] [cursor=pointer]:
+                - /url: https://app.kiro.dev/settings/account
+        - generic [ref=e888]:
+          - heading "Social" [level=2] [ref=e889]
+          - list "Social" [ref=e890]:
+            - listitem [ref=e891]:
+              - link "Join our Discord community" [ref=e892] [cursor=pointer]:
+                - /url: https://discord.gg/kirodotdev
+                - img [ref=e893]
+            - listitem [ref=e895]:
+              - link "Follow us on LinkedIn" [ref=e896] [cursor=pointer]:
+                - /url: https://www.linkedin.com/showcase/kirodotdev
+                - img [ref=e897]
+            - listitem [ref=e899]:
+              - link "Follow us on X" [ref=e900] [cursor=pointer]:
+                - /url: https://x.com/kirodotdev
+                - img [ref=e901]
+            - listitem [ref=e903]:
+              - link "Follow us on Instagram" [ref=e904] [cursor=pointer]:
+                - /url: https://www.instagram.com/kirodotdev
+                - img [ref=e905]
+            - listitem [ref=e907]:
+              - link "Follow us on YouTube" [ref=e908] [cursor=pointer]:
+                - /url: https://www.youtube.com/@kirodotdev
+                - img [ref=e909]
+            - listitem [ref=e911]:
+              - link "Follow us on Bluesky" [ref=e912] [cursor=pointer]:
+                - /url: https://bsky.app/profile/kiro.dev
+                - img [ref=e913]
+            - listitem [ref=e916]:
+              - link "Follow us on Twitch" [ref=e917] [cursor=pointer]:
+                - /url: https://www.twitch.tv/kirodotdev
+                - img [ref=e918]
+    - generic [ref=e922]:
+      - link "AWS Amazon" [ref=e924] [cursor=pointer]:
+        - /url: https://aws.amazon.com
+        - img [ref=e925]
+      - generic [ref=e928]:
+        - link "Site Terms" [ref=e929] [cursor=pointer]:
+          - /url: https://aws.amazon.com/terms/
+        - link "License" [ref=e930] [cursor=pointer]:
+          - /url: /license/
+        - link "Responsible AI Policy" [ref=e931] [cursor=pointer]:
+          - /url: https://aws.amazon.com/ai/responsible-ai/policy/
+        - link "Legal" [ref=e932] [cursor=pointer]:
+          - /url: https://aws.amazon.com/legal/
+        - link "Privacy Policy" [ref=e933] [cursor=pointer]:
+          - /url: https://aws.amazon.com/privacy/
+        - link "Cookie Preferences" [ref=e934] [cursor=pointer]:
+          - /url: "#"
+  - alert [ref=e935]

@@ -14,7 +14,7 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 const ROOT = process.env.CLAUDE_PROJECT_DIR || process.cwd()
-const URL = process.env.BOT_API_URL || 'https://agentx.nx.run/bots.v1.BotService/McpServer'
+const URL = process.env.BOT_API_URL || 'https://agentxapi.nx.run/bots.v1.BotService/McpServer'
 const POLL_MS = Number(process.env.BOT_POLL_MS || 5000)
 
 // Global-room mode is OUTBOUND-ONLY: every session on this host funnels into

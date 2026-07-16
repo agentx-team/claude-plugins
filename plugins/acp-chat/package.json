@@ -1,0 +1,7 @@
+{
+  "name": "acp-chat-plugin",
+  "private": true,
+  "type": "module",
+  "bin": { "acp-chatd": "bin/acp-chatd.mjs" },
+  "dependencies": {}
+}
