@@ -10,10 +10,15 @@ async function main() {
   await daemon.start()
 }
 
+let shuttingDown = false
 for (const sig of ['SIGINT', 'SIGTERM']) {
-  process.on(sig, () => {
+  process.on(sig, async () => {
+    if (shuttingDown) return   // ignore repeat signals while we drain
+    shuttingDown = true
     daemon.log(`received ${sig}, shutting down (state is persisted; rerun to recover)`)
-    daemon.stop()
+    // Await full teardown (kiro + children exit) BEFORE exiting, so stop never
+    // leaves an orphaned kiro-cli acp process behind.
+    try { await daemon.stop() } catch {}
     process.exit(0)
   })
 }

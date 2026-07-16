@@ -18,12 +18,14 @@ export const cfg = {
   pollMs: Number(process.env.BOT_POLL_MS || 3000),
 
   // ── kiro ACP bridge ──────────────────────────────────────────────────────
-  kiroBin: process.env.ACP_KIRO_BIN || 'kiro-cli',
-  engine: process.env.ACP_ENGINE || 'v3',
-  model: process.env.ACP_MODEL || 'claude-opus-4.6',
+  // The kiro binary/engine/model are hard-coded in acp-client.mjs (KIRO_BIN /
+  // KIRO_ARGS) — edit them there, not here.
   // Base directory used for the control room and for resolving relative /new
-  // paths that are not typed inside another room.
-  defaultCwd: process.env.ACP_DEFAULT_CWD || HOME,
+  // paths that are not typed inside another room. Defaults to the directory
+  // where the daemon was launched (i.e. where you ran `acp.sh start`), so the
+  // control room's cwd is your current directory — NOT a fixed $HOME. Override
+  // explicitly with ACP_DEFAULT_CWD.
+  defaultCwd: process.env.ACP_DEFAULT_CWD || process.cwd(),
   controlRoomName: process.env.ACP_CONTROL_ROOM || 'acp-chat',
   maxQueue: Number(process.env.ACP_MAX_QUEUE || 5),
 

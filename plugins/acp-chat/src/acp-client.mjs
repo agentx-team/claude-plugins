@@ -17,6 +17,14 @@ import { spawn, execFile } from 'node:child_process'
 import { readFile } from 'node:fs/promises'
 import { cfg } from './config.mjs'
 
+// The kiro ACP launch command is fixed. To change the binary, engine, or model,
+// edit these constants directly (no env vars).
+//   engine v3 = kiro's newest agent engine (v1/v2/v3; v2 is kiro's own default).
+//   claude-sonnet-5 = 1M-context Sonnet 5. Per-session model can still be
+//   changed at runtime via ACP session/set_model.
+const KIRO_BIN = 'kiro-cli'
+const KIRO_ARGS = ['--v3', 'acp', '--agent-engine', 'v3', '--model', 'claude-sonnet-5', '--trust-all-tools']
+
 export class AcpClient {
   constructor({ onUpdate, log = () => {} }) {
     this.onUpdate = onUpdate          // (sessionId, update) => void
@@ -29,14 +37,14 @@ export class AcpClient {
   }
 
   start() {
-    const args = [
-      'acp',
-      '--agent-engine', cfg.engine,
-      '--model', cfg.model,
-      '--trust-all-tools',
-    ]
-    this.log(`spawning ${cfg.kiroBin} ${args.join(' ')}`)
-    this.proc = spawn(cfg.kiroBin, args, { stdio: ['pipe', 'pipe', 'pipe'] })
+    const args = KIRO_ARGS
+    this.log(`spawning ${KIRO_BIN} ${args.join(' ')}`)
+    // detached:true puts kiro in its OWN process group, so we can signal the
+    // whole tree at shutdown. kiro-cli is a launcher that spawns the real ACP
+    // server as a child; a plain proc.kill() would hit only the launcher and
+    // leave that child orphaned (the `ps aux | grep kiro` survivor). Killing
+    // the process group (-pid) reaps the launcher AND its children.
+    this.proc = spawn(KIRO_BIN, args, { stdio: ['pipe', 'pipe', 'pipe'], detached: true })
     this.proc.stdout.on('data', d => this._onData(d))
     this.proc.stderr.on('data', d => {
       const s = d.toString()
@@ -57,6 +65,8 @@ export class AcpClient {
   }
 
   get alive() { return !!this.proc }
+
+  get pid() { return this.proc?.pid ?? null }
 
   _send(obj) {
     if (!this.proc) throw new Error('acp not running')
@@ -189,7 +199,25 @@ export class AcpClient {
     return this._request('session/cancel', { sessionId }).catch(() => {})
   }
 
+  // Terminate kiro AND its child ACP server, resolving only once the process
+  // has actually exited (or we've SIGKILLed it). Awaiting this before the
+  // daemon calls process.exit() is what prevents orphaned `kiro-cli acp`
+  // processes surviving a stop.
   stop() {
-    if (this.proc) { try { this.proc.kill() } catch {} }
+    const proc = this.proc
+    if (!proc) return Promise.resolve()
+    const pid = proc.pid
+    const signalGroup = (sig) => {
+      // Negative pid → the whole process group (created via detached:true).
+      try { process.kill(-pid, sig) } catch { try { proc.kill(sig) } catch {} }
+    }
+    return new Promise(resolve => {
+      let done = false
+      const finish = () => { if (!done) { done = true; clearTimeout(t); resolve() } }
+      proc.once('exit', finish)
+      signalGroup('SIGTERM')
+      // Escalate to SIGKILL if it hasn't exited within the grace window.
+      const t = setTimeout(() => { signalGroup('SIGKILL'); setTimeout(finish, 500) }, 3000)
+    })
   }
 }

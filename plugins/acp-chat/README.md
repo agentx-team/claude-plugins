@@ -109,9 +109,6 @@ store — use `stop-all` (add `--keep-control` to keep just the control room).
 | `BOT_ORG_ID` | — | org scope (`X-Org-Id`) |
 | `BOT_API_URL` | `https://agentxapi.nx.run/…/McpServer` | bot endpoint |
 | `BOT_POLL_MS` | `3000` | inbound poll interval |
-| `ACP_KIRO_BIN` | `kiro-cli` | kiro binary |
-| `ACP_ENGINE` | `v3` | `--agent-engine` |
-| `ACP_MODEL` | `claude-opus-4.6` | initial model |
 | `ACP_DEFAULT_CWD` | `$HOME` | control room cwd + base for bare `/new` |
 | `ACP_CONTROL_ROOM` | `acp-chat` | control room name |
 | `ACP_MAX_QUEUE` | `5` | per-room buffered messages |

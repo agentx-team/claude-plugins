@@ -11,7 +11,7 @@
 // for every persisted room, session/load its durable ACP session and resume
 // polling the same botSid (which the bot server still has bound). Nothing is
 // re-created, so room ids / ACP sessions / bindings are all preserved.
-import { appendFileSync, mkdirSync } from 'node:fs'
+import { appendFileSync, mkdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { cfg, assertConfigured } from './config.mjs'
 import { bot } from './bot-client.mjs'
@@ -43,6 +43,11 @@ export class Daemon {
     this.log('daemon starting')
     await this.acp.start()
     this.log('acp initialized')
+    // Record kiro's pid so acp.sh can reap the process group even if this
+    // daemon is later killed with SIGKILL (no chance to run its own cleanup).
+    try {
+      if (this.acp.pid) writeFileSync(join(cfg.stateDir, 'kiro.pid'), String(this.acp.pid))
+    } catch {}
     await this._recover()
     if (!store.isControl()) await this._createRoom({ cwd: cfg.defaultCwd, roomName: cfg.controlRoomName, control: true })
     this._pollTimer = setInterval(() => this._pollAll().catch(e => this.log(`poll error: ${e.message}`)), cfg.pollMs)
@@ -240,8 +245,10 @@ export class Daemon {
     return `acp-chat rooms (${lines.length}):\n${lines.join('\n')}`
   }
 
-  stop() {
+  // Resolves once the kiro ACP process (and its children) have exited, so the
+  // entry point can await this before process.exit — no orphaned kiro.
+  async stop() {
     if (this._pollTimer) clearInterval(this._pollTimer)
-    this.acp.stop()
+    await this.acp.stop()
   }
 }

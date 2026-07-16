@@ -52,22 +52,42 @@ require_bot_env() {
   fi
 }
 
+KIROPIDFILE="$STATE_DIR/kiro.pid"
+
+# Reap the kiro ACP process group recorded in kiro.pid. The daemon normally
+# kills its own kiro child on graceful shutdown; this is a BACKSTOP for the case
+# where the daemon died without cleanup (e.g. kill -9), which would otherwise
+# leave an orphaned `kiro-cli acp` (+ its acp-server.js child) behind.
+reap_kiro() {
+  [ -f "$KIROPIDFILE" ] || return 0
+  local kpid; kpid="$(cat "$KIROPIDFILE" 2>/dev/null || true)"
+  if [ -n "$kpid" ] && kill -0 "$kpid" 2>/dev/null; then
+    echo "acp-chat: reaping kiro process group (pid $kpid)…"
+    kill -TERM -"$kpid" 2>/dev/null || kill -TERM "$kpid" 2>/dev/null || true
+    for _ in 1 2 3 4 5; do kill -0 "$kpid" 2>/dev/null || break; sleep 0.4; done
+    kill -KILL -"$kpid" 2>/dev/null || kill -KILL "$kpid" 2>/dev/null || true
+  fi
+  rm -f "$KIROPIDFILE"
+}
+
 stop_daemon() {
   if running; then
     local pid; pid="$(cat "$PIDFILE")"
     echo "acp-chat: stopping daemon (pid $pid)…"
     kill "$pid" 2>/dev/null || true
-    for _ in 1 2 3 4 5; do kill -0 "$pid" 2>/dev/null || break; sleep 0.4; done
+    # Give the daemon its graceful window: it awaits kiro's exit before quitting.
+    for _ in $(seq 1 12); do kill -0 "$pid" 2>/dev/null || break; sleep 0.4; done
     kill -9 "$pid" 2>/dev/null || true
   fi
   rm -f "$PIDFILE"
+  reap_kiro   # backstop: clean up kiro even if the daemon couldn't
 }
 
 do_start() {
   require_bot_env
   command -v node >/dev/null 2>&1 || { echo "acp-chat: node not found in PATH" >&2; exit 1; }
-  command -v "${ACP_KIRO_BIN:-kiro-cli}" >/dev/null 2>&1 || {
-    echo "acp-chat: ${ACP_KIRO_BIN:-kiro-cli} not found in PATH" >&2; exit 1; }
+  command -v kiro-cli >/dev/null 2>&1 || {
+    echo "acp-chat: kiro-cli not found in PATH" >&2; exit 1; }
   mkdir -p "$STATE_DIR"
   if running; then
     echo "acp-chat: already running (pid $(cat "$PIDFILE")). Use restart to recycle."
